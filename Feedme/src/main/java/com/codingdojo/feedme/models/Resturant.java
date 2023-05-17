@@ -2,6 +2,7 @@ package com.codingdojo.feedme.models;
 
 import java.time.LocalTime;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -12,6 +13,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
@@ -59,6 +61,30 @@ public class Resturant {
   // 1 menu
   @OneToOne(mappedBy = "resturant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
   private Menu menu;
+
+  //one to many between resturant and orders
+  @OneToMany(mappedBy="resturant", fetch = FetchType.LAZY)
+  private List<Order> restOrders;
+  
+  // resturants and ratings
+  @OneToMany(mappedBy="resturant", fetch = FetchType.LAZY)
+  private List<Rating> restRatings;
+
+  public List<Rating> getRestRatings() {
+    return restRatings;
+  }
+
+  public void setRestRatings(List<Rating> restRatings) {
+    this.restRatings = restRatings;
+  }
+
+  public List<Order> getRestOrders() {
+    return restOrders;
+  }
+
+  public void setRestOrders(List<Order> restOrders) {
+    this.restOrders = restOrders;
+  }
 
   public Menu getMenu() {
     return menu;

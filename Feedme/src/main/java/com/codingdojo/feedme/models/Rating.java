@@ -6,9 +6,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
@@ -33,7 +36,32 @@ public class Rating {
   @Max(5)
   private int stars;
 
+  // ratings and users
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "user_id")
+  private User user;
 
+  //ratings and resturants
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "resturant_id")
+  private Resturant resturant;
+
+
+  public Resturant getResturant() {
+    return resturant;
+  }
+
+  public void setResturant(Resturant resturant) {
+    this.resturant = resturant;
+  }
+
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
 
   @Column(updatable = false)
   @DateTimeFormat(pattern = "yyyy-MM-dd")

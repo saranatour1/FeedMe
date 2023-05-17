@@ -4,6 +4,8 @@ import java.util.Date;
 // import java.util.List;
 import java.util.List;
 
+// import javax.management.relation.Role;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -18,6 +20,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 // import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
@@ -96,8 +99,48 @@ public class User {
   @DateTimeFormat(pattern = "yyyy-MM-dd")
   private Date updatedAt;
 
-  
+  //one to many relatiship between users and orders
+  @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+  private List<Order> userOrders;
+
+
+  //users and ratings
+  @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+  private List<Rating> userRatings;
+
+  //roles and users 
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name="role_id")
+  private UserRole userrole;
+
   // Constructor
+
+
+
+
+  public UserRole getUserrole() {
+    return userrole;
+  }
+
+  public void setUserrole(UserRole userrole) {
+    this.userrole = userrole;
+  }
+
+  public List<Rating> getUserRatings() {
+    return userRatings;
+  }
+
+  public void setUserRatings(List<Rating> userRatings) {
+    this.userRatings = userRatings;
+  }
+
+  public List<Order> getUserOrders() {
+    return userOrders;
+  }
+
+  public void setUserOrders(List<Order> userOrders) {
+    this.userOrders = userOrders;
+  }
 
   // empty constructor
   public User() {

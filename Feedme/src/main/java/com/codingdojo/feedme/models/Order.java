@@ -1,14 +1,20 @@
 package com.codingdojo.feedme.models;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
@@ -27,9 +33,55 @@ public class Order {
   private boolean orderStatus;
 
 
+
+  //many to many relatioship between orders and menuItems
+  @ManyToMany(fetch = FetchType.LAZY)
+  @JoinTable(name = "orders_menuitems",
+   joinColumns = @JoinColumn(name = "order_id"),
+   inverseJoinColumns = @JoinColumn(name = "item_id"))
+  private List<MenuItem> orderItems;
+
+  //relation bewtween orders and resturant is a one to many, manytoone from the order side
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "resturant_id")
+  private Resturant resturant;
+
+  //one to many between users and orders 
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "user_id")
+  private User user;
+
+
+
+
   // one to many reltiopship between orders and users, 
   // menu items manuy many 
   //returant one to many 
+
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
+
+  public Resturant getResturant() {
+    return resturant;
+  }
+
+  public void setResturant(Resturant resturant) {
+    this.resturant = resturant;
+  }
+
+  public List<MenuItem> getOrderItems() {
+    return orderItems;
+  }
+
+  public void setOrderItems(List<MenuItem> orderItems) {
+    this.orderItems = orderItems;
+  }
 
   public boolean isOrderStatus() {
     return orderStatus;

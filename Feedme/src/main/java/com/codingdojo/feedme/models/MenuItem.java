@@ -52,6 +52,24 @@ public class MenuItem {
    inverseJoinColumns = @JoinColumn(name = "category_id"))
   private List<Category> categories;
 
+
+  //menu items and orders have a many to many relationship
+  @ManyToMany(fetch = FetchType.LAZY)
+  @JoinTable(name = "orders_menuitems",
+   joinColumns = @JoinColumn(name = "item_id"),
+   inverseJoinColumns = @JoinColumn(name = "order_id"))
+  private List<Order> orders;
+
+
+
+  public List<Order> getOrders() {
+    return orders;
+  }
+
+  public void setOrders(List<Order> orders) {
+    this.orders = orders;
+  }
+
   public List<Category> getCategories() {
     return categories;
   }
