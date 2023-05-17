@@ -10,7 +10,7 @@ import com.codingdojo.feedme.models.Menu;
 import com.codingdojo.feedme.repositories.MenuRepository;
 
 @Service
-public class MenuService {
+public class MenuServices {
   
   @Autowired
   private MenuRepository menuRepo;

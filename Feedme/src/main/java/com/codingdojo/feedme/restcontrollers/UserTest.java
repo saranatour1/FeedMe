@@ -23,21 +23,25 @@ public class UserTest {
 
   // @PostMapping("/test/regestration")
   // public ResponseEntity<String> regesterForm(@RequestBody User newUser) {
-    
-  //   return ResponseEntity.ok("Registration successful.");
+
+  // return ResponseEntity.ok("Registration successful.");
 
   // }
   // @RequestMapping(value = "/test/regestration", method = RequestMethod.POST)
-  // public User create(@RequestParam(value = "firstName") String firstName, @RequestParam(value = "lastName") String lastName,
-  //         @RequestParam(value = "email") String email, @RequestParam(value = "password") String password ,@RequestParam(value = "confirm") String confirm ,@RequestParam(value = "dob")  Date dob
-  //         ,@RequestParam(value = "phoneNumber") String phoneNumber , BindingResult result) {
-  //           if (result != null && result.hasErrors()) {
-  //             // Handle errors
-  //         }
-          
-  //     User newUser = new User(firstName, lastName, email , password , dob, phoneNumber);
-  //     return userServ.register(newUser, result);
+  // public User create(@RequestParam(value = "firstName") String firstName,
+  // @RequestParam(value = "lastName") String lastName,
+  // @RequestParam(value = "email") String email, @RequestParam(value =
+  // "password") String password ,@RequestParam(value = "confirm") String confirm
+  // ,@RequestParam(value = "dob") Date dob
+  // ,@RequestParam(value = "phoneNumber") String phoneNumber , BindingResult
+  // result) {
+  // if (result != null && result.hasErrors()) {
+  // // Handle errors
   // }
 
+  // User newUser = new User(firstName, lastName, email , password , dob,
+  // phoneNumber);
+  // return userServ.register(newUser, result);
+  // }
 
 }

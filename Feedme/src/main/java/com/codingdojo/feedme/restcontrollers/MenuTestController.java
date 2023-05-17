@@ -6,14 +6,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.codingdojo.feedme.models.Menu;
-import com.codingdojo.feedme.services.MenuService;
+import com.codingdojo.feedme.services.MenuServices;
 // import com.codingdojo.feedme.services.UserService;
 
 @RestController
 public class MenuTestController {
 
   @Autowired
-  private MenuService menuService;
+  private MenuServices menuService;
 
   // find menu by its id
 
@@ -30,6 +30,7 @@ public class MenuTestController {
   public Menu findMenu(@PathVariable("id") Long id) {
     return menuService.findMenu(id);
   }
+
 
 
 }

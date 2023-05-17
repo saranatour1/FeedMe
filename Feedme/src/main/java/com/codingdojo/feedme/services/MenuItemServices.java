@@ -28,6 +28,11 @@ public class MenuItemServices {
     return menuItemRepo.findAll();
   }
 
+
+  // find menu item by id 
+  public MenuItem findItem(Long id){
+    return menuItemRepo.findById(id).get();
+  }
   /*
    * Find Menu Items By resturant menu Id
    * returns a list of objects of arrays

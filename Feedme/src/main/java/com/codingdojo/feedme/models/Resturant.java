@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -61,13 +63,16 @@ public class Resturant {
   // 1 menu
   @OneToOne(mappedBy = "resturant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
   private Menu menu;
+  
 
   //one to many between resturant and orders
   @OneToMany(mappedBy="resturant", fetch = FetchType.LAZY)
+  @JsonIgnore
   private List<Order> restOrders;
   
   // resturants and ratings
   @OneToMany(mappedBy="resturant", fetch = FetchType.LAZY)
+  @JsonIgnore
   private List<Rating> restRatings;
 
   public List<Rating> getRestRatings() {

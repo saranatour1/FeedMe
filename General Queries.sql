@@ -113,13 +113,25 @@ select mi.id,mi.food_name,mi.desreption,mi.food_price, c.cat_name, c.id from men
 		where m.id =1;
         
 -- find menu by resturant id 
-SELECT m.id, mi.id as menu_item_id , mi.food_name , mi.food_price, mi.desreption , c.cat_name
-FROM menu m
-JOIN menu_items mi ON m.id = mi.menu_id
-join categories_menuitems cm on item_id= mi.id
-join categories c on category_id = c.id
-JOIN resturants r ON r.id = m.resturant_id
-WHERE r.id = 1;
+  select menu.id , menu_items.food_name, menu_items.desreption, menu_items.food_price, categories.cat_name, resturants.rest_name from menu
+  join resturants on resturant_id = resturants.id
+  left join menu_items  on menu.id =menu_items.menu_id
+  inner join categories_menuitems on item_id = menu_items.id
+  inner join categories on category_id =categories.id
+  where resturants.id = 1;
+  
+  
+  -- select a resturant by its name 
+SELECT resturants.id FROM resturants WHERE rest_name LIKE '%a%';
+
+
+-- select the resturants from the categories 
+  SELECT DISTINCT r.id, r.rest_name , categories.cat_name from menu
+  join resturants r on resturant_id = r.id
+  left join menu_items  on menu.id =menu_items.menu_id
+  inner join categories_menuitems on item_id = menu_items.id
+  inner join categories on category_id =categories.id
+  where categories.id in (1,2);
 
 
 
