@@ -26,6 +26,7 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
 //Define that an entity will be saved to the database, and define the table name, here it is called users
@@ -65,6 +66,27 @@ public class User {
   @Size(min = 8, max = 128, message = "Confirm Password must be between 8 and 128 characters")
   private String confirm;
 
+  // date of birth
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
+  @Past(message = "date must be in the future!")
+  private Date dob;
+
+  // phone number
+  @NotEmpty(message = "Phone number is required")
+  @Size(min = 10, max = 15, message = "Phone number must be between 10 and 15 characters")
+  private String phoneNumber;
+
+
+  public Date getDob() {
+    return dob;
+  }
+
+  public void setDob(Date dob) {
+    this.dob = dob;
+  }
+
+
+
   // adding the created at and updated at is crusial for me
 
   // created at and the updated at columns
@@ -74,16 +96,26 @@ public class User {
   @DateTimeFormat(pattern = "yyyy-MM-dd")
   private Date updatedAt;
 
+  
   // Constructor
+
+  // empty constructor
+  public User() {
+  }
+
   public User(
       @NotEmpty(message = "first name is required!") @Size(min = 3, max = 30, message = "first name must be between 3 and 30 characters") String firstName,
       @NotEmpty(message = "last name is required!") @Size(min = 3, max = 30, message = "last name must be between 3 and 30 characters") String lastName,
       @NotEmpty(message = "Email is required!") @Email(message = "Please enter a valid email!") String email,
-      @NotEmpty(message = "Password is required!") @Size(min = 8, max = 128, message = "Password must be between 8 and 128 characters") String password) {
+      @NotEmpty(message = "Password is required!") @Size(min = 8, max = 128, message = "Password must be between 8 and 128 characters") String password,
+      @Past(message = "date must be in the future!") Date dob,
+      @NotEmpty(message = "Phone number is required") @Size(min = 10, max = 15, message = "Phone number must be between 10 and 15 characters") String phoneNumber) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
     this.password = password;
+    this.dob = dob;
+    this.phoneNumber = phoneNumber;
   }
 
   @PrePersist
@@ -94,12 +126,6 @@ public class User {
   @PreUpdate
   protected void onUpdate() {
     this.updatedAt = new Date();
-  }
-
-
-
-  // empty constructor
-  public User() {
   }
 
   public Long getId() {
