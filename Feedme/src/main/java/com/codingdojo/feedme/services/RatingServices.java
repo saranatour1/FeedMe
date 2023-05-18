@@ -26,6 +26,10 @@ public class RatingServices {
 		return rateRepo.findAverageStarsPerRestaurant();
 	}
 	
+	public double findAverageRatingForRestaurant(Long id) {
+		return rateRepo.findAverageRatingForRestaurant(id);
+	}
+	
 	
 
 }

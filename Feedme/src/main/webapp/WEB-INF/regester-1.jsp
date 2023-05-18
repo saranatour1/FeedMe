@@ -73,32 +73,13 @@
         
 
                 
-<!-- 
-                <div class="col-6">
-                  <h4 class="text-start my-2">Login</h4>
 
-                  <form:form action="/login" method="post" modelAttribute="newLogin" class="container w-100">
-                    <p>
-                      <form:label path="email" class="form-label">Email :</form:label>
-                      <form:errors path="email" class="text-danger" />
-                      <form:input type="email" path="email" class="form-control" />
-                    </p>
-
-                    <p>
-                      <form:label path="password" class="form-label">Password :</form:label>
-                      <form:errors path="password" class="text-danger" />
-                      <form:input type="password" path="password" class="form-control" />
-                    </p>
-                    <input type="submit" value="Submit" class="btn btn-primary" />
-                  </form:form>
-                </div>
-              </div>
-            </div> -->
-
-            <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+     
+                <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+                <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+         
           </body>
 
           </html>

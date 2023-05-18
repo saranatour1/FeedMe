@@ -32,7 +32,7 @@ public class UserController {
 	@GetMapping("/register")
 	public String register(@ModelAttribute("newUser") User newUser, Model model) {
 		model.addAttribute("newUser", new User());
-		return "regester.jsp";
+		return "regester-1.jsp";
 	}
 
 
@@ -53,7 +53,7 @@ public class UserController {
 		if (result.hasErrors()) {
 			// this is needed at all times to capture the incorrect user values
 			model.addAttribute("newLogin", new LoginUser());
-			return "regester.jsp";
+			return "regester-1.jsp";
 		}
 		// Store the registered user's ID in session or perform any necessary login
 		// operations
@@ -64,7 +64,7 @@ public class UserController {
 	@GetMapping("/login")
 	public String login(@ModelAttribute("newLogin") LoginUser newLogin, Model model) {
 		model.addAttribute("newLogin", new LoginUser());
-		return "login.jsp";
+		return "login-1jsp";
 	}
 
 
@@ -77,7 +77,7 @@ public class UserController {
 		if (result.hasErrors()) {
 			// to capture the form inputs
 			model.addAttribute("newUser", new User());
-			return "login.jsp";
+			return "login-1.jsp";
 		}
 
 		// Store the logged-in user's ID in session or perform any necessary login
