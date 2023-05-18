@@ -16,45 +16,50 @@ import com.codingdojo.feedme.services.ResturantServices;
 @RestController
 public class Rest_test {
 	private final ResturantServices restService;
-	private final RatingServices rateService;
+	private final RatingServices rateServices;
 
 	
 	
-	public Rest_test(ResturantServices restService, RatingServices rateService) {
+	public Rest_test(ResturantServices restService, RatingServices rateServices) {
 		
 		this.restService = restService;
-		this.rateService = rateService;
+		this.rateServices = rateServices;
 	}
 
 
 	//this to the dashbord page 
-	@GetMapping("/resturants")
-	public List<Resturant> Dashbord(Model model) {
-		//to collect all resturants 
-		List<Resturant> allrest=restService.findAllResturants();
-		//to collect all rating 
-		//List<Rating> rate=rateService.findAllRating();
-		//model.addAttribute("all_rest", allrest);
-		//model.addAttribute("all_rating", rate);
-		return allrest;
-	}
+//	@GetMapping("/resturants")
+//	public List<Resturant> Dashbord(Model model) {
+//		//to collect all resturants 
+//		List<Resturant> allrest=restService.findAllResturants();
+//		//to collect all rating 
+//		//List<Rating> rate=rateService.findAllRating();
+//		//model.addAttribute("all_rest", allrest);
+//		//model.addAttribute("all_rating", rate);
+//		return allrest;
+//	}
 	//this to show single Resturant information 
-//	@GetMapping("/resturants/{rest_id}")
-//	public String singleResturant(Model model,@PathVariable("rest_id") Long id) {
-//		Resturant resturant=restService.findRestById(id);//to find a single resturant 
-//		model.addAttribute("rest",resturant);
-//		return "show_rest_information.jsp";
+	@GetMapping("/resturants/{rest_id}")
+	public double singleResturant(Model model,@PathVariable("rest_id") Long id) {
+		
+		double x= rateServices.findAverageRatingForRestaurant(id);
+		if (x>=0) {
+			return x;
+			
+		}
+		else {
+			return 0;
+		}
+		
+	}
+	
+//	@GetMapping("/rating")
 //		
+//	public List<Object[]> findavg(){
+//		List<Object[]> rating= rateService.findAverageStarsPerRestaurant();
+//		return rating;
 //		
 //	}
-	
-	@GetMapping("/rating")
-		
-	public List<Object[]> findavg(){
-		List<Object[]> rating= rateService.findAverageStarsPerRestaurant();
-		return rating;
-		
-	}
 	
 	
 }
