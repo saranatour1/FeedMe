@@ -43,6 +43,12 @@ public interface ResturantsRepo extends CrudRepository<Resturant, Long> {
 List<Object[]> findResturantsByCat(@Param("categoryIds") List<Long> categoryIds);
 
 
+// return all resturant counts // used deafult count 
+
+// @Query(value = " select count(*) as count from resturants" , nativeQuery = true)
+// int countResturants();
+
+
 // @Query("SELECT r.id, r.rest_name, categories.cat_name FROM Menu menu " +
 //         "JOIN menu.resturant r " +
 //         "LEFT JOIN menu.menuItems menuItems " +

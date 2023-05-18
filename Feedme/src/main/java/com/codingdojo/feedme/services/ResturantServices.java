@@ -59,6 +59,13 @@ public class ResturantServices {
 //	        return restRepo.findByRestName(name);
 //	    }
 
+
+		// count all resturants 
+
+		public long countAllRest(){
+			return restRepo.count();
+		}
+
 	
 	
 }
