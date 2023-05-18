@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.codingdojo.feedme.models.LoginUser;
 import com.codingdojo.feedme.models.User;
+import com.codingdojo.feedme.models.UserRole;
 import com.codingdojo.feedme.services.UserService;
 
 import jakarta.servlet.http.HttpSession;
@@ -22,39 +24,49 @@ public class UserController {
 	@Autowired
 	private UserService userServ;
 
-	// the main page, rendering the form with the basic things.
-	// i did something wrong here most likely
 
-	@RequestMapping("/")
-	public String showForm(@ModelAttribute("newUser") User newUser, Model model) {
-		// Bind empty User and LoginUser objects to the JSP
-		// to capture the form input
+
+	//About us page, not ready yet
+
+
+	@GetMapping("/register")
+	public String register(@ModelAttribute("newUser") User newUser, Model model) {
 		model.addAttribute("newUser", new User());
-		model.addAttribute("newLogin", new LoginUser());
-		return "index.jsp";
+		return "regester.jsp";
 	}
+
 
 	// Post operation for Regesteration handling
 	@PostMapping("/register")
 	public String register(@Valid @ModelAttribute("newUser") User newUser,
-			BindingResult result, Model model, HttpSession session) {
-
+			BindingResult result, Model model, HttpSession session ,@RequestParam("user_role") int user_role) {
 		// placed the user into a variable
 		User registeredUser = userServ.register(newUser, result);
 
+		// UserRole userRole = userServ.f
+		// if(user_role == 2){
+
+		// }
+		// registeredUser.setUserrole(2);
+		System.out.print(user_role);
 		session.setAttribute("newUser", registeredUser);
 		if (result.hasErrors()) {
 			// this is needed at all times to capture the incorrect user values
 			model.addAttribute("newLogin", new LoginUser());
-			return "index.jsp";
+			return "regester.jsp";
 		}
-
 		// Store the registered user's ID in session or perform any necessary login
 		// operations
 		session.setAttribute("newUser", registeredUser.getId());
-
-		return "redirect:/dashboard";
+		return "redirect:/resturants";
 	}
+
+	@GetMapping("/login")
+	public String login(@ModelAttribute("newLogin") LoginUser newLogin, Model model) {
+		model.addAttribute("newLogin", new LoginUser());
+		return "login.jsp";
+	}
+
 
 	@PostMapping("/login")
 	public String login(@Valid @ModelAttribute("newLogin") LoginUser newLogin,
@@ -71,22 +83,11 @@ public class UserController {
 		// Store the logged-in user's ID in session or perform any necessary login
 		// operations
 		session.setAttribute("newUser", user.getId());
-		return "redirect:/dashboard";
+		return "redirect:/resturants ";
 	}
+
+	//resturants 
 
 	// main page
-	@GetMapping("/dashboard")
-	public String homePage(Model model, HttpSession session) {
-		Long newUserId = (Long) session.getAttribute("newUser");
-		User thisUser = userServ.findUserById(newUserId);
-		model.addAttribute("thisUser", thisUser);
 
-		return "hello.jsp";
-	}
-
-	@GetMapping("/logout")
-	public String logout(HttpSession session) {
-		session.removeAttribute("newUser");
-		return "redirect:/";
-	}
 }
