@@ -47,7 +47,6 @@ public class ResturantController {
 	@Autowired
 	private CatServices catServ;
 
-
 	@RequestMapping("/")
 	public String aboutUs(Model model) {
 		// Bind empty User and LoginUser objects to the JSP
@@ -73,21 +72,15 @@ public class ResturantController {
 		// cart numbers
 		// List<Object[]> cart = orderServ.findPendingOrdersForUsers(newUserId);
 		int count = orderServ.countPendingOrders(newUserId);
-		
-	
+
 		// System.out.println(cart);
-		model.addAttribute("pendingCartCount",  count);
-		
-
-
+		model.addAttribute("pendingCartCount", count);
 
 		List<Object[]> rating = rateServ.findAverageStarsPerRestaurant();
 		List<Object[]> searchResult = (List<Object[]>) session.getAttribute("searchResult");
 		model.addAttribute("all_rest", allRest); // all restaurants
 		model.addAttribute("all_rating", rating); // rating
 		model.addAttribute("result", searchResult); // search result
-
-	
 
 		List<Object[]> CatResult = (List<Object[]>) session.getAttribute("catoutput");
 		model.addAttribute("catoutput", CatResult);

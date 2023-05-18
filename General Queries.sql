@@ -142,6 +142,15 @@ SELECT resturants.id FROM resturants WHERE rest_name LIKE '%a%';
             FROM resturants r
             JOIN ratings ra ON r.id = ra.resturant_id 
             GROUP BY r.rest_name, r.id;
+            
+-- pending orders for the user and order satatus is 0 , add group by later
+select count(o.id) as count , o.id as order_id, mi.id  as item_id,mi.food_name, mi.food_price , o.quantity, o.order_status, o.resturant_id, r.rest_name ,o.user_id, o.total ,r.address from orders o
+	left join users on users.id = user_id
+	join resturants r on resturant_id = r.id
+	join orders_menuitems omi on order_id = o.id
+	join menu_items mi on item_id = mi.id
+	where users.id =3 and o.order_status =1
+    GROUP BY o.id, mi.id, mi.food_name, mi.food_price, o.quantity, o.order_status, o.resturant_id, o.user_id, o.total;  
 
 
 
