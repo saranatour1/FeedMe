@@ -21,6 +21,7 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -37,7 +38,12 @@ public class MenuItem {
   @NotEmpty(message = "descreption is required!")
   @Size(min = 3, message = "descreption must at least 3 characters")
   private String desreption;
-
+  //add price 
+  @NotNull(message = "price is required!")
+  @Positive(message = "price must be a positive value")
+  private double foodPrice;
+ 
+  
   // menu and menu items have a relationship of many to one
   // manytoone side, between menu and menu items
   @ManyToOne(fetch = FetchType.LAZY)
@@ -86,8 +92,7 @@ public class MenuItem {
     this.menu = menu;
   }
 
-  @NotNull(message = "Price must not be empty! ")
-  private double foodPrice;
+
 
   public Double getFoodPrice() {
     return foodPrice;

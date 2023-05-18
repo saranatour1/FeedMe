@@ -17,31 +17,55 @@ pageEncoding="UTF-8" %>
   </head>
 
   <body>
-    <div class="container mt-5">
-      <div class="d-flex justify-content-between">
-        <hgroup>
-          <h1>Welcome, ${thisUser.firstName} !</h1>
-          
-        </hgroup>
 
-        <div><a href="/logout" class="btn btn-link"> Logout</a> <br /></div>
-      </div>
+<hr>
+<div>
+</div>
+<hr>
 
-      <div>
-        <c:forEach var="rating" items="${all_rating}">
-          <a href="/resturants/${rating[1]}"> ${rating[0]}</a>
-
-          <c:set var="ratingValue" value="${rating[1]}" />
+<c:set var="ratingValue" value="${avg}" />
           <c:set var="maxRating" value="5" />
           <div class="rating-stars">
             <c:forEach begin="1" end="${maxRating}" var="i">
               <span class="star${ratingValue >= i ? ' filled' : ''}"
                 >&#9734;</span>
-            
+                </c:forEach>
+                </div>
+
+${x}
+<h1>Menu Items</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Food Name</th>
+                <th>Description</th>
+                <th>Food Price</th>
+                <th>Category Name</th>
+                <th>Category ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            <c:forEach var="menuItem" items="${x}">
+                <tr>
+                    <td>${menuItem[0]}</td>
+                    <td>${menuItem[1]}</td>
+                    <td>${menuItem[2]}</td>
+                    <td>${menuItem[3]}</td>
+                    <td>${menuItem[4]}</td>
+                    <td>${menuItem[5]}</td>
+                </tr>
             </c:forEach>
-          </div>
-        </c:forEach>
-      </div>
-    </div>
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
   </body>
 </html>
