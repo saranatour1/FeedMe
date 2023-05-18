@@ -3,17 +3,19 @@ package com.codingdojo.feedme.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.codingdojo.feedme.models.Menu;
 import com.codingdojo.feedme.models.Resturant;
 import com.codingdojo.feedme.repositories.ResturantsRepo;
 
 @Service
 public class ResturantServices {
-	private final ResturantsRepo restRepo;
-	public ResturantServices(ResturantsRepo restRepo) {
-		this.restRepo=restRepo;
-	}
+	@Autowired
+	private ResturantsRepo restRepo;
+	
+
 	//find all Resturan 
 	public List<Resturant> findAllResturants(){
 		return restRepo.findAll();
@@ -27,8 +29,31 @@ public class ResturantServices {
 		}else {
 			return null;
 		}
-	
 }
+
+
+		// find resturant menu by resturant id 
+		public Menu findMbyRestId(Long id ){
+			return restRepo.findMenuByResturantId(id);
+		}
+
+		// find all menu items and categories from resturnat id
+		public List<Object[]> findMbyRestIdandCat(Long id ){
+			return restRepo.findMenuWithCategoriesAndMenuItemsByResturantId(id);
+		}
+
+
+		// search restuant by its name 
+		public List<Object[]> findResturantByName(String restName){
+			return restRepo.findByRestName(restName);
+		}
+
+		
+		// seacrh reasturant by catagory 
+		public List<Object[]> findResturantByCat(List<Long> catIds){
+			return restRepo.findResturantsByCat(catIds);
+		}
+
 	
 	
 }
