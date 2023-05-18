@@ -26,7 +26,7 @@ public class UserController {
 	// i did something wrong here most likely
 
 	@RequestMapping("/")
-	public String showForm(@ModelAttribute("newUser") User user, Model model) {
+	public String showForm(@ModelAttribute("newUser") User newUser, Model model) {
 		// Bind empty User and LoginUser objects to the JSP
 		// to capture the form input
 		model.addAttribute("newUser", new User());
@@ -65,7 +65,7 @@ public class UserController {
 		if (result.hasErrors()) {
 			// to capture the form inputs
 			model.addAttribute("newUser", new User());
-			return "index.jsp";
+			return "login.jsp";
 		}
 
 		// Store the logged-in user's ID in session or perform any necessary login
