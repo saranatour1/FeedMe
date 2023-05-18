@@ -65,9 +65,9 @@ List<Object[]> findResturantsByCat(@Param("categoryIds") List<Long> categoryIds)
 //         "WHERE categories.id IN :categoryIds")
 // List<Object[]> findRestaurantsByCategories(@Param("categoryIds") List<Long> categoryIds);
 
-  
 
 
+//Resturant findByRestName(String restName);
 
 
 

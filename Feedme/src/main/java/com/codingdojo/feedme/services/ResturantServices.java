@@ -53,6 +53,11 @@ public class ResturantServices {
 		public List<Object[]> findResturantByCat(List<Long> catIds){
 			return restRepo.findResturantsByCat(catIds);
 		}
+		
+//		public Restaurant findRestaurantByName(String name) {
+//	        // Implement the logic to find a restaurant by its name
+//	        return restRepo.findByRestName(name);
+//	    }
 
 
 		// count all resturants 
