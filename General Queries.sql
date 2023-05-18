@@ -132,6 +132,10 @@ SELECT resturants.id FROM resturants WHERE rest_name LIKE '%a%';
   inner join categories_menuitems on item_id = menu_items.id
   inner join categories on category_id =categories.id
   where categories.id in (1,2);
+  
+  
+  -- all resturant count 
+  select count(*) as count from resturants;
 
 
 
