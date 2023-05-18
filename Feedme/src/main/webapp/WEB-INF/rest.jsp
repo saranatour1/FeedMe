@@ -15,6 +15,19 @@ pageEncoding="UTF-8" %>
     <title>all Resturant dashboards</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+      .btn.btn-light.position-relative:hover{
+        animation: tilt-shaking 0.5s infinite;
+      } 
+
+      @keyframes tilt-shaking {
+        0% { transform: rotate(0deg); }
+        25% { transform: rotate(5deg); }
+        50% { transform: rotate(0eg); }
+        75% { transform: rotate(-5deg); }
+        100% { transform: rotate(0deg); }
+      }
+    </style>
   </head>
 
   <body>
@@ -32,7 +45,7 @@ pageEncoding="UTF-8" %>
         <button type="button" class="btn btn-light position-relative ">
           <a href="cart"><i class="bi bi-cart"></i></a>
           <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-            99+
+            ${pendingCartCount}+
             <span class="visually-hidden">Cart </span>
           </span>
         </button>
