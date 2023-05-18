@@ -16,13 +16,13 @@ import com.codingdojo.feedme.services.ResturantServices;
 
 
 @Controller
-public class ResturantsController {
+public class ResturantController {
 	
 	private ResturantServices resturantServvices;
 	private RatingServices rateServices;
 	
 	
-	public ResturantsController(ResturantServices resturantServvices, RatingServices rateServices) {
+	public ResturantController(ResturantServices resturantServvices, RatingServices rateServices) {
 		super();
 		this.resturantServvices = resturantServvices;
 		this.rateServices = rateServices;
@@ -30,7 +30,7 @@ public class ResturantsController {
 
 
 	@GetMapping("/resturant")
-	public String Dashbord(Model model) {
+	public String Dashbord1(Model model) {
 		//to collect all resturants 
 		List<Resturant> allrest=resturantServvices.findAllResturants();
 		//to collect all rating 
@@ -41,6 +41,18 @@ public class ResturantsController {
 		
 		
 		return "dashbord_resturant.jsp";
+	}
+	@GetMapping("/resturants")
+	public String Dashbord(Model model) {
+		//to collect all resturants 
+		List<Resturant> allrest=resturantServvices.findAllResturants();
+		//to collect all rating 
+		List<Rating> rate=rateServices.findAllRating();
+		List<Object[]>a=rateServices.findAverageStarsPerRestaurant();
+		model.addAttribute("a", a);
+	model.addAttribute("all_rating", rate);
+		
+		return "rest.jsp";
 	}
 	
 	//this to show single Resturant information 

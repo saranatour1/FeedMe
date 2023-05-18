@@ -1,5 +1,9 @@
 package com.codingdojo.feedme.services;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
+import java.util.Date;
 // import java.util.List;
 import java.util.Optional;
 
@@ -14,18 +18,10 @@ import com.codingdojo.feedme.repositories.UserRepository;
 
 // import com.codingdojo.fs.models.Book;
 
-
 @Service
 public class UserService {
   @Autowired
   private UserRepository userRepo;
-
-  // @Autowired
-  // private BookRepository bookRepository;
-
-  // TO-DO: Write register and login methods!
-  // This method will be called from the controller
-  // whenever a user submits a registration form.
 
   public User register(User newUser, BindingResult result) {
 
@@ -34,12 +30,12 @@ public class UserService {
     }
     // valid Email format, does not already exist in the database, not blank
     if (userRepo.findByEmail(newUser.getEmail()).isPresent()) {
-
       result.rejectValue("email", "Duplicate",
           "Email is already registered");
       return null;
     }
 
+    // first name and last name must be letters only
     if (!newUser.getFirstName().matches("[a-zA-Z]+") || !newUser.getLastName().matches("[a-zA-Z]+")) {
       // First name and last name empty - letters only
       result.rejectValue("userName", "not letters", "The User Name must only consist of letters! ");
@@ -51,6 +47,27 @@ public class UserService {
       result.rejectValue("confirm", "Matches", "The Confirm Password must match Password!");
       return null;
     }
+
+    // date of birth validation
+    Date dob = newUser.getDob();
+    LocalDate dateOfBirth = dob.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    LocalDate today = LocalDate.now();
+
+    // Calculate age
+    Period period = Period.between(dateOfBirth, today);
+    int age = period.getYears();
+
+    if (age <= 18) {
+      result.rejectValue("dob", "Too young", "You must be at least 18 to join our website");
+    }
+
+    // matching the phone number with regex
+    String phoneNumberRegex = "^\\+(?:[0-9] ?){6,14}[0-9]$";
+    if (!newUser.getPhoneNumber().matches(phoneNumberRegex) || newUser.getPhoneNumber().length() < 10) {
+      result.rejectValue("phoneNumber", "does not match", "Invalid charecters or length");
+    }
+
+    //how to make sure that the user signed up as an admin or as a user in the main? 
 
     // by this line it is assumed there are no errors
     // Hash and set password, save user to database
@@ -93,6 +110,5 @@ public class UserService {
     return userRepo.findById(id).get();
   }
 
-  // i decided to put the project services alone
 
 }
