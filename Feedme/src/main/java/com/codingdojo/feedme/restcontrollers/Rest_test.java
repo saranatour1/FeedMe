@@ -85,10 +85,10 @@ public class Rest_test {
 //	// return restService.findMbyRestId(id);
 //	// }
 //
-//	@RequestMapping("/restmenu/{id}")
-//	public List<Object[]> findMenu(@PathVariable("id") Long id) {
-//		return restService.findMbyRestIdandCat(id);
-//	}
+	@RequestMapping("/restmenu/{id}")
+	public List<Object[]> findMenu(@PathVariable("id") Long id) {
+		return restService.findMbyRestIdandCat(id);
+	}
 //
 //	// search functionality
 //	@RequestMapping("/rest/{restName}")

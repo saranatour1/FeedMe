@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.codingdojo.feedme.models.Resturant;
 import com.codingdojo.feedme.models.User;
+import com.codingdojo.feedme.services.MenuItemServices;
 import com.codingdojo.feedme.services.OrderServices;
 import com.codingdojo.feedme.services.RatingServices;
 import com.codingdojo.feedme.services.ResturantServices;
@@ -34,6 +35,8 @@ public class ResturantController {
 
 	@Autowired
 	private RatingServices rateServ;
+	@Autowired
+	private MenuItemServices miServ;
 
 	@RequestMapping("/")
 	public String aboutUs(Model model) {
@@ -66,12 +69,16 @@ public class ResturantController {
 	}
 
 	// this to show single Resturant information
-	@GetMapping("/resturantss/{rest_id}")
+	@GetMapping("/resturants/{rest_id}")
 	public String singleResturant(Model model, @PathVariable("rest_id") Long id) {
 		Resturant resturant = restServ.findRestById(id);
 		// to find a single resturant
 		double avg = rateServ.findAverageRatingForRestaurant(id);
-		model.addAttribute("rest", resturant);
+		List<Object[]> x=restServ.findMenuWithCategoriesAndMenuItemsByResturantId(id);
+		model.addAttribute("avg", avg);
+		model.addAttribute("x", x);
+		
+		
 
 		return "show_rest_information.jsp";
 	}
