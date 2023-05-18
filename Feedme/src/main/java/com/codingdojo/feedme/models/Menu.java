@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -21,6 +23,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "menu")
 public class Menu {
+  
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
@@ -40,15 +43,23 @@ public class Menu {
 
   // on to one relationship between restaurnt and menu
   @OneToOne(fetch = FetchType.LAZY)
+  @JsonIgnore
   @JoinColumn(name = "resturant_id")
   private Resturant resturant;
+  
   
 
   // menu items one to many to menu
   @OneToMany(mappedBy = "menu", fetch = FetchType.LAZY)
+  @JsonIgnore
   private List<MenuItem> menuItems;
 
   
+  public Menu(Resturant resturant, List<MenuItem> menuItems) {
+    this.resturant = resturant;
+    this.menuItems = menuItems;
+  }
+
   public List<MenuItem> getMenuItems() {
     return menuItems;
   }
