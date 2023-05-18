@@ -18,6 +18,7 @@ import com.codingdojo.feedme.models.Category;
 import com.codingdojo.feedme.models.Resturant;
 import com.codingdojo.feedme.models.User;
 import com.codingdojo.feedme.services.CatServices;
+import com.codingdojo.feedme.services.MenuItemServices;
 import com.codingdojo.feedme.services.OrderServices;
 import com.codingdojo.feedme.services.RatingServices;
 import com.codingdojo.feedme.services.ResturantServices;
@@ -40,6 +41,8 @@ public class ResturantController {
 
 	@Autowired
 	private RatingServices rateServ;
+	@Autowired
+	private MenuItemServices miServ;
 
 	@Autowired
 	private CatServices catServ;
@@ -88,51 +91,49 @@ public class ResturantController {
 
 	// to render the main page after regestration
 	@PostMapping("/findresturantbyname")
-	public String findrestByName(@RequestParam("restName") String restName, HttpSession session ,RedirectAttributes redirectAttributes) {
+	public String findrestByName(@RequestParam("restName") String restName, HttpSession session,
+			RedirectAttributes redirectAttributes) {
 		List<Object[]> allRest = restServ.findResturantByName(restName);
 		System.out.println(restName);
-		if(restName.isBlank() || restName.isEmpty()  || allRest.isEmpty() || allRest.contains(null)){
+		if (restName.isBlank() || restName.isEmpty() || allRest.isEmpty() || allRest.contains(null)) {
 			redirectAttributes.addFlashAttribute("noresult", "incorrect method of search or no result found");
 		}
-		// // String emptyResult = " ";
-		// if (allRest.isEmpty() || restName ==null) {
-		// emptyResult = "No results found";
-		// }
 
-		// session.setAttribute("empty", emptyResult);
 		session.setAttribute("searchResult", allRest);
 		return "redirect:/resturants";
 	}
 
 	@GetMapping("/getresturantsbycat")
-	public String findResturantsByCat(@RequestParam(value = "catVal", required = false) List<Long> id, HttpSession session ,RedirectAttributes redirectAttributes) {
-			String badValue = "";
-			
-			if (id == null || id.isEmpty()) {
-					badValue = "Please enter a valid value!";
-					redirectAttributes.addFlashAttribute("error", badValue);
-					return "redirect:/resturants";
-			} else {
-					session.removeAttribute("badval");
-			}
-	
-			List<Object[]> listOfOutput = restServ.findResturantByCat(id);
-			System.out.println(listOfOutput);
-			System.out.println(id); // [3], [1, 2, 3]
-	
-			session.setAttribute("catoutput", listOfOutput);
+	public String findResturantsByCat(@RequestParam(value = "catVal", required = false) List<Long> id,
+			HttpSession session, RedirectAttributes redirectAttributes) {
+		String badValue = "";
+
+		if (id == null || id.isEmpty()) {
+			badValue = "Please enter a valid value!";
+			redirectAttributes.addFlashAttribute("error", badValue);
 			return "redirect:/resturants";
+		} else {
+			session.removeAttribute("badval");
+		}
+
+		List<Object[]> listOfOutput = restServ.findResturantByCat(id);
+		System.out.println(listOfOutput);
+		System.out.println(id); // [3], [1, 2, 3]
+
+		session.setAttribute("catoutput", listOfOutput);
+		return "redirect:/resturants";
 	}
-	
-	
 
 	// this to show single Resturant information
-	@GetMapping("/resturantss/{rest_id}")
+	@GetMapping("/resturants/{rest_id}")
 	public String singleResturant(Model model, @PathVariable("rest_id") Long id) {
 		Resturant resturant = restServ.findRestById(id);
 		// to find a single resturant
 		double avg = rateServ.findAverageRatingForRestaurant(id);
-		model.addAttribute("rest", resturant);
+		List<Object[]> x = restServ.findMenuWithCategoriesAndMenuItemsByResturantId(id);
+		System.out.println(avg); // 5.0
+		model.addAttribute("avg", avg);
+		model.addAttribute("x", x);
 
 		return "show_rest_information.jsp";
 	}

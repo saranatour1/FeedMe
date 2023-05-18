@@ -71,36 +71,36 @@ public class Rest_test {
 	
 	
 	// }
-
-	// @GetMapping("/rating")
-
-	// public List<Object[]> findavg() {
-	// 	List<Object[]> rating = rateServices.findAverageStarsPerRestaurant();
-	// 	return rating;
-	// }
-
-	// finds menu by resturant id
-	// @RequestMapping("/restmenu/{id}")
-	// public Menu findMenu(@PathVariable("id") Long id){
-	// return restService.findMbyRestId(id);
-	// }
-
+//
+//	@GetMapping("/rating")
+//
+//	public List<Object[]> findavg() {
+//		List<Object[]> rating = rateServices.findAverageStarsPerRestaurant();
+//		return rating;
+//	}
+//
+//	// finds menu by resturant id
+//	// @RequestMapping("/restmenu/{id}")
+//	// public Menu findMenu(@PathVariable("id") Long id){
+//	// return restService.findMbyRestId(id);
+//	// }
+//
 	@RequestMapping("/restmenu/{id}")
 	public List<Object[]> findMenu(@PathVariable("id") Long id) {
 		return restService.findMbyRestIdandCat(id);
 	}
-
-	// search functionality
-	@RequestMapping("/rest/{restName}")
-	public List<Object[]> findrestName(@PathVariable("restName") String restName) {
-		return restService.findResturantByName(restName);
-	}
-
-	// worksssssssss
-	@RequestMapping("/rest/cat/{catIds}")
-	public List<Object[]> findrestByCat(@PathVariable("catIds") List<Long> catIds) {
-		return restService.findResturantByCat(catIds);
-	}
+//
+//	// search functionality
+//	@RequestMapping("/rest/{restName}")
+//	public List<Object[]> findrestName(@PathVariable("restName") String restName) {
+//		return restService.findResturantByName(restName);
+//	}
+//
+//	// worksssssssss
+//	@RequestMapping("/rest/cat/{catIds}")
+//	public List<Object[]> findrestByCat(@PathVariable("catIds") List<Long> catIds) {
+//		return restService.findResturantByCat(catIds);
+//	}
 
 
 }
