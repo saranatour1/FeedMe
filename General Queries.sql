@@ -136,6 +136,12 @@ SELECT resturants.id FROM resturants WHERE rest_name LIKE '%a%';
   
   -- all resturant count 
   select count(*) as count from resturants;
+  
+  -- getting the average from the stars for each resturant
+  SELECT r.rest_name, r.id, AVG(ra.stars) AS average_stars 
+            FROM resturants r
+            JOIN ratings ra ON r.id = ra.resturant_id 
+            GROUP BY r.rest_name, r.id;
 
 
 
