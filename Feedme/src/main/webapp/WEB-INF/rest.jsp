@@ -11,9 +11,9 @@ pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="windows-1256" />
-    <title>Insert title here</title>
-    <link rel="stylesheet" type="text/css" href="/css/stars.css" />
+    <meta charset="UTF-8" />
+    <title>Login and Regestration page</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
   </head>
 
   <body>
@@ -26,6 +26,51 @@ pageEncoding="UTF-8" %>
 
         <div><a href="/logout" class="btn btn-link"> Logout</a> <br /></div>
       </div>
+      <!-- search bar query -->
+      <label for="restName"> Search Restuarnt name </label>
+      <form action="/findresturantbyname" method="post" >
+        <input type="search" name="restName" placeholder="search for Restuarnt">
+        <input type="submit" value="submit">
+      </form>
+
+      <p>
+        <c:forEach var="res" items="${result}">
+            <!-- the result value -->
+            <div > 
+            <a href="/resturantss/${res[0]}">${res[1]} </a>
+            </div>
+
+        </c:forEach>
+
+        <p class="text-danger"><c:out value="${noresult}"/></p>
+      </p>
+
+      <div>
+        <h3>filter by category</h3>
+            <form action="/getresturantsbycat" method="get">
+              <c:forEach var="cat" items="${allcat}">
+                <!-- the result value -->
+                <label>
+                  <input type="checkbox" class="radio" value="${cat.id}" name="catVal" />${cat.catName}
+                </label>
+
+            </c:forEach>
+            <input type="submit" value="submit">
+            </form>
+            <p>
+              <c:forEach var="res" items="${catoutput}">
+               <p><a href="/resturantss/${res[0]}">${res[1]} </a>
+               </a></p> 
+
+              </c:forEach>
+              <p class="text-danger"><c:out value="${error}"/></p>
+            </p>
+
+
+
+
+  
+
 
       <div>
         <c:forEach var="rating" items="${a}">
@@ -43,5 +88,8 @@ pageEncoding="UTF-8" %>
         </c:forEach>
       </div>
     </div>
+
+                
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
