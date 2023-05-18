@@ -54,6 +54,13 @@ public class ResturantServices {
 			return restRepo.findResturantsByCat(catIds);
 		}
 
+
+		// count all resturants 
+
+		public long countAllRest(){
+			return restRepo.count();
+		}
+
 	
 	
 }

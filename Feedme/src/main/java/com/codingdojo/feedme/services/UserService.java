@@ -62,8 +62,8 @@ public class UserService {
     }
 
     // matching the phone number with regex
-    String phoneNumberRegex = "^\\+(?:[0-9] ?){6,14}[0-9]$";
-    if (!newUser.getPhoneNumber().matches(phoneNumberRegex) || newUser.getPhoneNumber().length() < 10) {
+    // String phoneNumberRegex = "^\\+(?:[0-9] ?){6,14}[0-9]$";
+    if (newUser.getPhoneNumber().length() < 10) {
       result.rejectValue("phoneNumber", "does not match", "Invalid charecters or length");
     }
 
@@ -108,6 +108,10 @@ public class UserService {
   // this returns the user if it is found, else it returns null.
   public User findUserById(Long id) {
     return userRepo.findById(id).get();
+  }
+
+  public Long countUsers(){
+    return userRepo.count();
   }
 
 
