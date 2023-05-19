@@ -65,7 +65,9 @@ public class ResturantServices {
 		public long countAllRest(){
 			return restRepo.count();
 		}
-
+		public List<Object[]> findMenuWithCategoriesAndMenuItemsByResturantId(Long id){
+			return restRepo.findMenuWithCategoriesAndMenuItemsByResturantId(id);
+		}
 	
 	
 }

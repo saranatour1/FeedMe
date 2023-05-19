@@ -160,6 +160,7 @@ public class Resturant {
     this.restNumber = restNumber;
   }
 
+  @DateTimeFormat(pattern = "HH:mm")
   public Date getOpeningTime() {
     return openingTime;
   }
@@ -168,6 +169,7 @@ public class Resturant {
     this.openingTime = openingTime;
   }
 
+  @DateTimeFormat(pattern = "HH:mm")
   public Date getClosingTime() {
     return closingTime;
   }

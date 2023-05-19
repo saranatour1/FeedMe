@@ -32,44 +32,44 @@ public class Rest_test {
 
 	//this to the dashbord page 
 
-//	//this to show single Resturant information 
-//	@GetMapping("/resturants/{rest_name}")
-//	public String singleResturant(Model model,@PathVariable("rest_name") String name) {
-//		
-//		 List<Object[]> rest=restService.findResturantByName(name);
-//		model.addAttribute("name", rest);
-//		return "one_rest.jsp";
-//	}
+	//this to show single Resturant information 
+	// @GetMapping("/resturants/{rest_name}")
+	// public String singleResturant(Model model,@PathVariable("rest_name") String name) {
+		
+	// 	 List<Object[]> rest=restService.findResturantByName(name);
+	// 	model.addAttribute("name", rest);
+	// 	return "one_rest.jsp";
+	// }
 	
-//	@GetMapping("/rating")
-//		
-//	public List<Object[]> findavg(){
-//		List<Object[]> rating= rateService.findAverageStarsPerRestaurant();
-//		return rating;
-//		
-//	}
+	// @GetMapping("/rating")
+		
+	// public List<Object[]> findavg(){
+	// 	List<Object[]> rating= rateService.findAverageStarsPerRestaurant();
+	// 	return rating;
+		
+	// }
 	
 	
 
 	// this to the dashbord page
-//	@GetMapping("/resturants")
-//	public List<Resturant> Dashbord(Model model) {
-//		// to collect all resturants
-//		List<Resturant> allrest = restService.findAllResturants();
-//		// to collect all rating
-//		// List<Rating> rate=rateService.findAllRating();
-//		// model.addAttribute("all_rest", allrest);
-//		// model.addAttribute("all_rating", rate);
-//		return allrest;
-//	}
+	// @GetMapping("/resturants")
+	// public List<Resturant> Dashbord(Model model) {
+	// 	// to collect all resturants
+	// 	List<Resturant> allrest = restService.findAllResturants();
+	// 	// to collect all rating
+	// 	// List<Rating> rate=rateService.findAllRating();
+	// 	// model.addAttribute("all_rest", allrest);
+	// 	// model.addAttribute("all_rating", rate);
+	// 	return allrest;
+	// }
 	// this to show single Resturant information
 	// @GetMapping("/resturants/{rest_id}")
 	// public String singleResturant(Model model,@PathVariable("rest_id") Long id) {
 	// Resturant resturant=restService.findRestById(id);//to find a single resturant
 	// model.addAttribute("rest",resturant);
 	// return "show_rest_information.jsp";
-	//
-	//
+	
+	
 	// }
 //
 //	@GetMapping("/rating")
@@ -85,10 +85,10 @@ public class Rest_test {
 //	// return restService.findMbyRestId(id);
 //	// }
 //
-//	@RequestMapping("/restmenu/{id}")
-//	public List<Object[]> findMenu(@PathVariable("id") Long id) {
-//		return restService.findMbyRestIdandCat(id);
-//	}
+	@RequestMapping("/restmenu/{id}")
+	public List<Object[]> findMenu(@PathVariable("id") Long id) {
+		return restService.findMbyRestIdandCat(id);
+	}
 //
 //	// search functionality
 //	@RequestMapping("/rest/{restName}")

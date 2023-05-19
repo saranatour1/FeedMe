@@ -71,16 +71,19 @@ WHERE id IN (1, 2, 3);
 -- Mock data for the "orders" table
 INSERT INTO orders (created_at, order_status, quantity, total, updated_at, resturant_id, user_id)
 VALUES 
-('2023-05-17 10:30:00', 1, 2, 25.99, '2023-05-17 10:30:00', 1, 1),
-('2023-05-17 11:45:00', 1, 1, 12.99, '2023-05-17 11:45:00', 2, 2),
-('2023-05-17 09:15:00', 0, 3, 35.99, '2023-05-17 09:15:00', 3, 3);
+('2023-05-17 10:30:00', 0, 2, 25.99, '2023-05-17 10:30:00', 1, 3),
+('2023-05-17 11:45:00', 0, 1, 12.99, '2023-05-17 11:45:00', 1, 3),
+('2023-05-17 09:15:00', 0, 3, 35.99, '2023-05-17 09:15:00', 1, 3),
+('2023-05-17 09:15:00', 0, 3, 35.99, '2023-05-17 09:15:00', 1, 3);
 
+select * from orders;
 -- added a relationship between menu items and orders many to many relationship 
 Insert into orders_menuitems(order_id , item_id)
 values 
-(2,9),
-(3,5),
-(1,5);
+(7,9),
+(7,5),
+(7,5),
+(7,6);
 
 -- adding categories 
 INSERT INTO categories (cat_name, created_at, updated_at)
@@ -142,6 +145,30 @@ SELECT resturants.id FROM resturants WHERE rest_name LIKE '%a%';
             FROM resturants r
             JOIN ratings ra ON r.id = ra.resturant_id 
             GROUP BY r.rest_name, r.id;
+            
+-- pending orders for the user and order satatus is 0 , add group by later
+select COUNT(mi.id) as count , o.id as order_id, mi.id  as item_id,mi.food_name, mi.food_price , o.quantity, o.order_status, o.resturant_id, r.rest_name ,o.user_id, o.total ,r.address from orders o
+	left join users on users.id = user_id
+	join resturants r on resturant_id = r.id
+	join orders_menuitems omi on order_id = o.id
+	join menu_items mi on item_id = mi.id
+	where users.id =3 and o.order_status =0
+    GROUP BY o.id, mi.id, mi.food_name, mi.food_price, o.quantity, o.order_status, o.resturant_id, o.user_id, o.total;  
+    
+    
+    select distinct mi.id, mi.food_name, mi.desreption , mi.food_price , c.cat_name from menu m
+    join resturants r
+    join menu_items mi on m.id = menu_id
+    join categories_menuitems cmi on item_id = mi.id
+    join categories c on cmi.category_id = c.id
+    where r.id =1;
+    
+    select c.cat_name from categories c
+    join categories_menuitems cmi on cmi.category_id = c.id
+    join menu_items mi on mi.id = item_id
+	where mi.id =15;
+    
+    
 
 
 
