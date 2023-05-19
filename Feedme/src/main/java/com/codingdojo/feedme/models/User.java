@@ -80,13 +80,7 @@ public class User {
   private String phoneNumber;
 
 
-  public String getPhoneNumber() {
-    return phoneNumber;
-  }
 
-  public void setPhoneNumber(String phoneNumber) {
-    this.phoneNumber = phoneNumber;
-  }
 
   public Date getDob() {
     return dob;
@@ -169,6 +163,8 @@ public class User {
     this.phoneNumber = phoneNumber;
   }
 
+
+
   @PrePersist
   protected void onCreate() {
     this.createdAt = new Date();
@@ -242,5 +238,12 @@ public class User {
   public void setLastName(String lastName) {
     this.lastName = lastName;
   }
+  public String getPhoneNumber() {
+    return phoneNumber;
+}
+
+public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+}
 
 }
