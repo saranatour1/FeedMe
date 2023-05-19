@@ -39,8 +39,10 @@ pageEncoding="UTF-8" %>
         </hgroup>
 
         <div><a href="/logout" class="btn btn-link"> Logout</a> <br /></div>
+        <div><a href="/resturants">Back to main page </a></div>
       </div>
       <!-- Cart -->
+
       <div>
         <button type="button" class="btn btn-light position-relative ">
           <a href="cart"><i class="bi bi-cart"></i></a>
@@ -50,48 +52,52 @@ pageEncoding="UTF-8" %>
           </span>
         </button>
       </div>
-      <c:forEach var="order" items="${cart}">
-        <h1 class="my-3">Your cart for Restaurant ${order[1]}</h1>
-        <p>You have ${order[0]} items in this cart.</p>
+      
+        <h1 class="my-3">Your cart for Restaurant ${cart[0][1]}</h1>
+        <p>You have ${pendingCartCount} items in this cart.</p>
         <table class="table w-50 mx-auto">
           <thead>
             <tr>
+              <th scope="col">count</th>
               <th scope="col">Item name</th>
-              <th scope="col">Quantity</th>
+              <!-- <th scope="col">Quantity</th> -->
               <th scope="col">Item price</th>
               <th scope="col">Location</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>${order[4]}</td>
-              <td>${order[6]}</td>
-              <td>${order[5]}</td>
-              <td>${order[11]}</td>
-            </tr>
+            <c:forEach var="item" items="${cart}">
+              <tr>
+                <td>${item[0]}</td>
+                <td>${item[4]}</td>
+                <!-- <td>${item[6]}</td> -->
+                <td>${item[5]}</td>
+                <td>${item[11]}</td>
+              </tr>
+            </c:forEach>
           </tbody>
           <tfoot>
             <tr>
-              <td>
-                <span class="fw-bold">Total: ${order[10]} $</span>
+              <td colspan="2">
+                <span class="fw-bold">Total: ${cart[0][10]} $</span>
               </td>
+              <td colspan="2">
+                <span class="fw-bold">Quantity: ${pendingCartCount}</span>
+              </td>
+
             </tr>
-            
           </tfoot>
-
         </table>
-
-        <div  class="d-flex justify-content-center">
-          
-          <form action="/proccedtocheckout/${order[2]}" method="post">
+      
+        <div class="d-flex justify-content-center">
+          <form action="/proccedtocheckout/${cart[0][2]}" method="post">
             <label for="proceed">Do you want to proceed to checkout?</label>
             <input type="submit" value="Submit" class="btn btn-light">
+            <a href="/cancelorder/${cart[0][2]}" class="btn btn-link">Cancel order</a>
           </form>
         </div>
-      </c:forEach>
-      
 
-      
+          
 
 
       </div>

@@ -41,6 +41,7 @@ pageEncoding="UTF-8" %>
         <div><a href="/logout" class="btn btn-link"> Logout</a> <br /></div>
       </div>
       <!-- Cart -->
+      <!-- Cart -->
       <div>
         <button type="button" class="btn btn-light position-relative ">
           <a href="cart"><i class="bi bi-cart"></i></a>

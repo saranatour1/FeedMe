@@ -18,7 +18,7 @@ public interface OrderRepositories extends CrudRepository<Order,Long> {
 	
 	// find all orders for user that are with status not dilivered
 
-	@Query(value = "SELECT count(o.id), r.rest_name, o.id, mi.id as item_id, mi.food_name, mi.food_price, o.quantity, o.order_status, o.resturant_id, o.user_id, o.total, r.address " +
+	@Query(value = "SELECT count(mi.id), r.rest_name, o.id, mi.id as item_id, mi.food_name, mi.food_price, o.quantity, o.order_status, o.resturant_id, o.user_id, o.total, r.address " +
 	"FROM orders o " +
 	"INNER JOIN users ON users.id = user_id " +
 	"INNER JOIN resturants r ON resturant_id = r.id " +
@@ -31,7 +31,7 @@ public interface OrderRepositories extends CrudRepository<Order,Long> {
 
 //select the dilevered cart orders
 
-@Query(value = "SELECT count(o.id), r.rest_name, o.id, mi.id as item_id, mi.food_name, mi.food_price, o.quantity, o.order_status, o.resturant_id, o.user_id, o.total, r.address " +
+@Query(value = "SELECT count(mi.id), r.rest_name, o.id, mi.id as item_id, mi.food_name, mi.food_price, o.quantity, o.order_status, o.resturant_id, o.user_id, o.total, r.address " +
 "FROM orders o " +
 "INNER JOIN users ON users.id = user_id " +
 "INNER JOIN resturants r ON resturant_id = r.id " +

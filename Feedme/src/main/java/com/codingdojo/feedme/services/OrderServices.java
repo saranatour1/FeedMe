@@ -23,6 +23,11 @@ public class OrderServices {
     return orderRepo.findById(id).get();
   }
 
+  //delete order by id 
+  public void removeOrder(Long id){
+    orderRepo.deleteById(id);
+  }
+
   public void updateOrder(Order order){
     orderRepo.save(order);
   }

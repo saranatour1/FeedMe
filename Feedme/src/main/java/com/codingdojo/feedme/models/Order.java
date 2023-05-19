@@ -32,7 +32,7 @@ public class Order {
 
   private double total;
   private int quantity;
-  private boolean orderStatus;
+  private boolean orderStatus=false;
 
 
 

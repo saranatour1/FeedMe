@@ -70,8 +70,8 @@ public class ResturantController {
 		List<Resturant> allRest = restServ.findAllResturants();
 
 		// cart numbers
-		// List<Object[]> cart = orderServ.findPendingOrdersForUsers(newUserId);
-		int count = orderServ.countPendingOrders(newUserId);
+		List<Object[]> cart = orderServ.findPendingOrdersForUsers(newUserId);
+		int count = cart.size();
 
 		// System.out.println(cart);
 		model.addAttribute("pendingCartCount", count);
@@ -133,17 +133,49 @@ public class ResturantController {
 
 	// this to show single Resturant information
 	@GetMapping("/resturants/{rest_id}")
-	public String singleResturant(Model model, @PathVariable("rest_id") Long id) {
+	public String singleResturant(Model model, @PathVariable("rest_id") Long id ,HttpSession session) {
 		Resturant resturant = restServ.findRestById(id);
+
+		Long newUserId = (Long) session.getAttribute("newUser");
+		User thisUser = userServ.findUserById(newUserId);
+		model.addAttribute("thisUser", thisUser);
+
+		// cart numbers
+		List<Object[]> cart = orderServ.findPendingOrdersForUsers(newUserId);
+		int count = cart.size();
+
+		// System.out.println(cart);
+		model.addAttribute("pendingCartCount", count);
+
 		// to find a single resturant
 		double avg = rateServ.findAverageRatingForRestaurant(id);
 		List<Object[]> x = restServ.findMenuWithCategoriesAndMenuItemsByResturantId(id);
 		System.out.println(avg); // 5.0
 		model.addAttribute("avg", avg);
-		model.addAttribute("x", x);
+		model.addAttribute("x", x); // all the items by the resturant id 
+		model.addAttribute("rest", resturant);
+
+		int count1 = x.size();
+		System.out.println(count1);
+
 
 		return "show_rest_information.jsp";
 	}
+
+	@RequestMapping("/addItemsToCart/{rest_id}")
+	public String addItemToCart(@RequestParam("ItemId") Long ItemId, @RequestParam("total") String total , @PathVariable("rest_id") Long restId){
+		double number = Double.valueOf(total);
+		// Making a new order , 
+
+
+		System.out.println(ItemId);
+		System.out.println(number);
+	
+		System.out.println(restId);
+		return "redirect:/resturants/{rest_id}";
+	}
+
+
 
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
