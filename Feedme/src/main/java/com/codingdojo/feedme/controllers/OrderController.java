@@ -1,5 +1,6 @@
 package com.codingdojo.feedme.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,12 +10,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.codingdojo.feedme.models.MenuItem;
 import com.codingdojo.feedme.models.Order;
+import com.codingdojo.feedme.models.Resturant;
 import com.codingdojo.feedme.models.User;
+import com.codingdojo.feedme.services.MenuItemServices;
 // import com.codingdojo.feedme.services.CatServices;
 // import com.codingdojo.feedme.services.MenuItemServices;
 import com.codingdojo.feedme.services.OrderServices;
+import com.codingdojo.feedme.services.ResturantServices;
 // import com.codingdojo.feedme.services.RatingServices;
 // import com.codingdojo.feedme.services.ResturantServices;
 import com.codingdojo.feedme.services.UserService;
@@ -27,16 +33,17 @@ public class OrderController {
 	@Autowired
 	private UserService userServ;
 
-	// @Autowired
-	// private ResturantServices restServ;
+	@Autowired
+	private ResturantServices restServ;
 
 	@Autowired
 	private OrderServices orderServ;
 
 	// @Autowired
 	// private RatingServices rateServ;
-	// @Autowired
-	// private MenuItemServices miServ;
+	
+	@Autowired
+	private MenuItemServices miServ;
 
 	// @Autowired
 	// private CatServices catServ;
@@ -78,8 +85,38 @@ public String discard(@PathVariable("orderId") Long id){
 	orderServ.removeOrder(id);
 	return "redirect:/resturants";
 }
-  
 
+// new order 
+@RequestMapping("/addItemsToCart/{rest_id}")
+public String addItemToCart(@RequestParam("ItemId") List<Long> ItemId,  @RequestParam("total") String total ,@RequestParam("quantityTotal") String quantityTotal ,  @PathVariable("rest_id") Long restId , HttpSession session){
+	Long newUserId = (Long) session.getAttribute("newUser");
+	User thisUser = userServ.findUserById(newUserId);
+	
+	double wholeTotal = Double.valueOf(total);
 
-  
+	int allQuantity = Integer.valueOf(quantityTotal);
+
+	Resturant resturant = restServ.findRestById(restId);
+
+	Order newOrder = new Order(wholeTotal, allQuantity, resturant, thisUser);
+	newOrder.setOrderItems(new ArrayList<>());
+
+	for (Long id : ItemId) {
+		MenuItem item = miServ.findItem(id);
+		newOrder.getOrderItems().add(item);
+	}
+	orderServ.addOrder(newOrder);
+
+// newOrder.s
+
+	// Making a new order , 
+
+	System.out.println(ItemId);
+	System.out.println(allQuantity);
+
+	System.out.println(restId);
+
+	return "redirect:/resturants/{rest_id}";
+}
+
 }

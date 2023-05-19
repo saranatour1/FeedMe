@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.codingdojo.feedme.models.Category;
+import com.codingdojo.feedme.models.Order;
 import com.codingdojo.feedme.models.Resturant;
 import com.codingdojo.feedme.models.User;
 import com.codingdojo.feedme.services.CatServices;
@@ -162,18 +163,6 @@ public class ResturantController {
 		return "show_rest_information.jsp";
 	}
 
-	@RequestMapping("/addItemsToCart/{rest_id}")
-	public String addItemToCart(@RequestParam("ItemId") Long ItemId, @RequestParam("total") String total , @PathVariable("rest_id") Long restId){
-		double number = Double.valueOf(total);
-		// Making a new order , 
-
-
-		System.out.println(ItemId);
-		System.out.println(number);
-	
-		System.out.println(restId);
-		return "redirect:/resturants/{rest_id}";
-	}
 
 
 

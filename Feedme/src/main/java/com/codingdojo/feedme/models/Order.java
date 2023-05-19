@@ -1,5 +1,6 @@
 package com.codingdojo.feedme.models;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -122,6 +123,15 @@ public class Order {
   private Date updatedAt;
 
   
+
+
+  public Order(double total, int quantity, Resturant resturant, User user) {
+    this.total = total;
+    this.quantity = quantity;
+    this.resturant = resturant;
+    this.user = user;
+  }
+
   public Order() {
   }
 

@@ -11,12 +11,8 @@ import com.codingdojo.feedme.repositories.OrderRepositories;
 @Service
 public class OrderServices {
 
-  
-  
-    
   @Autowired
   private OrderRepositories orderRepo;
-
 
   //find order by id
   public Order findOrder(Long id){
@@ -31,6 +27,11 @@ public class OrderServices {
   public void updateOrder(Order order){
     orderRepo.save(order);
   }
+
+  public Order addOrder(Order b) {
+    return orderRepo.save(b);
+  }
+
 
   // count all orders 
 

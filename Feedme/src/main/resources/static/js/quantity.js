@@ -3,18 +3,17 @@ const resetBtns = document.querySelectorAll(".reset-btn");
 const quantityInputs = document.querySelectorAll(".quantity");
 const addItems = document.querySelectorAll(".add-items");
 const total = document.getElementById("total");
+const allTotal = document.getElementById("quantity-total");
 
-// Initialize counter
-let counter = 0;
-const quantityValues = [];
+// Initialize counters and values
+const quantityValues = Array.from(quantityInputs).map(() => 0);
 
 addItems.forEach((addItem, index) => {
   const quantityInput = quantityInputs[index];
 
   addItem.addEventListener("click", () => {
-    counter++;
-    quantityInput.value = counter;
-    quantityValues[index] = counter;
+    quantityValues[index]++;
+    quantityInput.value = quantityValues[index];
 
     calculateTotalAmount();
   });
@@ -24,19 +23,16 @@ resetBtns.forEach((resetBtn, index) => {
   const quantityInput = quantityInputs[index];
 
   resetBtn.addEventListener("click", () => {
-    counter = 0;
-    quantityInput.value = counter;
-    quantityValues[index] = counter;
+    quantityValues[index] = 0;
+    quantityInput.value = quantityValues[index];
 
     calculateTotalAmount();
   });
 });
 
-let index = 0;
-let totalAmount = 0;
-
 function calculateTotalAmount() {
-  totalAmount = 0;
+  let totalAmount = 0;
+  let quan = 0;
 
   itemPrices.forEach((elem, index) => {
     const price = parseFloat(elem.innerHTML);
@@ -44,10 +40,11 @@ function calculateTotalAmount() {
 
     const itemTotal = price * quantity;
     totalAmount += itemTotal;
+    quan += quantity;
   });
 
-  total.value = totalAmount;
-  console.log(total);
+  allTotal.value = quan;
+  total.value = totalAmount.toFixed(2);
 }
 
 // Initial calculation

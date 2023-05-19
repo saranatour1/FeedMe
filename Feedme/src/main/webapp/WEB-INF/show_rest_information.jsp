@@ -107,6 +107,9 @@
                       <p>Total <input type="text" value="0" id="total" name="total"> </p>
                     </td>
                     <td>
+                      <p>Quantity <input type="text" name="quantityTotal"  id="quantity-total" ></p>
+                    </td>
+                    <td>
                       <input type="submit" class="btn btn-light">
                     </td>
                   
