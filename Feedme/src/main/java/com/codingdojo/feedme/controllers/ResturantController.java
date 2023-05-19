@@ -67,6 +67,12 @@ public class ResturantController {
 		// to collect all restaurants
 		Long newUserId = (Long) session.getAttribute("newUser");
 		User thisUser = userServ.findUserById(newUserId);
+
+		if(thisUser.getUserrole().getId() == 2 ){
+			return "redirect:/profile/" +newUserId ;
+		}
+
+
 		model.addAttribute("thisUser", thisUser);
 		List<Resturant> allRest = restServ.findAllResturants();
 
@@ -110,6 +116,8 @@ public class ResturantController {
 		session.setAttribute("searchResult", allRest);
 		return "redirect:/resturants";
 	}
+
+
 
 	@GetMapping("/getresturantsbycat")
 	public String findResturantsByCat(@RequestParam(value = "catVal", required = false) List<Long> id,
@@ -159,9 +167,11 @@ public class ResturantController {
 		int count1 = x.size();
 		System.out.println(count1);
 
-
 		return "show_rest_information.jsp";
 	}
+
+
+
 
 
 

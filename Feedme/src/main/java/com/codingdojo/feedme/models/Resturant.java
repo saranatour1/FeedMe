@@ -15,6 +15,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrePersist;
@@ -63,7 +64,23 @@ public class Resturant {
   // 1 menu
   @OneToOne(mappedBy = "resturant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
   private Menu menu;
+
+
+  @OneToOne(mappedBy="resturant", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+  private Owner owner;
+
+
+
+
   
+
+  public Owner getOwner() {
+    return owner;
+  }
+
+  public void setOwner(Owner owner) {
+    this.owner = owner;
+  }
 
   //one to many between resturant and orders
   @OneToMany(mappedBy="resturant", fetch = FetchType.LAZY)
