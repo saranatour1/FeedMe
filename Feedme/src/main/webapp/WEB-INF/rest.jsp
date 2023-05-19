@@ -31,30 +31,32 @@ pageEncoding="UTF-8" %>
   </head>
 
   <body>
+    <div class="container-fluid w-100 ">
+
+      <nav class="container mx-auto d-flex my-4 justify-content-between">
+        <h3>Logo</h3>
+        <div>
+          <button type="button" class="btn btn-light position-relative ">
+            <a href="/cart"><i class="bi bi-cart"></i></a>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              ${pendingCartCount}+
+              <span class="visually-hidden">Cart </span>
+            </span>
+          </button>
+
+          <a href="/myorders">My orders</a>
+  
+      
+          <!-- <a href="/">Back to main page </a> -->
+          <a href="/logout" class="btn btn-link"> Logout</a> 
+
+        </div>
+
+
+      </nav>
+
+    </div>
     <div class="container mt-5">
-      <div class="d-flex justify-content-between">
-        <hgroup>
-          <h1>Welcome, ${thisUser.firstName} !</h1>
-          
-        </hgroup>
-
-        <div><a href="/logout" class="btn btn-link"> Logout</a> <br /></div>
-      </div>
-      <!-- Cart -->
-      <!-- Cart -->
-      <div>
-        <button type="button" class="btn btn-light position-relative ">
-          <a href="cart"><i class="bi bi-cart"></i></a>
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-            ${pendingCartCount}+
-            <span class="visually-hidden">Cart </span>
-          </span>
-        </button>
-      </div>
-
-
-
-
 
       <!-- search bar query -->
       <label for="restName"> Search Restuarnt name </label>

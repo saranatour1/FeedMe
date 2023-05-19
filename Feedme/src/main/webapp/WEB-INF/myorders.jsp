@@ -59,7 +59,7 @@ pageEncoding="UTF-8" %>
                     </span>
                   </button>
         
-                  <a href="/myorders"> My orders </a>
+                  <!-- <a href="/myorders">My orders </a> -->
           
               
                   <a href="/resturants">Back to main page </a>
@@ -73,17 +73,12 @@ pageEncoding="UTF-8" %>
             </div>
 
 
+
             <div class="container mt-5">
+              <h3 class="my-3"> Your pending orders:</h3>
 
-
-<!-- 
-              <c:if test="${pendingCartCount > 0}">
-                <p>You have ${pendingCartCount} items in your cart.</p>
-              </c:if> -->
-              
-
-              <c:if test="${!cart.isEmpty()}">
-                <h1 class="my-3">Your cart for Restaurant ${cart[0][1]}</h1>
+              <c:if test="${!pendingO.isEmpty()}">
+                <h1 class="my-3">Your cart for Restaurant ${pendingO[0][1]}</h1>
                 <p>You have ${pendingCartCount} items in this .</p>
                 <table class="table w-50 mx-auto">
                   <thead>
@@ -96,7 +91,7 @@ pageEncoding="UTF-8" %>
                     </tr>
                   </thead>
                   <tbody>
-                    <c:forEach var="item" items="${cart}">
+                    <c:forEach var="item" items="${pendingO}">
                       <tr>
                         <td>${item[0]}</td>
                         <td>${item[4]}</td>
@@ -109,7 +104,7 @@ pageEncoding="UTF-8" %>
                   <tfoot>
                     <tr>
                       <td colspan="2">
-                        <span class="fw-bold">Total: ${cart[0][10]} $</span>
+                        <span class="fw-bold">Total: ${pendingO[0][10]} $</span>
                       </td>
                       <td colspan="2">
                         <span class="fw-bold">Quantity: ${pendingCartCount}</span>
@@ -118,19 +113,49 @@ pageEncoding="UTF-8" %>
                     </tr>
                   </tfoot>
                 </table>
-  
-                <div class="d-flex justify-content-center">
-                  <form action="/proccedtocheckout/${cart[0][2]}" method="post">
-                    <label for="proceed">Do you want to proceed to checkout?</label>
-                    <input type="submit" value="Submit" class="btn btn-light">
-                    <a href="/cancelorder/${cart[0][2]}" class="btn btn-link">Cancel order</a>
-                  </form>
-                </div>
               </c:if>
 
-              
-              
- 
+
+              <h3 class="my-3"> What you previously ordered :</h3>
+
+              <c:if test="${!dil.isEmpty()}">
+                <h1 class="my-3">Your cart for Restaurant ${dil[0][1]}</h1>
+                <p>You have ${pendingCartCount} items in this .</p>
+                <table class="table w-50 mx-auto">
+                  <thead>
+                    <tr>
+                      <th scope="col">count</th>
+                      <th scope="col">Item name</th>
+                      <!-- <th scope="col">Quantity</th> -->
+                      <th scope="col">Item price</th>
+                      <th scope="col">Location</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <c:forEach var="item" items="${dil}">
+                      <tr>
+                        <td>${item[0]}</td>
+                        <td>${item[4]}</td>
+                        <!-- <td>${item[6]}</td> -->
+                        <td>${item[5]}</td>
+                        <td>${item[11]}</td>
+                      </tr>
+                    </c:forEach>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <td colspan="2">
+                        <span class="fw-bold">Total: ${dil[0][10]} $</span>
+                      </td>
+                      <td colspan="2">
+                        <span class="fw-bold">Quantity: ${dil.size()}</span>
+                      </td>
+  
+                    </tr>
+                  </tfoot>
+                </table>
+              </c:if>
+
 
 
             </div>

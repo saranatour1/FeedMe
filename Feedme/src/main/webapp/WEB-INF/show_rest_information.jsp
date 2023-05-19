@@ -39,12 +39,14 @@
         <h3>Logo</h3>
         <div>
           <button type="button" class="btn btn-light position-relative ">
-            <a href="cart"><i class="bi bi-cart"></i></a>
+            <a href="/cart"><i class="bi bi-cart"></i></a>
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
               ${pendingCartCount}+
               <span class="visually-hidden">Cart </span>
             </span>
           </button>
+
+          <a href="/myorders"></a>
   
       
           <a href="/resturants">Back to main page </a>
