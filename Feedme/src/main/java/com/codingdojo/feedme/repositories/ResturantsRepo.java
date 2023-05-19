@@ -20,13 +20,16 @@ public interface ResturantsRepo extends CrudRepository<Resturant, Long> {
   @Query("SELECT r.menu FROM Resturant r WHERE r.id = :resturantId")
   Menu findMenuByResturantId(@Param("resturantId") Long resturantId);
 
-  @Query("SELECT menu.id, menuItems.foodName, menuItems.desreption, menuItems.foodPrice, categories.catName, resturant.restName FROM Menu menu "
+  @Query("SELECT  distinct menuItems.id, menuItems.foodName, menuItems.desreption, menuItems.foodPrice, categories.catName FROM Menu menu "
       +
       "JOIN menu.resturant resturant " +
       "LEFT JOIN menu.menuItems menuItems " +
       "INNER JOIN menuItems.categories categories " +
       "WHERE resturant.id = :resturantId")
   List<Object[]> findMenuWithCategoriesAndMenuItemsByResturantId(@Param("resturantId") Long resturantId);
+
+
+
 
 
   // Search by resturant name 
@@ -41,6 +44,8 @@ public interface ResturantsRepo extends CrudRepository<Resturant, Long> {
         "inner join categories on category_id = categories.id " +
         "where categories.id IN (:categoryIds)",nativeQuery = true )
 List<Object[]> findResturantsByCat(@Param("categoryIds") List<Long> categoryIds);
+
+
 
 
 // return all resturant counts // used deafult count 

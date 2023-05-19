@@ -1,9 +1,12 @@
 package com.codingdojo.feedme.models;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -30,7 +33,7 @@ public class Order {
 
   private double total;
   private int quantity;
-  private boolean orderStatus;
+  private boolean orderStatus=false;
 
 
 
@@ -39,17 +42,20 @@ public class Order {
   @JoinTable(name = "orders_menuitems",
    joinColumns = @JoinColumn(name = "order_id"),
    inverseJoinColumns = @JoinColumn(name = "item_id"))
+   @JsonIgnore
   private List<MenuItem> orderItems;
 
   //relation bewtween orders and resturant is a one to many, manytoone from the order side
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "resturant_id")
+  @JsonIgnore
   private Resturant resturant;
 
   //one to many between users and orders 
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "user_id")
+  @JsonIgnore
   private User user;
 
 
@@ -117,6 +123,15 @@ public class Order {
   private Date updatedAt;
 
   
+
+
+  public Order(double total, int quantity, Resturant resturant, User user) {
+    this.total = total;
+    this.quantity = quantity;
+    this.resturant = resturant;
+    this.user = user;
+  }
+
   public Order() {
   }
 
