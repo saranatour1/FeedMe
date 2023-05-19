@@ -65,19 +65,35 @@ pageEncoding="UTF-8" %>
                 ${rest.id}
               </p>
 
-              <h3>${rest.restName}</h3>
-              <p>${rest.descreption}</p>
-              <p>Opens at ${fn:substring(rest.openingTime, 11, 16)} and closes at ${fn:substring(rest.closingTime, 11, 16)}</p>
-              <a href="tel:${rest.restNumber}">Call us at ${rest.restNumber}</a>
-       
-              <p>this resturant has gained this amount of likes ${Math.floor(avg)} </p>
-               <div class="progress w-25" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="5">
-                 <div class="progress-bar" style="width: ${avg*20}%"></div>
-               </div>
-               <div>
-                <a href="/addmenuitemstomenu" class="btn btn-link"> edit menu </a>
-                <a href="/editresturantprofile" class="btn btn-link">edit profile</a>
-               </div>
+              <form:form action="/addmenuitemstomenu" method="post" modelAttribute="menuItem">
+              <label for="foodName">Food Name:</label>
+              <form:input path="foodName" id="foodName" />
+
+              <label for="desreption">Description:</label>
+              <form:input path="desreption" id="desreption" />
+
+              <label for="foodPrice">Food Price:</label>
+              <form:input path="foodPrice" id="foodPrice" />
+
+              <label for="categories">Categories:</label>
+              <form:select path="categories" multiple="true" id="categories">
+                <form:options items="${categories}" itemLabel="catName" itemValue="id" />
+              </form:select>
+
+              <input type="submit" value="Submit" />
+            </form:form>
+
+            <div>
+            <label for="catName">add a category</label>   
+            <form action="/addcat" method="post">
+              <input type="text" name="catName" id="catName">
+              <input type="submit" value="submit">
+            </form>
+            </div>
+
+
+
+
 
                <div class="mx-auto">
                 <h1 class="my-3">Menu Items</h1>
@@ -89,21 +105,34 @@ pageEncoding="UTF-8" %>
                           <th>Description</th>
                           <th>Food Price</th>
                           <th>Category Name</th>
-                          <th>Quantity</th>
                       </tr>
                   </thead>
                   <tbody>
-                      <c:forEach var="menuItem" items="${x}">
-                          <tr>
-                              <td>${menuItem[0]}</td>
-                              <td>${menuItem[1]}</td>
-                              <td>${menuItem[2]}</td>
-                              <td class="item-price">${menuItem[3]}</td>
-                              <td>${menuItem[4]}</td>
-                              <td>${menuItem[5]}</td>
-                          </tr>
-                      </c:forEach>
+                    <c:forEach var="menuItem" items="${mi}">
+                      <tr>
+                        <td>${menuItem.id}</td>
+                        <td>${menuItem.foodName}</td>
+                        <td>${menuItem.desreption}</td>
+                        <td class="item-price">${menuItem.foodPrice}</td>
+                        <td>
+                          <c:forEach items="${menuItem.categories}" var="cat">
+                            ${cat.catName}
+                          </c:forEach>
+                        </td>
+                      </tr>
+                    </c:forEach>
+
+                    <tr>
+                      <td>add a category</td>
+                      <td>
+
+                      </td>
+        
+                    </tr>
+                    
+
                   </tbody>
+                  
               </table>
               
               </div>

@@ -19,6 +19,10 @@ public class CatServices {
   public List<Category> finallCategories(){
     return catRepo.findAll();
   }
+  public Category saveCat(Category cat){
+
+    return catRepo.save(cat);
+  }
   
 
 

@@ -140,6 +140,9 @@ public class OrderController {
 		Long newUserId = (Long) session.getAttribute("newUser");
 		User thisUser = userServ.findUserById(newUserId);
 		model.addAttribute("thisUser", thisUser);
+		if(thisUser.getUserrole().getId() ==2){
+			return "redirect:/myorders/rest";
+		}
 
 		List<Object[]> pendingOrders = orderServ.findPendingOrdersForUsers(newUserId);
 		
