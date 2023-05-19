@@ -19,13 +19,10 @@
           </head>
 
           <body>
-            
-
-
             <div id="login-box">
               <div class="left">
-                <h1>Sign up</h1>
-                <form:form action="/register" method="post" modelAttribute="newUser" class="container w-100">
+                <h1 class="Signup">Sign up</h1>
+                <form:form action="/register" method="post" modelAttribute="newUser" class="container w-200">
                   <p>
                     <form:input type="text" path="firstName" placeholder="firstName" />
                   </p>
@@ -48,6 +45,12 @@
                     <p>
                       <form:input type="text" path="phoneNumber" placeholder="phoneNumber" />
                     </p>
+                    <p >
+                      <b class = "shadid"> sign up as a seller </b> 
+                      
+                      <input type="checkbox" id="user_role" name="user_role" value="2">
+                    
+                    </p>
                   <input type="submit" value="Submit" />
     
                   <form:errors path="firstName" class="text-danger" />
@@ -62,14 +65,12 @@
               </div>
         
               <div class="right">
-                <span class="loginwith">Sign in with<br />social network</span>
+                <h4 class="loginwith">Sign in with social network</h4>
         
                 <button class="social-signin facebook">Log in with facebook</button>
                 <button class="social-signin twitter">Log in with Twitter</button>
                 <button class="social-signin google">Log in with Google+</button>
-              </div>
-              <div class="or">OR</div>
-            </div>
+
         
 
                 

@@ -1,165 +1,152 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
-*:focus {
-  outline: none;
-}
+/* CSS Styles for the Sign-up Form */
 
 body {
-  margin: 0;
-  padding: 0;
-  background: #DDD;
-  font-size: 16px;
-  color: #222;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
+  font-family: Arial, sans-serif;
+  background-image: url("https://ik.imagekit.io/shadid/444444.jpg?updatedAt=1684462235549");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
+
 
 #login-box {
-  position: relative;
-  margin: 5% auto;
-  width: 600px;
-  height: 400px;
-  background: #FFF;
-  border-radius: 2px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.left {
-  position: absolute;
-  top: 0;
-  left: 0;
-  box-sizing: border-box;
+.left,
+.right {
+  
   padding: 40px;
-  width: 300px;
-  height: 400px;
+  flex: 1;
+  min-width: 300px;
+ 
+  }
+
+
+.right {
+  text-align: center;
 }
 
 h1 {
-  margin: 0 0 20px 0;
-  font-weight: 300;
-  font-size: 28px;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  margin-top: 20px;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
 }
 
 input[type="text"],
-input[type="password"] {
-  display: block;
-  box-sizing: border-box;
-  margin-bottom: 20px;
-  padding: 4px;
-  width: 220px;
-  height: 32px;
-  border: none;
-  border-bottom: 1px solid #AAA;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  transition: 0.2s ease;
+input[type="email"],
+input[type="password"],
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus {
-  border-bottom: 2px solid #16a085;
-  color: #16a085;
-  transition: 0.2s ease;
+input[type="checkbox"] {
+  margin-right: 5px;
 }
 
 input[type="submit"] {
-  margin-top: 28px;
-  width: 120px;
-  height: 32px;
-  background: #16a085;
+  width: 100%;
+  padding: 10px;
+  background-color: #9f8539;
+  color: #fff;
   border: none;
-  border-radius: 2px;
-  color: #FFF;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  text-transform: uppercase;
-  transition: 0.1s ease;
+  border-radius: 4px;
   cursor: pointer;
 }
-
-input[type="submit"]:hover,
-input[type="submit"]:focus {
-  opacity: 0.8;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  transition: 0.1s ease;
-}
-
-input[type="submit"]:active {
-  opacity: 1;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-  transition: 0.1s ease;
+input[type="submit"]:hover {
+  background-color: #e3c672;
 }
 
 .or {
-  position: absolute;
-  top: 180px;
-  left: 280px;
-  width: 40px;
-  height: 40px;
-  background: #DDD;
-  border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  line-height: 40px;
   text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
-.right {
-  position: absolute;
-  top: 0;
-  right: 0;
-  box-sizing: border-box;
-  padding: 40px;
-  width: 300px;
-  height: 400px;
-  background: url('https://goo.gl/YbktSj');
-  background-size: cover;
-  background-position: center;
-  border-radius: 0 2px 2px 0;
-}
-
-.right .loginwith {
-  display: block;
-  margin-bottom: 40px;
-  font-size: 28px;
-  color: #FFF;
-  text-align: center;
-}
-
-button.social-signin {
-  margin-bottom: 20px;
-  width: 220px;
-  height: 36px;
+.social-signin {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: #fff;
   border: none;
-  border-radius: 2px;
-  color: #FFF;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  transition: 0.2s ease;
+  border-radius: 4px;
   cursor: pointer;
 }
 
-button.social-signin:hover,
-button.social-signin:focus {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  transition: 0.2s ease;
+.facebook {
+  background-color: #3b5998;
+  width: 350px;
 }
 
-button.social-signin:active {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-  transition: 0.2s ease;
+.twitter {
+  background-color: #55acee;
+  width: 350px;
 }
 
-button.social-signin.facebook {
-  background: #32508E;
+.google {
+  background-color: #dd4b39;
+  width: 350px;
 }
 
-button.social-signin.twitter {
-  background: #55ACEE;
+/* Additional Styles */
+
+.container {
+  max-width: 300px;
+  margin: 0 auto;
 }
 
-button.social-signin.google {
-  background: #DD4B39;
+.text-danger {
+  color: red;
 }
 
+/* Bootstrap Overrides */
 
+.form-label {
+  display: block;
+  margin-bottom: 5px;
+}
+/* CSS Styles for the Sign-up Form */
 
+/* Rest of your existing styles... */
+
+/* Animation */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+#login-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  animation: slideInRight 0.5s ease-in-out;
+}
+.shadid{
+  font-size: 20px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: black;
+}

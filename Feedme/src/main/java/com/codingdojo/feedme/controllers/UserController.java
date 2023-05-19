@@ -64,7 +64,7 @@ public class UserController {
 	@GetMapping("/login")
 	public String login(@ModelAttribute("newLogin") LoginUser newLogin, Model model) {
 		model.addAttribute("newLogin", new LoginUser());
-		return "login-1jsp";
+		return "login-1.jsp";
 	}
 
 

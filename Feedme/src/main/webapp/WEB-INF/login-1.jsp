@@ -15,38 +15,39 @@
                         <meta charset="UTF-8">
                         <meta http-equiv="X-UA-Compatible" content="IE=edge">
                         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                        <link rel="stylesheet" type="text/css" href="log.css">
+                        <link rel="stylesheet" type="text/css" href="/css/log.css">
                         <title>Document</title>
+
+
                     </head>
 
                     <body>
                         <div class="wrapper fadeInDown">
                             <div id="formContent">
-                                <!-- Tabs Titles -->
+
                                 <h2 class="active"> Sign In </h2>
-                                <!-- Icon -->
-                                <div class="fadeIn first">
-                                    <img src="todd-s.jpg" id="icon" alt="User Icon" />
-                                </div>
+
                                 <form:form action="/login" method="post" modelAttribute="newLogin"
                                     class="container w-100">
                                     <p>
                                         <form:input type="email" path="email" id="login" class="fadeIn second"
                                             placeholder="login" />
+                                        <form:errors path="email" class="text-danger" />
                                     </p>
                                     <p>
                                         <form:input type="password" path="password" id="password" class="fadeIn third"
                                             placeholder="password" />
+                                        <form:errors path="password" class="text-danger" />
                                     </p>
                                     <input type="submit" value="Submit" class="fadeIn fourth" />
-                                    <form:errors path="password" class="text-danger" />
-                                    <form:errors path="email" class="text-danger" />
+
+
                                 </form:form>
-                                <div id="formFooter">
-                                    <a class="underlineHover" href="#">Forgot Password?</a>
-                                </div>
                             </div>
                         </div>
+
+
+
 
                     </body>
 
