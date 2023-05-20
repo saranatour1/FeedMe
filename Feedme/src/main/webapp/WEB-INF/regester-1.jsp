@@ -14,7 +14,7 @@
             <meta charset="UTF-8" />
             <title>Login and Regestration page</title>
             <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
-            <link rel="stylesheet" type="text/css" href="/css/style.css">
+            <link rel="stylesheet" type="text/css" href="/css/regester.css">
             
           </head>
 
