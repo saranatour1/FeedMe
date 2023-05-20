@@ -71,6 +71,9 @@ public class ResturantServices {
 		public List<Object[]> findMenuWithCategoriesAndMenuItemsByResturantId(Long id){
 			return restRepo.findMenuWithCategoriesAndMenuItemsByResturantId(id);
 		}
+		public Resturant updaterest(Resturant editRest){
+			return restRepo.save(editRest);
+		}
 	
 	
 }

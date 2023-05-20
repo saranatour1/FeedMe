@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -158,6 +159,33 @@ public class ResturantOwnerController {
       session.setAttribute("restId", resturant.getId());
       return "redirect:/profile/"+ newUserId ;
     }
+    @GetMapping("/editresturantprofile/{rest_id}")
+    public String GoToEditProfile(@ModelAttribute("editRest") Resturant editRest,@PathVariable("rest_id") Long rest_id,Model model) {
+    	
+    	Resturant rest=restServ.findRestById(rest_id);
+    	model.addAttribute("editRest", rest);
+    	return "edit_profile.jsp";
+    	
+    	
+    }
+    
+    
+    @PutMapping("/editaresturnattouser/{rest_id}")
+    public String EditProfile(@Valid @ModelAttribute("editRest") Resturant editRest,BindingResult result,@PathVariable("rest_id") Long rest_id,Model model,HttpSession session) {
+    	Long newUserId = (Long) session.getAttribute("newUser");
+    	if (result.hasErrors()) {
+    		model.addAttribute("editRest", editRest);
+    		return "edit_profile.jsp";
+    	}else 
+    	{
+    		restServ.updaterest(editRest);
+        	
+    		return "redirect:/profile/" + newUserId;
+    	}
+    	
+    	
+    	
+    }
 
     
     @RequestMapping("/myorders/rest")
@@ -261,7 +289,7 @@ public String addcat(@RequestParam("catName") String cString){
 }
 
 
-//.InvalidDataAccessApiUsageException
+
 
 
 

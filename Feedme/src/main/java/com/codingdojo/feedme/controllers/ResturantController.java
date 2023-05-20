@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.codingdojo.feedme.models.Category;
 import com.codingdojo.feedme.models.Order;
+import com.codingdojo.feedme.models.Rating;
 import com.codingdojo.feedme.models.Resturant;
 import com.codingdojo.feedme.models.User;
 import com.codingdojo.feedme.services.CatServices;
@@ -26,6 +28,7 @@ import com.codingdojo.feedme.services.ResturantServices;
 import com.codingdojo.feedme.services.UserService;
 
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 
 @Controller
 public class ResturantController {
@@ -143,7 +146,7 @@ public class ResturantController {
 
 	// this to show single Resturant information
 	@GetMapping("/resturants/{rest_id}")
-	public String singleResturant(Model model, @PathVariable("rest_id") Long id ,HttpSession session) {
+	public String singleResturant(Model model, @PathVariable("rest_id") Long id ,HttpSession session,@ModelAttribute("rating") Rating rating) {
 		Resturant resturant = restServ.findRestById(id);
 
 		Long newUserId = (Long) session.getAttribute("newUser");
@@ -179,6 +182,32 @@ public class ResturantController {
 		System.out.println(count1);
 
 		return "show_rest_information.jsp";
+	}
+	@PostMapping("/addrating/{userId}/{restId}")
+	public String addRating(@PathVariable("userId") Long userId, @PathVariable("restId") Long restId,
+	                        @RequestParam("stars") int stars, @RequestParam("comments") String comments) {
+	    // Create a Rating object and set the values
+	    Rating rating = new Rating();
+	    rating.setStars(stars);
+	    rating.setComments(comments);
+
+	    // Set the user and restaurant if needed
+	    User user = userServ.findUserById(userId);
+	    Resturant restaurant = restServ.findRestById(restId);
+	    if (user != null && restaurant != null) {
+	        rating.setUser(user);
+	        rating.setResturant(restaurant);
+
+	        // Save the rating using the service or repository
+	        rateServ.addRating(rating);
+
+	        // Redirect to a success page or perform other actions
+	        return "redirect:/resturants/{restId}";
+	    }
+	    else {
+	        	return "redirect:/resturants/{restId}";
+	        }
+	 
 	}
 
 

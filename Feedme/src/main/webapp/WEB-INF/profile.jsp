@@ -76,7 +76,7 @@ pageEncoding="UTF-8" %>
                </div>
                <div>
                 <a href="/addmenuitemstomenu" class="btn btn-link"> edit menu </a>
-                <a href="/editresturantprofile" class="btn btn-link">edit profile</a>
+                <a href="/editresturantprofile/${rest.id}" class="btn btn-link">edit profile</a>
                </div>
 
                <div class="mx-auto">
@@ -105,10 +105,14 @@ pageEncoding="UTF-8" %>
                       </c:forEach>
                   </tbody>
               </table>
+
               
               </div>
             </div>
+            
+		
             <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+            
           </body>
 
           </html>
