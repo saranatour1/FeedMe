@@ -203,12 +203,12 @@
 
 
               </div>
-              <!-- <div class="carousel-item active ">
+             <%-- <!-- <div class="carousel-item active ">
               <video autoplay="" loop="" playsinline="" muted="">
                   <source src="https://ik.imagekit.io/shadid/X2Download.app-Church_s_Chicken_Commercial_2019_-__USA__720p_.mp4?updatedAt=1684410691186">
                   Your browser does not support the video tag.
               </video>
           <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-            <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+            <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>  --%>
           </body>
           </html>

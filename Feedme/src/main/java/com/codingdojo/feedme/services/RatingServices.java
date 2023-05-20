@@ -30,6 +30,9 @@ public class RatingServices {
 		return rateRepo.findAverageRatingForRestaurant(id);
 	}
 	
+	 public Rating addRating(Rating rating) {
 	
-
+		 return rateRepo.save(rating);
 }
+}
+
