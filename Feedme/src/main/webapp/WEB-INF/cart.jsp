@@ -78,7 +78,6 @@
               <nav class="container mx-auto d-flex my-4 justify-content-between border-bottom border-gray">
                 <h3>wajbat</h3>
                 <div>
-
                   <button type="button" class="btn btn-light position-relative custom-btn">
                     <a href="/cart"><i class="bi bi-cart"></i></a>
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -87,42 +86,23 @@
                     </span>
                   </button>
 
-
-
                   <button type="button" class="btn btn-primary" onclick="location.href='/myorders'"
                     style="background-color: #76c095;">
                     <a href="/myorders" style="text-decoration: none; color: inherit;">My orders</a>
                   </button>
-
 
                   <button type="button" class="btn btn-primary" onclick="location.href='/resturants'"
                     style="background-color: #76c095;">
                     <a href="/resturants" style="text-decoration: none; color: inherit;">My Homepage</a>
                   </button>
 
-
                   <button type="button" class="btn btn-primary" onclick="location.href='/logout'"
                     style="background-color: #76c095;">
                     <a href="/logout" style="text-decoration: none; color: inherit;">Logout</a>
                   </button>
-
-
-
                 </div>
-
-
               </nav>
-
             </div>
-
-
-
-
-
-            <!-- 
-              <c:if test="${pendingCartCount > 0}">
-                <p>You have ${pendingCartCount} items in your cart.</p>
-              </c:if> -->
 
             <div class="container mt-5">
               <c:if test="${!cart.isEmpty()}">
@@ -170,24 +150,13 @@
                   </form>
                 </div>
               </c:if>
+
             </div>
 
             <div style="width :100vw; height:100vh " >
             </div>
 
-            <!-- <footer class="bg-light py-3">
-                <div class="container">
-                  <div class="d-flex justify-content-between">
-                    <p class="text-muted">© 2023 Wajbat All rights reserved</p>
-                    <p class="text-muted">
-                      <a href="#">Legal Advice</a> |
-                      <a href="#">Privacy Policy</a> |
-                      <a href="#">Cookies Policy</a> |
-                      <a href="#">Information about user licenses</a>
-                    </p>
-                  </div>
-                </div>
-              </footer> -->
+
 
 
 

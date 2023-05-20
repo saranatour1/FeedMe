@@ -15,6 +15,9 @@ public class ResturantServices {
 	@Autowired
 	private ResturantsRepo restRepo;
 	
+	public Resturant addResturant(Resturant r){
+		return restRepo.save(r);
+	}
 
 	//find all Resturan 
 	public List<Resturant> findAllResturants(){

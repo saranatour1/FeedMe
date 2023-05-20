@@ -60,6 +60,8 @@
                   <form:errors path="email" class="text-danger" />
                   <form:errors path="dob" class="text-danger" />
                   <form:errors path="phoneNumber" class="text-danger" />
+
+                  <p class="text-danger"><c:out value="${error}"/></p>
         
                 </form:form>
               </div>

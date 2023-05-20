@@ -57,6 +57,7 @@
               .custom-btn:hover {
                 background-color: #fbd500;
               }
+
               body {
                 overflow-x: hidden;
               }
@@ -108,7 +109,40 @@
 
 
             <div class="container mx-auto d-flex">
+
               <div class="container main-container border-end border-gray mt-4">
+
+                <div>
+                  <!-- search bar query -->
+
+                  <label for="restName" class="form-label"> Search Restuarnt name </label>
+                  <form action="/findresturantbyname" method="post">
+                    <div class="d-flex w-50">
+                      <input type="search" name="restName" class="form-control w-100"
+                        placeholder="search for Restuarnt">
+                      <input type="submit" value="submit" class="btn btn-light">
+
+                    </div>
+                  </form>
+
+
+                  <p>
+                    <c:forEach var="res" items="${result}">
+                      <!-- the result value -->
+                      <div>
+                        <a href="/resturantss/${res[0]}">${res[1]} </a>
+                      </div>
+
+                    </c:forEach>
+
+                  <p class="text-danger">
+                    <c:out value="${noresult}" />
+                  </p>
+                  </p>
+                </div>
+
+
+
                 <h3>Filter by category</h3>
                 <form action="/getresturantsbycat" method="get">
                   <ul>
@@ -121,6 +155,7 @@
                   </ul>
                   <input type="submit" class="btn btn-primary" value="Submit">
                 </form>
+
 
                 <ul>
                   <c:forEach var="res" items="${catoutput}">
@@ -136,13 +171,23 @@
               </div>
 
               <div class="container main-container">
-                <c:forEach var="rating" items="${all_rating}">
+                <c:forEach var="rest" items="${all_rest}">
                   <div class="my-3">
-                    <a href="/resturants/${rating[1]}">${rating[0]}</a>
-                    <span>${Math.floor(rating[2])}</span>
+                    <a href="/resturants/${rest.id}">${rest.restName}</a>
 
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: ${rating[2]*20}%"></div>
+                    <c:set var="rating" value="${0}" />
+
+
+                    <c:forEach var="r" items="${all_rating}">
+                      <c:if test="${r[1] == rest.id}">
+                        <c:set var="rating" value="${Math.floor(r[2])}" />
+                      </c:if>
+                    </c:forEach>
+
+                    <span>${rating}</span>
+                    <div class="progress w-50" role="progressbar" aria-label="Basic example" aria-valuenow="0"
+                      aria-valuemin="0" aria-valuemax="5">
+                      <div class="progress-bar" style="width: ${rating * 20}px"></div>
                     </div>
                   </div>
                 </c:forEach>
@@ -151,8 +196,10 @@
 
 
 
-            <div style="width :100vw; height:20vh " >
+            <div style="width :100vw; height:20vh ">
             </div>
+
+
 
             <footer class="bg-light py-3">
               <div class="container">
