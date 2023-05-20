@@ -65,12 +65,22 @@
        <p>Opens at ${fn:substring(rest.openingTime, 11, 16)} and closes at ${fn:substring(rest.closingTime, 11, 16)}</p>
        <a href="tel:${rest.restNumber}">Call us at ${rest.restNumber}</a>
 
-       <p>this resturant has gained this amount of likes ${Math.floor(avg)} </p>
-        <div class="progress w-25" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="5">
-          <div class="progress-bar" style="width: ${avg*20}%"></div>
-        </div>
+       <c:choose>
+        <c:when test="${avg != null}">
+          <p>This restaurant has gained ${Math.floor(avg)} likes</p>
+          <div class="progress w-25" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="5">
+            <div class="progress-bar" style="width: ${avg * 20}%"></div>
+          </div>
+        </c:when>
+        <c:otherwise>
+          <p>No ratings available for this restaurant</p>
+        </c:otherwise>
+      </c:choose>
+      
+       
 
         ${rest.menu.menuItems}
+
 
 
 

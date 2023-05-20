@@ -167,9 +167,11 @@ public class ResturantOwnerController {
       System.out.printf(thisUser.getFirstName());
       model.addAttribute("thisUser", thisUser);
 
+      Resturant resturant = thisUser.getOwner().getResturant();
+
       // this returns the orders that are not yet dilivered from the resturant side, and since the resturant and owner are connected there is no problem of resuing the same query
-      List<Object[]>  notDiliveredItems = orderServ.findPendingOrdersForUsers(newUserId);
-      List<Object[]> dil = orderServ.findDileverdOrders(newUserId);
+      List<Object[]>  notDiliveredItems = orderServ.findPendingItemsByResturantId(resturant.getId());
+      List<Object[]> dil = orderServ.findDiliveredItemsForRest(resturant.getId());
 
       model.addAttribute("dil", dil);
       model.addAttribute("pendingO", notDiliveredItems);
@@ -185,6 +187,7 @@ public class ResturantOwnerController {
     public String getDelivered(@RequestParam("orderId") Long id){
       Order orderToDiliver = orderServ.findOrder(id);
       orderToDiliver.setOrderStatus(true);
+      orderServ.addOrder(orderToDiliver);
       return "redirect:/resturants";
     }
 
