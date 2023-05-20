@@ -1,13 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8" %>
-<!-- c:out ; c:forEach etc. -->
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!-- Formatting (dates) -->
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<!-- form:form -->
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<!-- for rendering errors on PUT routes -->
-<%@ page isErrorPage="true" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+  <!-- c:out ; c:forEach etc. -->
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <!-- Formatting (dates) -->
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+      <!-- form:form -->
+      <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+        <!-- for rendering errors on PUT routes -->
+        <%@ page isErrorPage="true" %>
           <!DOCTYPE html>
           <html>
 
@@ -42,46 +41,70 @@ pageEncoding="UTF-8" %>
                   transform: rotate(0deg);
                 }
               }
+
+              .btn-primary {
+                transition: transform 0.3s ease;
+              }
+
+              .btn-primary:hover {
+                transform: scale(1.1);
+              }
+
+              .custom-btn {
+                background-color: #fbd500;
+              }
+
+              .custom-btn:hover {
+                background-color: #fbd500;
+              }
+
+
+              body {
+                background-image: url('https://ik.imagekit.io/shadid/999999.jpg?updatedAt=1684549259272');
+                background-size: cover;
+                background-repeat: no-repeat;
+              }
+              body {
+                overflow-x: hidden;
+              }
             </style>
           </head>
 
           <body>
-            <div class="container-fluid w-100 ">
 
-              <nav class="container mx-auto d-flex my-4 justify-content-between">
-                <h3>Logo</h3>
+
+
+            <div class="container-fluid w-100 ">
+              <nav class="container mx-auto d-flex my-4 justify-content-between border-bottom border-gray">
+                <h3>wajbat</h3>
                 <div>
-                  <button type="button" class="btn btn-light position-relative ">
+                  <button type="button" class="btn btn-light position-relative custom-btn">
                     <a href="/cart"><i class="bi bi-cart"></i></a>
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                       ${pendingCartCount}+
                       <span class="visually-hidden">Cart </span>
                     </span>
                   </button>
-        
-                  <a href="/myorders"> My orders </a>
-          
-              
-                  <a href="/resturants">Back to main page </a>
-                  <a href="/logout" class="btn btn-link"> Logout</a> 
-        
+
+                  <button type="button" class="btn btn-primary" onclick="location.href='/myorders'"
+                    style="background-color: #76c095;">
+                    <a href="/myorders" style="text-decoration: none; color: inherit;">My orders</a>
+                  </button>
+
+                  <button type="button" class="btn btn-primary" onclick="location.href='/resturants'"
+                    style="background-color: #76c095;">
+                    <a href="/resturants" style="text-decoration: none; color: inherit;">My Homepage</a>
+                  </button>
+
+                  <button type="button" class="btn btn-primary" onclick="location.href='/logout'"
+                    style="background-color: #76c095;">
+                    <a href="/logout" style="text-decoration: none; color: inherit;">Logout</a>
+                  </button>
                 </div>
-        
-        
               </nav>
-        
             </div>
 
-
             <div class="container mt-5">
-
-
-<!-- 
-              <c:if test="${pendingCartCount > 0}">
-                <p>You have ${pendingCartCount} items in your cart.</p>
-              </c:if> -->
-              
-
               <c:if test="${!cart.isEmpty()}">
                 <h1 class="my-3">Your cart for Restaurant ${cart[0][1]}</h1>
                 <p>You have ${pendingCartCount} items in this .</p>
@@ -114,11 +137,11 @@ pageEncoding="UTF-8" %>
                       <td colspan="2">
                         <span class="fw-bold">Quantity: ${pendingCartCount}</span>
                       </td>
-  
+
                     </tr>
                   </tfoot>
                 </table>
-  
+
                 <div class="d-flex justify-content-center">
                   <form action="/proccedtocheckout/${cart[0][2]}" method="post">
                     <label for="proceed">Do you want to proceed to checkout?</label>
@@ -128,13 +151,32 @@ pageEncoding="UTF-8" %>
                 </div>
               </c:if>
 
-
-              
-              
- 
-
-
             </div>
+
+            <div style="width :100vw; height:100vh " >
+            </div>
+
+
+
+
+
+
+
+
+            <footer class="bg-light py-3">
+              <div class="container">
+                <div class="d-flex justify-content-between">
+                  <p class="text-muted">© 2023 Wajbat All rights reserved</p>
+                  <p class="text-muted">
+                    <a href="#">Legal Advice</a> |
+                    <a href="#">Privacy Policy</a> |
+                    <a href="#">Cookies Policy</a> |
+                    <a href="#">Information about user licenses</a>
+                  </p>
+                </div>
+              </div>
+            </footer>
+
             <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
           </body>
 

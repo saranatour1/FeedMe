@@ -42,34 +42,67 @@ pageEncoding="UTF-8" %>
                   transform: rotate(0deg);
                 }
               }
+
+              .btn-primary {
+                transition: transform 0.3s ease;
+              }
+
+              .btn-primary:hover {
+                transform: scale(1.1);
+              }
+
+              .custom-btn {
+                background-color: #daf6ff;
+              }
+
+              .custom-btn:hover {
+                background-color: #daf6ff;
+              }
+
+
+              body {
+                background-image: url('https://ik.imagekit.io/shadid/8888888.jpg?updatedAt=1684542333283');
+                background-size: cover;
+                background-repeat: no-repeat;
+              }
+              body {
+                overflow-x: hidden;
+              }
             </style>
           </head>
 
           <body>
             <div class="container-fluid w-100 ">
-
-              <nav class="container mx-auto d-flex my-4 justify-content-between">
-                <h3>Logo</h3>
+              <nav class="container mx-auto d-flex my-4 justify-content-between border-bottom border-gray">
+                <h3>wajbat</h3>
                 <div>
-                  <button type="button" class="btn btn-light position-relative ">
+
+                  <button type="button" class="btn btn-light position-relative custom-btn">
                     <a href="/cart"><i class="bi bi-cart"></i></a>
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                       ${pendingCartCount}+
                       <span class="visually-hidden">Cart </span>
                     </span>
                   </button>
-        
-                  <!-- <a href="/myorders">My orders </a> -->
-          
-              
-                  <a href="/resturants">Back to main page </a>
-                  <a href="/logout" class="btn btn-link"> Logout</a> 
-        
+
+                  <button type="button" class="btn btn-primary" onclick="location.href='/resturants'"
+                    style="background-color: #4d92e6;">
+                    <a href="/resturants" style="text-decoration: none; color: inherit;">My Homepage</a>
+                  </button>
+
+
+                  <button type="button" class="btn btn-primary" onclick="location.href='/logout'"
+                    style="background-color: #4d92e6;">
+                    <a href="/logout" style="text-decoration: none; color: inherit;">Logout</a>
+                  </button>
+
+
+
                 </div>
-        
-        
+
+
               </nav>
-        
+
             </div>
 
 
@@ -155,10 +188,25 @@ pageEncoding="UTF-8" %>
                   </tfoot>
                 </table>
               </c:if>
-
-
-
             </div>
+
+            <div style="width :100vw; height:100vh " >
+            </div>
+
+            <footer class="bg-light py-3">
+              <div class="container">
+                <div class="d-flex justify-content-between">
+                  <p class="text-muted">© 2023 Wajbat All rights reserved</p>
+                  <p class="text-muted">
+                    <a href="#">Legal Advice</a> |
+                    <a href="#">Privacy Policy</a> |
+                    <a href="#">Cookies Policy</a> |
+                    <a href="#">Information about user licenses</a>
+                  </p>
+                </div>
+              </div>
+            </footer>
+
             <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
           </body>
 
