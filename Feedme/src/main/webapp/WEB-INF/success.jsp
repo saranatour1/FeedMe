@@ -62,7 +62,7 @@ pageEncoding="UTF-8" %>
 
 
           <script>
-            var duration = 30; 
+            var duration = 10; 
             var seconds = 0;
 
             function printSeconds() {

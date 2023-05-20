@@ -48,7 +48,7 @@
                     <p >
                       <b class = "shadid"> sign up as a seller </b> 
                       
-                      <input type="checkbox" id="user_role" name="user_role" value="2">
+                      <input type="checkbox" id="user_role" name="user_role" path="userrole" value="2">
                     
                     </p>
                   <input type="submit" value="Submit" />

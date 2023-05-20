@@ -69,7 +69,7 @@ pageEncoding="UTF-8" %>
         <c:forEach var="res" items="${result}">
             <!-- the result value -->
             <div > 
-            <a href="/resturantss/${res[0]}">${res[1]} </a>
+            <a href="/resturants/${res[0]}">${res[1]} </a>
             </div>
 
         </c:forEach>
@@ -91,7 +91,7 @@ pageEncoding="UTF-8" %>
             </form>
             <p>
               <c:forEach var="res" items="${catoutput}">
-               <p><a href="/resturantss/${res[0]}">${res[1]} </a>
+               <p><a href="/resturants/${res[0]}">${res[1]} </a>
                </a></p> 
 
               </c:forEach>
