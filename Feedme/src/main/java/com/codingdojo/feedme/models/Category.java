@@ -53,6 +53,10 @@ public class Category {
   @DateTimeFormat(pattern = "yyyy-MM-dd")
   private Date updatedAt;
 
+  public Category(@NotEmpty(message = "Category is required!") String catName) {
+    this.catName = catName;
+  }
+
   public Category() {
   }
 

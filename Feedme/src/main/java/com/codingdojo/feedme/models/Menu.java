@@ -55,6 +55,10 @@ public class Menu {
   private List<MenuItem> menuItems;
 
   
+  public Menu(Resturant resturant) {
+    this.resturant = resturant;
+  }
+
   public Menu(Resturant resturant, List<MenuItem> menuItems) {
     this.resturant = resturant;
     this.menuItems = menuItems;

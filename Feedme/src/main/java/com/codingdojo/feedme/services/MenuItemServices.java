@@ -34,7 +34,9 @@ public class MenuItemServices {
     return menuItemRepo.findById(id).get();
   }
  
-  
+  public MenuItem savMenuItem(MenuItem menuItem){
+    return menuItemRepo.save(menuItem);
+  }
   
   /*
    * Find Menu Items By resturant menu Id

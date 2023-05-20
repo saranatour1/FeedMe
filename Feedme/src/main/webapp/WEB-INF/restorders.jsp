@@ -51,15 +51,9 @@ pageEncoding="UTF-8" %>
               <nav class="container mx-auto d-flex my-4 justify-content-between">
                 <h3>Logo</h3>
                 <div>
-                  <button type="button" class="btn btn-light position-relative ">
-                    <a href="/cart"><i class="bi bi-cart"></i></a>
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                      ${pendingCartCount}+
-                      <span class="visually-hidden">Cart </span>
-                    </span>
-                  </button>
+
         
-                  <a href="/myorders"> My orders </a>
+                  <!-- <a href="/myorders">My orders </a> -->
           
               
                   <a href="/resturants">Back to main page </a>
@@ -73,18 +67,11 @@ pageEncoding="UTF-8" %>
             </div>
 
 
+
             <div class="container mt-5">
+              <h3 class="my-3"> Your have these orders waiting for dilvery :</h3>
 
-
-<!-- 
-              <c:if test="${pendingCartCount > 0}">
-                <p>You have ${pendingCartCount} items in your cart.</p>
-              </c:if> -->
-              
-
-              <c:if test="${!cart.isEmpty()}">
-                <h1 class="my-3">Your cart for Restaurant ${cart[0][1]}</h1>
-                <p>You have ${pendingCartCount} items in this .</p>
+              <c:if test="${!pendingO.isEmpty()}">
                 <table class="table w-50 mx-auto">
                   <thead>
                     <tr>
@@ -96,7 +83,54 @@ pageEncoding="UTF-8" %>
                     </tr>
                   </thead>
                   <tbody>
-                    <c:forEach var="item" items="${cart}">
+                    <c:forEach var="item" items="${pendingO}">
+                      <tr>
+                        <td>${item[0]}</td>
+                        <td>${item[4]}</td>
+                        <!-- <td>${item[6]}</td> -->
+                        <td>${item[5]}</td>
+                        <td>${item[11]}</td>
+                      </tr>
+                    </c:forEach>
+                  </tbody>
+                  <tfoot>
+                    <form action="/changestatus" method="post" >
+                      <tr>
+                        <td colspan="2">
+                          <span class="fw-bold">Total: ${pendingO[0][10]} $</span>
+                        </td>
+                        <td colspan="2">
+                          <span class="fw-bold">Quantity: ${pendingCartCount}</span>
+                        </td>
+    
+                      </tr>
+                      <input type="hidden" value="${pendingO[0][2]}" name="orderId">
+                      <input type="submit" value="dilvered">
+                    </form>
+
+                  </tfoot>
+                </table>
+              </c:if>
+              <c:if test="${pendingO.isEmpty()}">
+              <p>You have no orders to be dilivered</p>
+              </c:if>
+
+
+              <h3 class="my-3"> these are the dilvered items:</h3>
+
+              <c:if test="${!dil.isEmpty()}">
+                <table class="table w-50 mx-auto">
+                  <thead>
+                    <tr>
+                      <th scope="col">count</th>
+                      <th scope="col">Item name</th>
+                      <!-- <th scope="col">Quantity</th> -->
+                      <th scope="col">Item price</th>
+                      <th scope="col">Location</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <c:forEach var="item" items="${dil}">
                       <tr>
                         <td>${item[0]}</td>
                         <td>${item[4]}</td>
@@ -109,29 +143,20 @@ pageEncoding="UTF-8" %>
                   <tfoot>
                     <tr>
                       <td colspan="2">
-                        <span class="fw-bold">Total: ${cart[0][10]} $</span>
+                        <span class="fw-bold">Total: ${dil[0][10]} $</span>
                       </td>
                       <td colspan="2">
-                        <span class="fw-bold">Quantity: ${pendingCartCount}</span>
+                        <span class="fw-bold">Quantity: ${dil.size()}</span>
                       </td>
   
                     </tr>
                   </tfoot>
                 </table>
-  
-                <div class="d-flex justify-content-center">
-                  <form action="/proccedtocheckout/${cart[0][2]}" method="post">
-                    <label for="proceed">Do you want to proceed to checkout?</label>
-                    <input type="submit" value="Submit" class="btn btn-light">
-                    <a href="/cancelorder/${cart[0][2]}" class="btn btn-link">Cancel order</a>
-                  </form>
-                </div>
+              </c:if>
+              <c:if test="${dil.isEmpty()}">
+              <p> No items yet</p>
               </c:if>
 
-
-              
-              
- 
 
 
             </div>

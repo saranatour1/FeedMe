@@ -23,6 +23,10 @@ public class MenuServices {
     return menuRepo.findById(id).get();
   }
 
+  public Menu saveMenu(Menu menu){
+    return menuRepo.save(menu);
+  }
+
   /*
    * Find Menu by Resturant ID,
    * 

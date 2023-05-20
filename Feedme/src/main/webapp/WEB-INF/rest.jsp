@@ -102,28 +102,48 @@ pageEncoding="UTF-8" %>
 
 
   
+<!-- allrest -->
+
+<!-- <c:forEach var="rating" items="${all_rest}">
+  <div class="my-3">
+  <a href="/resturants/${rating.id}"> ${rating.restName}</a>
+
+  <c:forEach var="r" items="${all_rating}">
+    <span>${Math.floor(r[2])}</span> 
+    <div class="progress w-25" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="5">
+      <div class="progress-bar" style="width: ${r[2]*20}%"></div>
+    </div>
+
+  </c:forEach>
+
+ 
+
+
+  </div>
+  </c:forEach> -->
+
+  <c:forEach var="rest" items="${all_rest}">
+  <div class="my-3">
+    <a href="/resturants/${rest.id}">${rest.restName}</a>
+
+    <c:set var="rating" value="${0}" /> 
+
+
+    <c:forEach var="r" items="${all_rating}">
+      <c:if test="${r[1] == rest.id}">
+        <c:set var="rating" value="${Math.floor(r[2])}" />
+      </c:if>
+    </c:forEach>
+
+    <span>${rating}</span> 
+    <div class="progress w-25" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="5">
+      <div class="progress-bar" style="width: ${rating * 20}px"></div>
+    </div>
+  </div>
+</c:forEach>
 
 
 
-        <c:forEach var="rating" items="${all_rating}">
-          <div class="my-3">
-          <a href="/resturants/${rating[1]}"> ${rating[0]}</a>
-         <span>${Math.floor(rating[2])}</span> 
-         
-          <div class="progress w-25" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="5">
-            <div class="progress-bar" style="width: ${rating[2]*20}%"></div>
-          </div>
-         <!--tbd  -->
-          <!-- <c:set var="ratingValue" value="${rating[1]}" />
-          <c:set var="maxRating" value="5" />
-          <div class="rating-stars">
-            <c:forEach begin="1" end="${maxRating}" var="i">
-              <span class="star${ratingValue >= i ? ' filled' : ''}"
-                >&#9734;</span>
-            
-            </c:forEach> -->
-          </div>
-          </c:forEach>
          
        
       </div>

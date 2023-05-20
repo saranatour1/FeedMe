@@ -114,5 +114,8 @@ public class UserService {
     return userRepo.count();
   }
 
+  public void updateUserInfo(User user){
+    userRepo.save(user);
+  }
 
 }

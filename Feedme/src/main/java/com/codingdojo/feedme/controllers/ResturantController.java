@@ -67,6 +67,12 @@ public class ResturantController {
 		// to collect all restaurants
 		Long newUserId = (Long) session.getAttribute("newUser");
 		User thisUser = userServ.findUserById(newUserId);
+
+		if(thisUser.getUserrole().getId() == 2 ){
+			return "redirect:/profile/" +newUserId ;
+		}
+
+
 		model.addAttribute("thisUser", thisUser);
 		List<Resturant> allRest = restServ.findAllResturants();
 
@@ -80,6 +86,7 @@ public class ResturantController {
 		List<Object[]> rating = rateServ.findAverageStarsPerRestaurant();
 		List<Object[]> searchResult = (List<Object[]>) session.getAttribute("searchResult");
 		model.addAttribute("all_rest", allRest); // all restaurants
+		// changed the filter here , it shows only the rated resturants
 		model.addAttribute("all_rating", rating); // rating
 		model.addAttribute("result", searchResult); // search result
 
@@ -110,6 +117,8 @@ public class ResturantController {
 		session.setAttribute("searchResult", allRest);
 		return "redirect:/resturants";
 	}
+
+
 
 	@GetMapping("/getresturantsbycat")
 	public String findResturantsByCat(@RequestParam(value = "catVal", required = false) List<Long> id,
@@ -149,7 +158,17 @@ public class ResturantController {
 		model.addAttribute("pendingCartCount", count);
 
 		// to find a single resturant
-		double avg = rateServ.findAverageRatingForRestaurant(id);
+		double avg =0.0;
+		if(resturant.getRestRatings().size()==0){
+			 avg =0.0;
+		}else{
+			 avg =Double.valueOf(rateServ.findAverageRatingForRestaurant(id));
+		}
+
+	
+		
+		// double averageRating = (avg != null) ? avg : 0.0;
+	
 		List<Object[]> x = restServ.findMenuWithCategoriesAndMenuItemsByResturantId(id);
 		System.out.println(avg); // 5.0
 		model.addAttribute("avg", avg);
@@ -159,9 +178,11 @@ public class ResturantController {
 		int count1 = x.size();
 		System.out.println(count1);
 
-
 		return "show_rest_information.jsp";
 	}
+
+
+
 
 
 

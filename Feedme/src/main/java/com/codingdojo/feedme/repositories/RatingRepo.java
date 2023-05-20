@@ -28,7 +28,7 @@ List<Object[]> findAverageStarsPerRestaurant();
     @Query(value = "SELECT AVG(stars) AS average_rating " +
             "FROM ratings " +
             "WHERE resturant_id = :restaurantId", nativeQuery = true)
-    double findAverageRatingForRestaurant(@Param("restaurantId") Long restaurantId);
+    Double findAverageRatingForRestaurant(@Param("restaurantId") Long restaurantId);
 	
 	
 	

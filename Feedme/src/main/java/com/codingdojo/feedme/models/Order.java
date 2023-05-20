@@ -33,9 +33,19 @@ public class Order {
 
   private double total;
   private int quantity;
+  //for dilivered or not
   private boolean orderStatus=false;
+  private boolean isproccessed =false;
 
 
+
+  public boolean isIsproccessed() {
+    return isproccessed;
+  }
+
+  public void setIsproccessed(boolean isproccessed) {
+    this.isproccessed = isproccessed;
+  }
 
   //many to many relatioship between orders and menuItems
   @ManyToMany(fetch = FetchType.LAZY)

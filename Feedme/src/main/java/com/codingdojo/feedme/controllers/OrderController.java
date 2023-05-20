@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.web.ServerProperties.Reactive.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -65,16 +66,18 @@ public class OrderController {
 		// System.out.println(cart);
 		model.addAttribute("pendingCartCount", count);
 		model.addAttribute("cart", cart);
-
+		session.setAttribute("checkout", false);
 		return "cart.jsp";
 	}
 
 	// handle transaction
 
 	@PostMapping("/proccedtocheckout/{orderId}")
-	public String success(@PathVariable("orderId") Long id) {
+	public String success(@PathVariable("orderId") Long id, HttpSession session) {
 		Order order = orderServ.findOrder(id);
-		order.setOrderStatus(true);
+		// session.setAttribute("checkout", true);
+
+		order.setIsproccessed(true);
 		orderServ.updateOrder(order);
 		return "redirect:/success";
 	}
@@ -140,6 +143,9 @@ public class OrderController {
 		Long newUserId = (Long) session.getAttribute("newUser");
 		User thisUser = userServ.findUserById(newUserId);
 		model.addAttribute("thisUser", thisUser);
+		if(thisUser.getUserrole().getId() ==2){
+			return "redirect:/myorders/rest";
+		}
 
 		List<Object[]> pendingOrders = orderServ.findPendingOrdersForUsers(newUserId);
 		

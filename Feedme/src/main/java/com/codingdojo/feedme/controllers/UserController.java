@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.codingdojo.feedme.models.LoginUser;
 import com.codingdojo.feedme.models.User;
 import com.codingdojo.feedme.models.UserRole;
+import com.codingdojo.feedme.services.UserRoleServices;
 import com.codingdojo.feedme.services.UserService;
 
 import jakarta.servlet.http.HttpSession;
@@ -24,10 +26,16 @@ public class UserController {
 	@Autowired
 	private UserService userServ;
 
+	@Autowired 
+	private UserRoleServices roleServ;
 
-
-	//About us page, not ready yet
-
+	/**
+ * Retrieves the registration page.
+ *
+ * @param newUser The new user object.
+ * @param model   The model for the view.
+ * @return The name of the registration page.
+ */
 
 	@GetMapping("/register")
 	public String register(@ModelAttribute("newUser") User newUser, Model model) {
@@ -39,16 +47,24 @@ public class UserController {
 	// Post operation for Regesteration handling
 	@PostMapping("/register")
 	public String register(@Valid @ModelAttribute("newUser") User newUser,
-			BindingResult result, Model model, HttpSession session ,@RequestParam("user_role") int user_role) {
+			BindingResult result, Model model, HttpSession session , @RequestParam(value = "user_role", defaultValue = "1") Long userRole ,RedirectAttributes redirectAttributes ) {
 		// placed the user into a variable
+	
+
 		User registeredUser = userServ.register(newUser, result);
+		UserRole role = roleServ.findUserRole(userRole);
+			System.out.println(userRole);
 
-		// UserRole userRole = userServ.f
-		// if(user_role == 2){
+		if(registeredUser ==null){
+			redirectAttributes.addFlashAttribute("error", "you must add all information to procceed");
+			return "redirect:/register";
+		}
+	
+		registeredUser.setUserrole(role);
+		userServ.updateUserInfo(registeredUser);
 
-		// }
 		// registeredUser.setUserrole(2);
-		System.out.print(user_role);
+		// System.out.print(user_role);
 		session.setAttribute("newUser", registeredUser);
 		if (result.hasErrors()) {
 			// this is needed at all times to capture the incorrect user values
