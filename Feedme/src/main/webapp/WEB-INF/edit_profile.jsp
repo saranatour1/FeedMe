@@ -33,7 +33,7 @@
 
               <div class="left">
                 <h1 class="Signup">Add your resturant, don't worry you can edit it later! </h1>
-                <form:form action="/editaresturnattouser/${editRest.id }" method="post" modelAttribute="editRest" class="container w-200">
+                <form:form action="/editaresturnattouser/${editRest.id}" method="post" modelAttribute="editRest" class="container w-200">
                 <input type="hidden" name="_method" value="put">
                   <p>
 
