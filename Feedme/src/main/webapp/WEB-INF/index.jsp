@@ -22,31 +22,78 @@
               crossorigin="anonymous"></script>
             <link rel="stylesheet" type="text/css" href="/css/main.css">
             <script src="script.js"></script>
+            <style>
+              .btn.btn-light.position-relative:hover {
+                animation: tilt-shaking 0.5s infinite;
+              }
 
+              @keyframes tilt-shaking {
+                0% {
+                  transform: rotate(0deg);
+                }
+
+                25% {
+                  transform: rotate(5deg);
+                }
+
+                50% {
+                  transform: rotate(0eg);
+                }
+
+                75% {
+                  transform: rotate(-5deg);
+                }
+
+                100% {
+                  transform: rotate(0deg);
+                }
+              }
+
+              .btn-primary {
+                transition: transform 0.3s ease;
+              }
+
+              .btn-primary:hover {
+                transform: scale(1.1);
+              }
+
+              .custom-btn {
+                background-color: #fbd500;
+              }
+
+              .custom-btn:hover {
+                background-color: #fbd500;
+              }
+
+              body {
+                overflow-x: hidden;
+              }
+
+            </style>
           </head>
 
           <body>
 
+            <div class="container-fluid w-100 ">
+              <nav class="container mx-auto d-flex my-4 justify-content-between border-bottom border-gray">
+                <h3>wajbat</h3>
+                <div>
 
+                  <button type="button" class="btn btn-primary" onclick="location.href='/login'"
+                    style="background-color: #76c095;">
+                    <a href="/login" style="text-decoration: none; color: inherit;"> Sign in</a>
+                  </button>
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-              <div class="container-fluid">
-                <a class="navbar-brand" href="#">Wajbat</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                  aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-              </div>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a href="/login"> Sign in</a> |
-                    <a href="/register">Sign up</a>
-                  </li>
-              </div>
-            </nav>
-            <div class="photo">
+                  <button type="button" class="btn btn-primary" onclick="location.href='/register'"
+                    style="background-color: #4d92e6;">
+                    <a href="/register" style="text-decoration: none; color: inherit;">Sign up</a>
+                  </button>
+                </div>
+              </nav>
+            </div>
+
+            
+            <div class="photo container-fluid w-100 mx-auto ">
               <img src="https://ik.imagekit.io/shadid/55555.jpg?updatedAt=1684466122909" alt="" width="1500px"
                 height="720px">
             </div>
@@ -60,10 +107,10 @@
               rice and a selection of vibrant salads, pickles, and tantalizing sauces, our Arab kabab is a feast for all
               the senses. Experience the essence of Middle Eastern cuisine and let our Arab kabab transport you to the
               heart of the Arab world, where culinary traditions come alive with every delicious bite.
-
             </p>
-            <div class="photo">
-              <img src="https://ik.imagekit.io/shadid/666666.jpg?updatedAt=1684469546479" alt="" width="1500px"
+            
+            <div class="photo container-fluid w-100">
+              <img  src="https://ik.imagekit.io/shadid/666666.jpg?updatedAt=1684469546479" alt="" width="1500px"
                 height="720px">
             </div>
             <p class="fade-in">
@@ -78,8 +125,8 @@
               delightful combination of textures and tastes.
             </p>
 
-            <div class="photo">
-              <img src="https://ik.imagekit.io/shadid/77777.jpg?updatedAt=1684469720441" alt="" width="1500px"
+            <div class="photo container-fluid w-100 ">
+              <img class="img-fluid" src="https://ik.imagekit.io/shadid/77777.jpg?updatedAt=1684469720441" alt="" width="1500px"
                 height="720px">
             </div>
             <p class="fade-in">
@@ -98,10 +145,8 @@
               flavors like BBQ chicken with tangy sauce, succulent chicken, and caramelized onions, we have something
               for everyone. Our toppings are carefully selected, ensuring the highest quality and optimal flavor balance
               in every bite.
-
-
-
             </p>
+          </div>
 
 
 
@@ -136,45 +181,20 @@
 
 
 
-            <div class="d-flex justify-content-between border-top ">
-              <div>
-                <p>Palestine | English</p>
-              </div>
-              <div>
-                <p>
-                  &copy; 2023 Ashlo All rights reserved | <a href="#">Legal Advice </a> | <a href="#">Privacy
-                    Policy</a> | <a href="#">Cookies Policy </a>|<a href="#"> Information about user licenses</a>
-                </p>
-              </div>
-
-              <!-- <div>
-                <p id="toggleCities">Cities</p>
-                <ul id="cityList" style="display: none;">
-                  <li>Nablus</li>
-                  <li>Ramallah</li>
-                  <li>Tulkarm</li>
-                  <li>Jenin</li>
-                  <li>Bethlehem</li>
-                  <li>Hebron</li>
-                  <li>Jericho</li>
-                </ul>
-              </div> -->
-              <!-- <select id="city-select" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                <option selected>Cities</option>
-                <option value="1">Nablus</option>
-                <option value="2">Ramallah</option>
-                <option value="3">Tulkarm</option>
-              </select> -->
               
-              <div class="mt-3">
-                <select id="city-select" class="form-select form-select-lg">
-                  <option selected>Cities</option>
-                  <option value="1">Nablus</option>
-                  <option value="2">Ramallah</option>
-                  <option value="3">Tulkarm</option>
-                </select>
-              </div>
-            </div>
+              <footer class="bg-light py-3">
+                <div class="container">
+                  <div class="d-flex justify-content-between">
+                    <p class="text-muted">© 2023 Wajbat All rights reserved</p>
+                    <p class="text-muted">
+                      <a href="#">Legal Advice</a> |
+                      <a href="#">Privacy Policy</a> |
+                      <a href="#">Cookies Policy</a> |
+                      <a href="#">Information about user licenses</a>
+                    </p>
+                  </div>
+                </div>
+              </footer>
               
               
 

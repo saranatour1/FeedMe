@@ -42,10 +42,88 @@ pageEncoding="UTF-8" %>
                   transform: rotate(0deg);
                 }
               }
+              .btn.btn-light.position-relative:hover {
+                animation: tilt-shaking 0.5s infinite;
+              }
+
+              @keyframes tilt-shaking {
+                0% {
+                  transform: rotate(0deg);
+                }
+
+                25% {
+                  transform: rotate(5deg);
+                }
+
+                50% {
+                  transform: rotate(0eg);
+                }
+
+                75% {
+                  transform: rotate(-5deg);
+                }
+
+                100% {
+                  transform: rotate(0deg);
+                }
+              }
+
+              .btn-primary {
+                transition: transform 0.3s ease;
+              }
+
+              .btn-primary:hover {
+                transform: scale(1.1);
+              }
+
+              .custom-btn {
+                background-color: #F8B282;
+              }
+
+              .custom-btn:hover {
+                background-color: #F8B282;
+              }
+
+
+              body {
+                background-image: url('https://ik.imagekit.io/shadid/10101010101010.jpg?updatedAt=1684551325729');
+                background-size: cover;
+                background-repeat: no-repeat;
+              }
+              body {
+                overflow-x: hidden;
+              }
             </style>
           </head>
 
           <body>
+
+            <div class="container-fluid w-100 ">
+              <nav class="container mx-auto d-flex my-4 justify-content-between border-bottom border-gray">
+                <h3>wajbat</h3>
+                <div>
+
+                  <button type="button" class="btn btn-light position-relative custom-btn">
+                    <a href="/cart"><i class="bi bi-cart"></i></a>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                      ${pendingCartCount}+
+                      <span class="visually-hidden">Cart </span>
+                    </span>
+                  </button>
+
+                  <button type="button" class="btn btn-primary" onclick="location.href='/myorders'"
+                    style="background-color: #76c095;">
+                    <a href="/myorders" style="text-decoration: none; color: inherit;">My orders</a>
+                  </button>
+
+
+                  <button type="button" class="btn btn-primary" onclick="location.href='/logout'"
+                    style="background-color: #4d92e6;">
+                    <a href="/logout" style="text-decoration: none; color: inherit;">Logout</a>
+                  </button>
+                </div>
+              </nav>
+            </div>
 
             <div class="container d-flex justify-content-between align-items-center mt-5">
 
@@ -84,7 +162,22 @@ pageEncoding="UTF-8" %>
 
 
           
+<div style="width :100vw; height:100vh " >
+</div>
 
+<footer class="bg-light py-3">
+  <div class="container">
+    <div class="d-flex justify-content-between">
+      <p class="text-muted">© 2023 Wajbat All rights reserved</p>
+      <p class="text-muted">
+        <a href="#">Legal Advice</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Cookies Policy</a> |
+        <a href="#">Information about user licenses</a>
+      </p>
+    </div>
+  </div>
+</footer>
 
           
             <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
