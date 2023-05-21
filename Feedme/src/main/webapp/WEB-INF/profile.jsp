@@ -18,6 +18,11 @@
               <link rel="stylesheet"
                 href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
               <style>
+                body {
+                background-image: url('https://ik.imagekit.io/shadid/999999.jpg?updatedAt=1684549259272');
+                background-size: cover;
+                background-repeat: no-repeat;
+              }
                 .btn.btn-light.position-relative:hover {
                   animation: tilt-shaking 0.5s infinite;
                 }
@@ -42,24 +47,33 @@
                   100% {
                     transform: rotate(0deg);
                   }
-                }
+                
+                
               </style>
             </head>
 
             <body>
-              <div class="container-fluid w-100 ">
-                <nav class="container mx-auto d-flex my-4 justify-content-between">
-                  <h3>Logo</h3>
-                  <div>
-                    <a href="/myorders/rest"> My orders </a>
-                    <a href="/logout" class="btn btn-link"> Logout</a>
-                  </div>
-                </nav>
-              </div>
+    <div class="container-fluid w-100 ">
+              <nav class="container mx-auto d-flex my-4 justify-content-between border-bottom border-gray">
+                <img class="logo" src="https://ik.imagekit.io/shadid/1515151.svg?updatedAt=1684593623048" alt="">
+        
+                <div>
+        
+                  <button type="button" class="btn btn-primary" onclick="location.href='/myorders'"
+                    style="background-color: #c0a67a;">
+                    <a href="/myorders" style="text-decoration: none; color: inherit;">My orders</a>
+                  </button>
+        
+        
+                  <button type="button" class="btn btn-primary" onclick="location.href='/logout'"
+                    style="background-color: #f36c37;">
+                    <a href="/logout" style="text-decoration: none; color: inherit;">Logout</a>
+                  </button>
+                </div>
+              </nav>
+            </div>
               <div class="container mt-5">
-                <p>
-                  ${rest.id}
-                </p>
+              
                 <h3>${rest.restName}</h3>
                 <p>${rest.descreption}</p>
                 <p>Opens at ${fn:substring(rest.openingTime, 11, 16)} and closes at ${fn:substring(rest.closingTime, 11,
@@ -104,3 +118,4 @@
               </div>
               <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
             </body>
+            </html>
