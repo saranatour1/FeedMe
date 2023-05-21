@@ -44,6 +44,10 @@ public class MenuItem {
   private double foodPrice;
  
   
+  public void setFoodPrice(double foodPrice) {
+    this.foodPrice = foodPrice;
+  }
+
   // menu and menu items have a relationship of many to one
   // manytoone side, between menu and menu items
   @ManyToOne(fetch = FetchType.LAZY)
@@ -98,9 +102,6 @@ public class MenuItem {
     return foodPrice;
   }
 
-  public void setFoodPrice(Double foodPrice) {
-    this.foodPrice = foodPrice;
-  }
 
   @Column(updatable = false)
   @DateTimeFormat(pattern = "yyyy-MM-dd")

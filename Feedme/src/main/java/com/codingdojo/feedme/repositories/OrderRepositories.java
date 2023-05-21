@@ -24,11 +24,20 @@ public interface OrderRepositories extends CrudRepository<Order,Long> {
 	"INNER JOIN resturants r ON resturant_id = r.id " +
 	"INNER JOIN orders_menuitems omi ON order_id = o.id " +
 	"INNER JOIN menu_items mi ON item_id = mi.id " +
-	"WHERE users.id = :id AND isproccessed =0 " +
+	"WHERE users.id = :id AND isproccessed =1 and o.order_status = 0 " +
 	"GROUP BY o.id, mi.id, mi.food_name, mi.food_price, o.quantity, o.order_status, o.resturant_id, o.user_id, o.total, r.address", nativeQuery = true)
 	List<Object[]> findPendingOrdersForUser(@Param("id") Long id);
 	
 
+	@Query(value = "SELECT count(mi.id), r.rest_name, o.id, mi.id as item_id, mi.food_name, mi.food_price, o.quantity, o.order_status, o.resturant_id, o.user_id, o.total, r.address " +
+	"FROM orders o " +
+	"INNER JOIN users ON users.id = user_id " +
+	"INNER JOIN resturants r ON resturant_id = r.id " +
+	"INNER JOIN orders_menuitems omi ON order_id = o.id " +
+	"INNER JOIN menu_items mi ON item_id = mi.id " +
+	"WHERE users.id = :id AND isproccessed =0 and o.order_status = 0 " +
+	"GROUP BY o.id, mi.id, mi.food_name, mi.food_price, o.quantity, o.order_status, o.resturant_id, o.user_id, o.total, r.address", nativeQuery = true)
+	List<Object[]> findPendingCartForUser(@Param("id") Long id);
 
 
 //select the dilevered cart orders

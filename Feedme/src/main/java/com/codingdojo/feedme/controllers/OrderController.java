@@ -58,7 +58,7 @@ public class OrderController {
 		model.addAttribute("thisUser", thisUser);
 
 		// cart numbers
-		List<Object[]> cart = orderServ.findPendingOrdersForUsers(newUserId);
+		List<Object[]> cart = orderServ.findPendingCartForUsers(newUserId);
 		// List<Object[]> dilvOrders = orderServ.findPendingOrdersForUsers(newUserId);
 
 		int count = cart.size();
@@ -143,14 +143,16 @@ public class OrderController {
 		Long newUserId = (Long) session.getAttribute("newUser");
 		User thisUser = userServ.findUserById(newUserId);
 		model.addAttribute("thisUser", thisUser);
+
 		if(thisUser.getUserrole().getId() ==2){
 			return "redirect:/myorders/rest";
 		}
 
 		List<Object[]> pendingOrders = orderServ.findPendingOrdersForUsers(newUserId);
+		List<Object[]> cart = orderServ.findPendingCartForUsers(newUserId);
 		
 		List<Object[]> diliveredOrders = orderServ.findDileverdOrders(newUserId);
-		int countPending = pendingOrders.size();
+		int countPending = cart.size();
 		int countDilivered = diliveredOrders.size();
 
 		/* 
