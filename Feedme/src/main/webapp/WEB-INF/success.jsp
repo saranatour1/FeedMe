@@ -100,7 +100,8 @@ pageEncoding="UTF-8" %>
 
             <div class="container-fluid w-100 ">
               <nav class="container mx-auto d-flex my-4 justify-content-between border-bottom border-gray">
-                <h3>wajbat</h3>
+                <img class="logo" src="https://ik.imagekit.io/shadid/1515151.svg?updatedAt=1684593623048" alt="">
+
                 <div>
 
                   <button type="button" class="btn btn-light position-relative custom-btn">
@@ -139,26 +140,6 @@ pageEncoding="UTF-8" %>
  
 
 
-          <script>
-            var duration = 30; 
-            var seconds = 0;
-
-            function printSeconds() {
-              var displayElement = document.getElementById('timer');
-              displayElement.textContent = seconds + " second(s)";
-
-
-              if (seconds >= duration) {
-                window.location.href = "/resturants";
-              }
-            }
-
-            setInterval(function() {
-              seconds++;
-              printSeconds();
-            }, 1000);
-          </script>
-
 
 
           
@@ -178,6 +159,27 @@ pageEncoding="UTF-8" %>
     </div>
   </div>
 </footer>
+
+<script>
+  var duration = 30; 
+  var seconds = 0;
+
+  function printSeconds() {
+    var displayElement = document.getElementById('timer');
+    displayElement.textContent = seconds + " second(s)";
+
+
+    if (seconds >= duration) {
+      window.location.href = "/resturants";
+    }
+  }
+
+  setInterval(function() {
+    seconds++;
+    printSeconds();
+  }, 1000);
+</script>
+
 
           
             <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>

@@ -20,6 +20,7 @@
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
               integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
               crossorigin="anonymous"></script>
+
             <link rel="stylesheet" type="text/css" href="/css/main.css">
             <script src="script.js"></script>
             <style>
@@ -67,18 +68,19 @@
 
               body {
                 overflow-x: hidden;
+                background-color: #d9e4df;
               }
-
             </style>
+
           </head>
 
           <body>
 
             <div class="container-fluid w-100 ">
               <nav class="container mx-auto d-flex my-4 justify-content-between border-bottom border-gray">
-                <h3>wajbat</h3>
-                <div>
+                <img class="logo" src="https://ik.imagekit.io/shadid/1515151.svg?updatedAt=1684593623048" alt="">
 
+                <div>
                   <button type="button" class="btn btn-primary" onclick="location.href='/login'"
                     style="background-color: #76c095;">
                     <a href="/login" style="text-decoration: none; color: inherit;"> Sign in</a>
@@ -92,96 +94,150 @@
               </nav>
             </div>
 
-            
-            <div class="photo container-fluid w-100 mx-auto ">
-              <img src="https://ik.imagekit.io/shadid/55555.jpg?updatedAt=1684466122909" alt="" width="1500px"
-                height="720px">
-            </div>
-            <p class="fade-in"> Indulge in the tantalizing flavors of Arab kabab at our restaurant. Our expert chefs
-              skillfully prepare this iconic Middle Eastern dish to perfection, ensuring a memorable dining experience
-              for our guests. Savor the succulent pieces of marinated meat, whether it's tender beef, juicy lamb, or
-              flavorful chicken, grilled to perfection over open flames. The secret lies in our carefully crafted
-              marinade, combining aromatic spices, fragrant herbs, and zesty citrus accents, creating a symphony of
-              flavors that tantalize the taste buds. Each bite of our Arab kabab reveals a delightful harmony of smoky
-              char, moist and tender meat, and a burst of enticing seasonings. Accompanied by fluffy saffron-infused
-              rice and a selection of vibrant salads, pickles, and tantalizing sauces, our Arab kabab is a feast for all
-              the senses. Experience the essence of Middle Eastern cuisine and let our Arab kabab transport you to the
-              heart of the Arab world, where culinary traditions come alive with every delicious bite.
-            </p>
-            
-            <div class="photo container-fluid w-100">
-              <img  src="https://ik.imagekit.io/shadid/666666.jpg?updatedAt=1684469546479" alt="" width="1500px"
-                height="720px">
-            </div>
-            <p class="fade-in">
-              At our restaurant, we take pride in crafting mouthwatering burgers that are sure to satisfy your cravings.
-              Our burgers are a true culinary masterpiece, combining quality ingredients, expert grilling techniques,
-              and a touch of culinary creativity. Prepare yourself for a tantalizing journey as we introduce you to the
-              world of gourmet burgers.
 
-              Each burger begins with a foundation of a freshly baked, soft and slightly toasted bun. We believe that
-              the bun is just as important as the fillings, providing the perfect vessel for a harmonious flavor
-              experience. Our buns are carefully selected to complement the burger patty and toppings, ensuring a
-              delightful combination of textures and tastes.
-            </p>
+            <div id="carouselExample" class="carousel slide">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="https://ik.imagekit.io/shadid/77777.jpg?updatedAt=1684469720441"
+                    class="d-block w-100 object-fit-cover" height="600px" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="https://ik.imagekit.io/shadid/666666.jpg?updatedAt=1684469546479"
+                    class="d-block w-100 object-fit-cover" height="600px" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="https://ik.imagekit.io/shadid/2323m.jpg?updatedAt=1684611255679"
+                    class="d-block w-100 object-fit-cover" height="600px" alt="...">
+                </div>
 
-            <div class="photo container-fluid w-100 ">
-              <img class="img-fluid" src="https://ik.imagekit.io/shadid/77777.jpg?updatedAt=1684469720441" alt="" width="1500px"
-                height="720px">
-            </div>
-            <p class="fade-in">
-              At our restaurant, we specialize in creating artisanal pizzas that will transport you to a world of
-              gastronomic delight. Our pizzas are meticulously handcrafted using the finest ingredients, traditional
-              techniques, and a dash of culinary passion. From the moment you take your first bite, you'll understand
-              why pizza has become an iconic global favorite.
-
-              Our journey begins with the foundation - the dough. We take pride in making our pizza dough from scratch,
-              allowing it to rise to perfection and develop a light and airy texture. Every bite of our pizza crust is a
-              symphony of crispiness on the outside and chewiness on the inside, creating the ideal canvas for our
-              flavorful toppings.
-
-              Speaking of toppings, we offer a wide variety to suit every taste and preference. Whether you're a fan of
-              classic combinations like Margherita with fresh tomatoes, basil, and creamy mozzarella or adventurous
-              flavors like BBQ chicken with tangy sauce, succulent chicken, and caramelized onions, we have something
-              for everyone. Our toppings are carefully selected, ensuring the highest quality and optimal flavor balance
-              in every bite.
-            </p>
-          </div>
-
-
-
-
-
-
-
-
-            <!-- Shadid please add any extra text -->
-            <div class="d-flex justify-content-between border-bottom">
-              <div>
-                <p>
-                  we have more than +${restcount} Resturants in our system
-                </p>
-                <img src="https://ik.imagekit.io/shadid/search.png?updatedAt=1684470487791" alt="">
               </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
 
-              <div>
-                <p>
-                  We have more than +${ordercount} orders in Total!
-                </p>
-                <img src="https://ik.imagekit.io/shadid/choose.png?updatedAt=1684470487902" alt="">
+            <div class="row justify-content-center mt-3">
+              <div class="col-md-4 ">
+                <p>Welcome to our restaurant, where gastronomy meets elegance and taste takes center stage. We pride
+                  ourselves on providing a
+                  memorable dining experience that combines exceptional cuisine, impeccable service,
+                  and a warm and inviting atmosphere.
+
+                  At our restaurant, we believe that great food is at the heart of any remarkable dining experience. Our
+                  talented team of chefs meticulously
+                  crafts each dish with the finest ingredients, ensuring a burst of flavors that will tantalize your
+                  taste buds.
+                  From signature appetizers to delectable main courses and indulgent desserts, our menu showcases a
+                  fusion of culinary traditions and innovative creations<br>
+                  Come and experience the epitome of culinary excellence at our restaurant. Book your table today and
+                  embark on a memorable gastronomic adventure. We look forward to serving you soon.
+
               </div>
+              <div class="col-md-4">
+                <p>To complement your meal, our extensive wine list features a curated selection of local and
+                  international wines. Our knowledgeable sommeliers are happy to guide you in
+                  choosing the perfect pairing for your chosen dishes, elevating your dining experience to new heights.
+                  <br>
+                  We understand that dietary preferences and restrictions are important considerations for our guests.
+                  That's why we offer a range of vegetarian, vegan, and gluten-free options, ensuring that everyone can
+                  savor the flavors of our cuisine.
+                  In addition to our exceptional dining experience, we also provide catering services for special
+                  events. Whether it's a wedding, corporate function, or social gathering, our experienced team will
+                  work closely with you to create a customized menu that exceeds your expectations. <br>
 
-              <div>
-                <p>
-                  we have more than + ${usercount} satisfied users!
-                </p>
-                <img src="https://ik.imagekit.io/shadid/order.png?updatedAt=1684470487786" alt="">
               </div>
             </div>
 
 
 
-              
+
+              <div class="container">
+                <div class="row">
+                  <div class="col-8">
+                    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img src="https://ik.imagekit.io/shadid/1212m.jpg?updatedAt=1684611251928"
+                            class="d-block w-100 object-fit-cover" height="600px" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                          <img src="https://ik.imagekit.io/shadid/4545m.jpg?updatedAt=1684611439472"
+                            class="d-block w-100 object-fit-cover" height="600px" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                          <img
+                            src="https://ik.imagekit.io/shadid/5656m.jpg?updatedAt=1684611259388"
+                            class="d-block w-100 object-fit-cover" height="600px" alt="...">
+                        </div>
+                      </div>
+                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-4" > 
+                    <div class=" d-flex align-items-center justify-content-center flex-column  h-100">
+                      <img class="img-fluid" src="https://ik.imagekit.io/shadid/pipse_AdobeExpress.gif?updatedAt=1684651279231" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+                <div class="embed-responsive embed-responsive-16by9 mt-4">
+                  <video class="embed-responsive-item w-100 h-30" autoplay loop muted>
+                    <source src="https://ik.imagekit.io/shadid/fooooooood.mp4?updatedAt=1684607536978" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                
+                
+
+
+
+              <!-- Shadid please add any extra text -->
+              <div class="d-flex justify-content-between border-bottom">
+                <div>
+                  <p>
+                    we have more than +${restcount} Resturants in our system
+                  </p>
+                  <img src="https://ik.imagekit.io/shadid/search.png?updatedAt=1684470487791" alt="">
+                </div>
+
+                <div>
+                  <p>
+                    We have more than +${ordercount} orders in Total!
+                  </p>
+                  <img src="https://ik.imagekit.io/shadid/choose.png?updatedAt=1684470487902" alt="">
+                </div>
+
+                <div>
+                  <p>
+                    we have more than + ${usercount} satisfied users!
+                  </p>
+                  <img src="https://ik.imagekit.io/shadid/order.png?updatedAt=1684470487786" alt="">
+                </div>
+              </div>
+
+
+
+
               <footer class="bg-light py-3">
                 <div class="container">
                   <div class="d-flex justify-content-between">
@@ -195,20 +251,8 @@
                   </div>
                 </div>
               </footer>
-              
-              
 
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+            </body>
 
-              
-
-
-              </div>
-              <!-- <div class="carousel-item active ">
-              <video autoplay="" loop="" playsinline="" muted="">
-                  <source src="https://ik.imagekit.io/shadid/X2Download.app-Church_s_Chicken_Commercial_2019_-__USA__720p_.mp4?updatedAt=1684410691186">
-                  Your browser does not support the video tag.
-              </video>
-          <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-            <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-          </body>
-          </html>
+            </html>
