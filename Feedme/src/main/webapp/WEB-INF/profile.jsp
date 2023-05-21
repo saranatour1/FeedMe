@@ -18,8 +18,8 @@
               <link rel="stylesheet"
                 href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
               <style>
-                body {
-                background-image: url('https://ik.imagekit.io/shadid/999999.jpg?updatedAt=1684549259272');
+              body {
+                background-image: url('https://ik.imagekit.io/shadid/111111111f.jpg?updatedAt=1684691284537');
                 background-size: cover;
                 background-repeat: no-repeat;
               }
@@ -47,13 +47,12 @@
                   100% {
                     transform: rotate(0deg);
                   }
-                
-                
+                }
               </style>
             </head>
 
             <body>
-    <div class="container-fluid w-100 ">
+          <div class="container-fluid w-100 ">
               <nav class="container mx-auto d-flex my-4 justify-content-between border-bottom border-gray">
                 <img class="logo" src="https://ik.imagekit.io/shadid/1515151.svg?updatedAt=1684593623048" alt="">
         
@@ -72,22 +71,42 @@
                 </div>
               </nav>
             </div>
-              <div class="container mt-5">
-              
-                <h3>${rest.restName}</h3>
-                <p>${rest.descreption}</p>
-                <p>Opens at ${fn:substring(rest.openingTime, 11, 16)} and closes at ${fn:substring(rest.closingTime, 11,
-                  16)}</p>
-                <a href="tel:${rest.restNumber}">Call us at ${rest.restNumber}</a>
-                <p>this resturant has gained this amount of likes ${Math.floor(avg)} </p>
+           
+     
+       
+            <div class="card bg-light w-50 mx-auto">
+            <div class="card-header">
+              <h3>
+                <i class="bi bi-file-person"></i> ${rest.restName}
+              </h3>
+            </div>
+            <div class="card-body">
+              <div class="text-start">
+                <p>
+                  <i class="bi bi-card-list"></i> ${rest.descreption}
+                </p>
+                <p>
+                  <i class="bi bi-clock-history"></i> Opens at ${fn:substring(rest.openingTime, 11, 16)} and closes at ${fn:substring(rest.closingTime, 11, 16)}
+                </p>
+                <p>
+                  <i class="bi bi-geo-alt"></i> Located at ${rest.address}
+                </p>
+                <a href="tel:${rest.restNumber}">
+                  <i class="bi bi-headset"></i> Call us at ${rest.restNumber} </a>
+              </div>
+               <p>this resturant has gained this amount of likes ${Math.floor(avg)} </p>
                 <div class="progress w-25" role="progressbar" aria-label="Basic example" aria-valuenow="0"
                   aria-valuemin="0" aria-valuemax="5">
                   <div class="progress-bar" style="width: ${avg*20}%"></div>
                 </div>
-                <div>
-                  <a href="/addmenuitemstomenu" class="btn btn-link"> edit menu </a>
+            </div>
+            <div class="card-footer">
+            
+                <a href="/addmenuitemstomenu" class="btn btn-link"> edit menu </a>
                   <a href="/editresturantprofile/${rest.id}" class="btn btn-link">edit profile</a>
-                </div>
+            </div>
+          </div>
+             
                 <div class="mx-auto">
                   <h1 class="my-3">Menu Items</h1>
                   <table class="table table-striped table-bordered">
@@ -118,4 +137,3 @@
               </div>
               <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
             </body>
-            </html>
