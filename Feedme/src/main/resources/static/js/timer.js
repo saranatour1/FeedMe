@@ -1,17 +1,16 @@
-var duration = 10; 
-var seconds = 0;
+var duration = 10;
+var seconds = duration;
 
 function printSeconds() {
   var displayElement = document.getElementById('timer');
   displayElement.textContent = seconds + " second(s)";
 
-
-  if (seconds >= duration) {
-    window.location.href = "/resturants";
+  if (seconds <= 0) {
+    window.location.href = "/restaurants";
   }
 }
 
 setInterval(function() {
-  seconds++;
+  seconds--;
   printSeconds();
 }, 1000);
