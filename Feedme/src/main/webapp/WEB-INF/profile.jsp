@@ -86,7 +86,7 @@
               </nav>
               
 
-              <c:if test="${rest.id==10}">
+              <c:if test="${rest.id==17}">
             <div id="carouselExample" class="carousel slide">
               <div class="carousel-inner">
                 <div class="carousel-item active">

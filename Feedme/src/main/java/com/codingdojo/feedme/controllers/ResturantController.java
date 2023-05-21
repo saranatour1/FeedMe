@@ -85,7 +85,7 @@ public class ResturantController {
 		List<Resturant> allRest = restServ.findAllResturants();
 
 		// cart numbers
-		List<Object[]> cart = orderServ.findPendingOrdersForUsers(newUserId);
+		List<Object[]> cart = orderServ.findPendingCartForUsers(newUserId);
 		int count = cart.size();
 
 		// System.out.println(cart);
@@ -165,7 +165,7 @@ public class ResturantController {
 		System.out.println(locationLink.get("placeId"));
 
 		// cart numbers
-		List<Object[]> cart = orderServ.findPendingOrdersForUsers(newUserId);
+		List<Object[]> cart = orderServ.findPendingCartForUsers(newUserId);
 		int count = cart.size();
 
 		// System.out.println(cart);

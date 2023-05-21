@@ -44,6 +44,10 @@ public class OrderServices {
     return orderRepo.findPendingOrdersForUser(id);
   }
 
+  public List<Object[]> findPendingCartForUsers(Long id){
+    return orderRepo.findPendingCartForUser(id);
+  }
+
   public List<Object[]> findPendingItemsByResturantId(Long id){
 
     return orderRepo.findPendingOrdersForRest(id);
