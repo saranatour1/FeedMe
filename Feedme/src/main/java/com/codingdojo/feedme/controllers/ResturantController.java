@@ -54,8 +54,10 @@ public class ResturantController {
 	private final EnvironmentVariableProvider envProvider;
 
 	public ResturantController(EnvironmentVariableProvider envProvider) {
-		this.envProvider = envProvider;
+			this.envProvider = envProvider;
 	}
+
+
 
 	@RequestMapping("/")
 	public String aboutUs(Model model) {
@@ -77,9 +79,10 @@ public class ResturantController {
 		Long newUserId = (Long) session.getAttribute("newUser");
 		User thisUser = userServ.findUserById(newUserId);
 
-		if (thisUser.getUserrole().getId() == 2) {
-			return "redirect:/profile/" + newUserId;
+		if(thisUser.getUserrole().getId() == 2 ){
+			return "redirect:/profile/" +newUserId ;
 		}
+
 
 		model.addAttribute("thisUser", thisUser);
 		List<Resturant> allRest = restServ.findAllResturants();
@@ -125,6 +128,33 @@ public class ResturantController {
 		session.setAttribute("searchResult", allRest);
 		return "redirect:/resturants";
 	}
+	  @PostMapping("/addrating/{userId}/{restId}")
+	    public String addRating(@PathVariable("userId") Long userId, @PathVariable("restId") Long restId,
+	            @RequestParam("stars") int stars, @RequestParam("comments") String comments) {
+	        // Create a Rating object and set the values
+	        Rating rating = new Rating();
+	        rating.setStars(stars);
+	        rating.setComments(comments);
+
+	        // Set the user and restaurant if needed
+	        User user = userServ.findUserById(userId);
+	        Resturant restaurant = restServ.findRestById(restId);
+	        if (user != null && restaurant != null) {
+	            rating.setUser(user);
+	            rating.setResturant(restaurant);
+
+	            // Save the rating using the service or repository
+	            rateServ.addRating(rating);
+
+	            // Redirect to a success page or perform other actions
+	            return "redirect:/resturants/{restId}";
+	        } else {
+	            return "redirect:/resturants/{restId}";
+	        }
+
+	    }
+
+
 
 	@GetMapping("/getresturantsbycat")
 	public String findResturantsByCat(@RequestParam(value = "catVal", required = false) List<Long> id,
@@ -149,7 +179,7 @@ public class ResturantController {
 
 	// this to show single Resturant information
 	@GetMapping("/resturants/{rest_id}")
-	public String singleResturant(Model model, @PathVariable("rest_id") Long id, HttpSession session) {
+	public String singleResturant(Model model, @PathVariable("rest_id") Long id ,HttpSession session) {
 		Resturant resturant = restServ.findRestById(id);
 
 		Long newUserId = (Long) session.getAttribute("newUser");
@@ -161,7 +191,7 @@ public class ResturantController {
 
 		String apiKey = envProvider.getApiKey();
 		model.addAttribute("apiKey", apiKey);
-
+	
 		System.out.println(locationLink.get("placeId"));
 
 		// cart numbers
@@ -172,19 +202,21 @@ public class ResturantController {
 		model.addAttribute("pendingCartCount", count);
 
 		// to find a single resturant
-		double avg = 0.0;
-		if (resturant.getRestRatings().size() == 0) {
-			avg = 0.0;
-		} else {
-			avg = Double.valueOf(rateServ.findAverageRatingForRestaurant(id));
+		double avg =0.0;
+		if(resturant.getRestRatings().size()==0){
+			 avg =0.0;
+		}else{
+			 avg =Double.valueOf(rateServ.findAverageRatingForRestaurant(id));
 		}
 
+	
+		
 		// double averageRating = (avg != null) ? avg : 0.0;
-
+	
 		List<Object[]> x = restServ.findMenuWithCategoriesAndMenuItemsByResturantId(id);
 		System.out.println(avg); // 5.0
 		model.addAttribute("avg", avg);
-		model.addAttribute("x", x); // all the items by the resturant id
+		model.addAttribute("x", x); // all the items by the resturant id 
 		model.addAttribute("rest", resturant);
 
 		int count1 = x.size();
@@ -192,32 +224,13 @@ public class ResturantController {
 
 		return "show_rest_information.jsp";
 	}
+	
 
-	@PostMapping("/addrating/{userId}/{restId}")
-	public String addRating(@PathVariable("userId") Long userId, @PathVariable("restId") Long restId,
-			@RequestParam("stars") int stars, @RequestParam("comments") String comments) {
-		// Create a Rating object and set the values
-		Rating rating = new Rating();
-		rating.setStars(stars);
-		rating.setComments(comments);
 
-		// Set the user and restaurant if needed
-		User user = userServ.findUserById(userId);
-		Resturant restaurant = restServ.findRestById(restId);
-		if (user != null && restaurant != null) {
-			rating.setUser(user);
-			rating.setResturant(restaurant);
 
-			// Save the rating using the service or repository
-			rateServ.addRating(rating);
 
-			// Redirect to a success page or perform other actions
-			return "redirect:/resturants/{restId}";
-		} else {
-			return "redirect:/resturants/{restId}";
-		}
 
-	}
+
 
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
