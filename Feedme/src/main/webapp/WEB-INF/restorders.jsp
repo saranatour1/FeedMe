@@ -46,24 +46,25 @@ pageEncoding="UTF-8" %>
           </head>
 
           <body>
+
             <div class="container-fluid w-100 ">
-
-              <nav class="container mx-auto d-flex my-4 justify-content-between">
-                <h3>Logo</h3>
+              <nav class="container mx-auto d-flex my-4 justify-content-between border-bottom border-gray">
+                <img class="logo" src="https://ik.imagekit.io/shadid/1515151.svg?updatedAt=1684593623048" alt="">
+        
                 <div>
-
         
-                  <!-- <a href="/myorders">My orders </a> -->
-          
-              
-                  <a href="/resturants">Back to main page </a>
-                  <a href="/logout" class="btn btn-link"> Logout</a> 
+                  <button type="button" class="btn btn-primary" onclick="location.href='/myorders'"
+                    style="background-color: #61c8e3;">
+                    <a href="/myorders" style="text-decoration: none; color: inherit;">My orders</a>
+                  </button>
         
+        r
+                  <button type="button" class="btn btn-primary" onclick="location.href='/logout'"
+                    style="background-color: #4a5d29;">
+                    <a href="/logout" style="text-decoration: none; color: inherit;">Logout</a>
+                  </button>
                 </div>
-        
-        
               </nav>
-        
             </div>
 
 
@@ -156,10 +157,21 @@ pageEncoding="UTF-8" %>
               <c:if test="${dil.isEmpty()}">
               <p> No items yet</p>
               </c:if>
-
-
-
             </div>
+            
+            <footer class="bg-light py-3">
+              <div class="container">
+                <div class="d-flex justify-content-between">
+                  <p class="text-muted">© 2023 Wajbat All rights reserved</p>
+                  <p class="text-muted">
+                    <a href="#">Legal Advice</a> |
+                    <a href="#">Privacy Policy</a> |
+                    <a href="#">Cookies Policy</a> |
+                    <a href="#">Information about user licenses</a>
+                  </p>
+                </div>
+              </div>
+            </footer>
             <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
           </body>
 

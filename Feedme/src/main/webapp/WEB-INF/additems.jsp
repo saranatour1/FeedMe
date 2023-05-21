@@ -43,10 +43,17 @@ pageEncoding="UTF-8" %>
                   transform: rotate(0deg);
                 }
               }
+              
+              body {
+                background-image: url('https://ik.imagekit.io/shadid/65656mm.jpg?updatedAt=1684689853927');
+                background-size: cover;
+                background-repeat: no-repeat;
+              }
             </style>
           </head>
 
           <body>
+            
 
             <div class="container-fluid w-100 ">
               <nav class="container mx-auto d-flex my-4 justify-content-between border-bottom border-gray">
@@ -55,13 +62,13 @@ pageEncoding="UTF-8" %>
                 <div>
         
                   <button type="button" class="btn btn-primary" onclick="location.href='/myorders'"
-                    style="background-color: #c0a67a;">
+                    style="background-color: #61c8e3;">
                     <a href="/myorders" style="text-decoration: none; color: inherit;">My orders</a>
                   </button>
         
-        
+        r
                   <button type="button" class="btn btn-primary" onclick="location.href='/logout'"
-                    style="background-color: #f36c37;">
+                    style="background-color: #4a5d29;">
                     <a href="/logout" style="text-decoration: none; color: inherit;">Logout</a>
                   </button>
                 </div>
@@ -93,7 +100,8 @@ pageEncoding="UTF-8" %>
                   </form:select>
                 </div>
             
-                <input type="submit" value="Submit" class="btn btn-primary mt-2" />
+                <input type="submit" value="Submit" class="btn btn-primary mt-2" style="background-color: #e4a63f" />
+
               </form:form>
             
               <div class="w-50">
@@ -102,7 +110,7 @@ pageEncoding="UTF-8" %>
                   <div class="form-group">
                     <input type="text" name="catName" id="catName" class="form-control">
                   </div>
-                  <input type="submit" value="Submit" class="btn btn-primary mt-2">
+                  <input type="submit" value="Submit" class="btn btn-primary mt-2" style="background-color: #e4a63f" />
                 </form>
               </div>
             </div>
@@ -150,6 +158,20 @@ pageEncoding="UTF-8" %>
               
               </div>
             </div>
+            <footer class="container-fluid bg-light py-3" style="position: fixed; bottom:-5px;">
+              <div class="container">
+            
+                <div class="d-flex justify-content-between">
+                  <p class="text-muted">© 2023 Wajbat All rights reserved</p>
+                  <p class="text-muted">
+                    <a href="#">Legal Advice</a> |
+                    <a href="#">Privacy Policy</a> |
+                    <a href="#">Cookies Policy</a> |
+                    <a href="#">Information about user licenses</a>
+                  </p>
+                </div>
+              </div>
+            </footer>
             <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
           </body>
 
