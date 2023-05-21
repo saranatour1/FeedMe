@@ -50,7 +50,7 @@ pageEncoding="UTF-8" %>
             <div class="container-fluid w-100 ">
 
               <nav class="container mx-auto d-flex my-4 justify-content-between">
-                <h3>Logo</h3>
+                <img class="logo" src="https://ik.imagekit.io/shadid/1515151.svg?updatedAt=1684593623048" alt="">
                 <div>
                   <a href="/myorders/rest"> My orders </a>
                   <a href="/logout" class="btn btn-link"> Logout</a> 

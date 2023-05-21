@@ -76,7 +76,8 @@
 
             <div class="container-fluid w-100 ">
               <nav class="container mx-auto d-flex my-4 justify-content-between border-bottom border-gray">
-                <h3>wajbat</h3>
+                <img class="logo" src="https://ik.imagekit.io/shadid/1515151.svg?updatedAt=1684593623048" alt="">
+
                 <div>
 
                   <button type="button" class="btn btn-light position-relative custom-btn">
@@ -185,21 +186,22 @@
                     </c:forEach>
 
                     <span>${rating}</span>
-                    <div class="progress w-50" role="progressbar" aria-label="Basic example" aria-valuenow="0"
+                    <div class="progress w-25" role="progressbar" aria-label="Basic example" aria-valuenow="0"
                       aria-valuemin="0" aria-valuemax="5">
                       <div class="progress-bar" style="width: ${rating * 20}px"></div>
                     </div>
                   </div>
                 </c:forEach>
+
+
               </div>
             </div>
-
-
 
             <div style="width :100vw; height:20vh ">
             </div>
 
-
+            </div>
+            </div>
 
             <footer class="bg-light py-3">
               <div class="container">
