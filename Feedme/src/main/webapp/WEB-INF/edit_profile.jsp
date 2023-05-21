@@ -33,7 +33,7 @@
 
               <div class="left">
                 <h1 class="Signup">Add your resturant, don't worry you can edit it later! </h1>
-                <form:form action="/editaresturnattouser/${editRest.id}" method="post" modelAttribute="editRest" class="container w-200">
+                <form:form action="/editresturantprofile/${editRest.id}" method="post" modelAttribute="editRest" class="container w-200">
                 <input type="hidden" name="_method" value="put">
                   <p>
 
@@ -59,6 +59,7 @@
                     <form:input type="time" path="closingTime"  />
                     <form:errors path="closingTime" class="text-danger" />
                   </p>
+                  <form:input type="hidden" path="id" value="${editRest.id}" />
                   <p>
                     <form:input type="text" path="descreption" placeholder="what is your resturant about?" />
                     <form:errors path="descreption" class="text-danger" />
