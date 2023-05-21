@@ -41,8 +41,8 @@
       }
 
       #map {
-        height: 50%;
-        width: 50%;
+        height: 400px;
+        width: 400px;
       }
     </style>
     <link rel="stylesheet" type="text/css" href="/css/stars.css" />
@@ -70,25 +70,59 @@
         </div>
       </nav>
     </div>
+
+
+
+
     <div class="container mx-auto">
       <h3>${rest.restName}</h3>
       <p>${rest.descreption}</p>
       <p>Opens at ${fn:substring(rest.openingTime, 11, 16)} and closes at ${fn:substring(rest.closingTime, 11, 16)}</p>
       <a href="tel:${rest.restNumber}">Call us at ${rest.restNumber}</a>
-      <c:choose>
-        <c:when test="${avg != null}">
+
+
+
           <p>This restaurant has gained ${Math.floor(avg)} likes</p>
           <div class="progress w-25" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="5">
             <div class="progress-bar" style="width: ${avg * 20}%"></div>
           </div>
-        </c:when>
-        <c:otherwise>
-          <p>No ratings available for this restaurant</p>
-        </c:otherwise>
-      </c:choose>
+              <!-- Button trigger modal -->
+          
       <div class="container">
         <div id="map"></div>
       </div>
+
+
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Add Your Rating ${ thisUser.firstName } 
+        </button>
+
+<!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+              <form action="/addrating/${thisUser.id}/${rest.id}" method="post">
+                <label for="stars" class="form-label">Add your Rating:</label>
+                <input type="number" class="form-control" name="stars" id="stars" min="0" max="5" required /><br>
+                <label for="stars" class="form-label">Add your comments:</label>
+                <input type="text" name="comments" class="form-control" id="comments" min="5" max="300" required />
+
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Add your Rating</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- ${pointlink} -->
       <div class="mx-auto">
         <h1 class="my-3">Menu Items</h1>
@@ -148,8 +182,16 @@
     <!-- <c:set var="ratingValue" value="${avg}" /><c:set var="maxRating" value="5" /><div class="rating-stars"><c:forEach begin="1" end="${maxRating}" var="i"><span class="star${ratingValue >= i ? ' filled' : ''}"
 >&#9734;</span></c:forEach></div> -->
     <!-- ${x} -->
+
+
+
+    <script src="/js/modal.js"></script>
     <script src="/js/quantity.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap&libraries=places&v=weekly" defer></script>
+    
     <script src="/js/location.js"></script>
+        <!-- <script src="/js/location.js"></script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap&libraries=places&v=weekly" defer></script>
+
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
