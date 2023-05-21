@@ -58,7 +58,7 @@ pageEncoding="UTF-8" %>
                     <a href="/myorders" style="text-decoration: none; color: inherit;">My orders</a>
                   </button>
         
-        r
+        
                   <button type="button" class="btn btn-primary" onclick="location.href='/logout'"
                     style="background-color: #4a5d29;">
                     <a href="/logout" style="text-decoration: none; color: inherit;">Logout</a>
@@ -158,7 +158,7 @@ pageEncoding="UTF-8" %>
               <p> No items yet</p>
               </c:if>
             </div>
-            
+
             <footer class="bg-light py-3">
               <div class="container">
                 <div class="d-flex justify-content-between">

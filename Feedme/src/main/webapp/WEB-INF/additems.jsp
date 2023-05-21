@@ -66,7 +66,7 @@ pageEncoding="UTF-8" %>
                     <a href="/myorders" style="text-decoration: none; color: inherit;">My orders</a>
                   </button>
         
-        r
+        
                   <button type="button" class="btn btn-primary" onclick="location.href='/logout'"
                     style="background-color: #4a5d29;">
                     <a href="/logout" style="text-decoration: none; color: inherit;">Logout</a>
@@ -162,6 +162,7 @@ pageEncoding="UTF-8" %>
               
               </div>
             </div>
+
             <footer class="container-fluid bg-light py-3" style="position: fixed; bottom:-5px;">
               <div class="container">
             
