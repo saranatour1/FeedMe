@@ -79,7 +79,11 @@ This project encompasses a wide range of features. Let's begin by showcasing the
 
 ### Demo: 
 
-- Sign In page: if you are already a user, you have are met with a sign in page, and if both regesteration or sign are successful  
+- Sign In page: if you are already a user, you have are met with a sign in page, and if both regesteration or sign are successful.
+
+### Demo
+
+
   
 
 
