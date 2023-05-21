@@ -43,8 +43,9 @@ public class MenuItem {
   @Positive(message = "price must be a positive value")
   private double foodPrice;
  
-  
-  // menu and menu items have a relationship of many to one
+ 
+
+// menu and menu items have a relationship of many to one
   // manytoone side, between menu and menu items
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "menu_id")
@@ -94,13 +95,9 @@ public class MenuItem {
 
 
 
-  public Double getFoodPrice() {
-    return foodPrice;
-  }
 
-  public void setFoodPrice(Double foodPrice) {
-    this.foodPrice = foodPrice;
-  }
+
+ 
 
   @Column(updatable = false)
   @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -144,8 +141,17 @@ public class MenuItem {
   public void setDesreption(String desreption) {
     this.desreption = desreption;
   }
+  
 
-  public Date getCreatedAt() {
+  public double getFoodPrice() {
+	return foodPrice;
+}
+
+public void setFoodPrice(double foodPrice) {
+	this.foodPrice = foodPrice;
+}
+
+public Date getCreatedAt() {
     return createdAt;
   }
 
