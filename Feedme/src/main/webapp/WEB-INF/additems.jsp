@@ -70,23 +70,31 @@ pageEncoding="UTF-8" %>
 
 
             <div class="container mt-5 w-50 d-flex  flex-column " style="align-items: flex-start; margin-left: 3%;">
-              <form:form action="/addmenuitemstomenu" method="post" modelAttribute="menuItem">
-              <label for="foodName">Food Name:</label>
-              <form:input path="foodName" id="foodName" />
-
-              <label for="desreption">Description:</label>
-              <form:input path="desreption" id="desreption" />
-
-              <label for="foodPrice">Food Price:</label>
-              <form:input path="foodPrice" id="foodPrice" />
-
-              <label for="categories">Categories:</label>
-              <form:select path="categories" multiple="true" id="categories">
-                <form:options items="${categories}" itemLabel="catName" itemValue="id" />
-              </form:select>
-
-              <input type="submit" value="Submit" />
-            </form:form>
+              <form:form action="/addmenuitemstomenu" method="post" modelAttribute="menuItem" style="width: 50%;">
+                <div class="form-group">
+                  <label for="foodName">Food Name:</label>
+                  <form:input path="foodName" id="foodName" class="form-control" />
+                </div>
+            
+                <div class="form-group">
+                  <label for="description">Description:</label>
+                  <form:input path="desreption" id="description" class="form-control" />
+                </div>
+            
+                <div class="form-group">
+                  <label for="foodPrice">Food Price:</label>
+                  <form:input type="number" path="foodPrice" id="foodPrice" class="form-control" />
+                </div>
+            
+                <div class="form-group">
+                  <label for="categories">Categories:</label>
+                  <form:select path="categories" multiple="true" id="categories" class="form-control">
+                    <form:options items="${categories}" itemLabel="catName" itemValue="id" />
+                  </form:select>
+                </div>
+            
+                <input type="submit" value="Submit" class="btn btn-primary mt-2" />
+              </form:form>
             
               <div class="w-50">
                 <label for="catName">Add a category:</label>   
