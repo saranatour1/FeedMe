@@ -153,12 +153,13 @@ public class ResturantOwnerController {
   public String goToEditProfile(@ModelAttribute("editRest") Resturant editRest, @PathVariable("rest_id") Long rest_id,
       Model model) {
     Resturant rest = restServ.findRestById(rest_id);
+    System.out.println(rest_id);
     model.addAttribute("editRest", rest);
     return "edit_profile.jsp";
 
   }
 
-  @RequestMapping(value="/editaresturnattouser/{rest_id}" ,method = RequestMethod.PUT)
+  @RequestMapping(value="/editresturantprofile/{rest_id}" ,method = RequestMethod.PUT)
   public String editProfile(@Valid @ModelAttribute("editRest") Resturant editRest, BindingResult result, Model model,HttpSession session) {
     Long newUserId = (Long) session.getAttribute("newUser");
     User thisUser = userServ.findUserById(newUserId);
