@@ -116,10 +116,6 @@ pageEncoding="UTF-8" %>
             </div>
             
 
-
-
-
-
                <div class="w-75" style="margin-left: 4%">
                 <h1 class="my-3">Menu Items</h1>
                 <table class="table table-striped table-bordered">
