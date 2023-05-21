@@ -47,55 +47,72 @@ pageEncoding="UTF-8" %>
           </head>
 
           <body>
-            <div class="container-fluid w-100 ">
 
-              <nav class="container mx-auto d-flex my-4 justify-content-between">
+            <div class="container-fluid w-100 ">
+              <nav class="container mx-auto d-flex my-4 justify-content-between border-bottom border-gray">
                 <img class="logo" src="https://ik.imagekit.io/shadid/1515151.svg?updatedAt=1684593623048" alt="">
+        
                 <div>
-                  <a href="/myorders/rest"> My orders </a>
-                  <a href="/logout" class="btn btn-link"> Logout</a> 
+        
+                  <button type="button" class="btn btn-primary" onclick="location.href='/myorders'"
+                    style="background-color: #c0a67a;">
+                    <a href="/myorders" style="text-decoration: none; color: inherit;">My orders</a>
+                  </button>
+        
+        
+                  <button type="button" class="btn btn-primary" onclick="location.href='/logout'"
+                    style="background-color: #f36c37;">
+                    <a href="/logout" style="text-decoration: none; color: inherit;">Logout</a>
+                  </button>
                 </div>
               </nav>
             </div>
 
 
-            <div class="container mt-5">
-
-              <p>
-                ${rest.id}
-              </p>
-
-              <form:form action="/addmenuitemstomenu" method="post" modelAttribute="menuItem">
-              <label for="foodName">Food Name:</label>
-              <form:input path="foodName" id="foodName" />
-
-              <label for="desreption">Description:</label>
-              <form:input path="desreption" id="desreption" />
-
-              <label for="foodPrice">Food Price:</label>
-              <form:input path="foodPrice" id="foodPrice" />
-
-              <label for="categories">Categories:</label>
-              <form:select path="categories" multiple="true" id="categories">
-                <form:options items="${categories}" itemLabel="catName" itemValue="id" />
-              </form:select>
-
-              <input type="submit" value="Submit" />
-            </form:form>
-
-            <div>
-            <label for="catName">add a category</label>   
-            <form action="/addcat" method="post">
-              <input type="text" name="catName" id="catName">
-              <input type="submit" value="submit">
-            </form>
+            <div class="container mt-5 w-50 d-flex  flex-column " style="align-items: flex-start; margin-left: 3%;">
+              <form:form action="/addmenuitemstomenu" method="post" modelAttribute="menuItem" style="width: 50%;">
+                <div class="form-group">
+                  <label for="foodName">Food Name:</label>
+                  <form:input path="foodName" id="foodName" class="form-control" />
+                </div>
+            
+                <div class="form-group">
+                  <label for="description">Description:</label>
+                  <form:input path="desreption" id="description" class="form-control" />
+                </div>
+            
+                <div class="form-group">
+                  <label for="foodPrice">Food Price:</label>
+                  <form:input type="number" path="foodPrice" id="foodPrice" class="form-control" />
+                </div>
+            
+                <div class="form-group">
+                  <label for="categories">Categories:</label>
+                  <form:select path="categories" multiple="true" id="categories" class="form-control">
+                    <form:options items="${categories}" itemLabel="catName" itemValue="id" />
+                  </form:select>
+                </div>
+            
+                <input type="submit" value="Submit" class="btn btn-primary mt-2" />
+              </form:form>
+            
+              <div class="w-50">
+                <label for="catName">Add a category:</label>   
+                <form action="/addcat" method="post">
+                  <div class="form-group">
+                    <input type="text" name="catName" id="catName" class="form-control">
+                  </div>
+                  <input type="submit" value="Submit" class="btn btn-primary mt-2">
+                </form>
+              </div>
             </div>
+            
 
 
 
 
 
-               <div class="mx-auto">
+               <div class="w-75" style="margin-left: 4%">
                 <h1 class="my-3">Menu Items</h1>
                 <table class="table table-striped table-bordered">
                   <thead class="thead-dark">
