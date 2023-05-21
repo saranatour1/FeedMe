@@ -24,7 +24,7 @@ public interface OrderRepositories extends CrudRepository<Order,Long> {
 	"INNER JOIN resturants r ON resturant_id = r.id " +
 	"INNER JOIN orders_menuitems omi ON order_id = o.id " +
 	"INNER JOIN menu_items mi ON item_id = mi.id " +
-	"WHERE users.id = :id AND o.isproccessed = 0 " +
+	"WHERE users.id = :id AND  o.order_status = 0 " +
 	"GROUP BY o.id, mi.id, mi.food_name, mi.food_price, o.quantity, o.order_status, o.resturant_id, o.user_id, o.total, r.address", nativeQuery = true)
 	List<Object[]> findPendingOrdersForUser(@Param("id") Long id);
 	
