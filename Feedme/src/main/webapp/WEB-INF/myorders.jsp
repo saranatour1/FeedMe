@@ -74,7 +74,8 @@ pageEncoding="UTF-8" %>
           <body>
             <div class="container-fluid w-100 ">
               <nav class="container mx-auto d-flex my-4 justify-content-between border-bottom border-gray">
-                <h3>wajbat</h3>
+                <img class="logo" src="https://ik.imagekit.io/shadid/1515151.svg?updatedAt=1684593623048" alt="">
+
                 <div>
 
                   <button type="button" class="btn btn-light position-relative custom-btn">

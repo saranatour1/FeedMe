@@ -48,7 +48,7 @@
                     <p >
                       <b class = "shadid"> sign up as a seller </b> 
                       
-                      <input type="checkbox" id="user_role" name="user_role" path="userrole" value="2">
+                      <input type="checkbox" id="user_role" name="user_role" value="2">
                     
                     </p>
                   <input type="submit" value="Submit" />
@@ -74,10 +74,6 @@
                 <button class="social-signin google">Log in with Google+</button>
 
         
-
-                
-
-     
                 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
                 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
