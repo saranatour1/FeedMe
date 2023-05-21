@@ -12,6 +12,35 @@
 - **Restaurant Profile Management**: Restaurant owners can sign up and create profiles for their establishments. They have the flexibility to edit their menus, update their business information, and showcase their offerings.
 - **Order Management**: Restaurant owners can view incoming orders, approve or decline them, and track the progress of ongoing orders. They can also access the order history, which includes details of previous orders placed by customers.
 
+# Contributers
+The success of this project was made possible by the contributions of the following individuals:
+- [Mohammad shadid](https://github.com/mohadshadid). 
+- [Sara Natour](https://github.com/saranatour1).
+- [Yousef Labadi](https://github.com/Yousef-labadi).
+
+
+    ### Scrum master 
+    - Mr. [Amin Eid](https://github.com/amin-eid).
+
+We express our heartfelt gratitude to each contributor for their dedication, hard work, and collaborative efforts. This project would not have been possible without their expertise and commitment.
+
+If you are interested in contributing to this project, please feel free to reach out or submit pull requests. We welcome any enhancements, bug fixes, or new features that can further improve the application.
+
+Thank you to all the contributors, including the Scrum Master, for their significant contributions and contributions in making this project a success.
+
+<hr>
+
+# Technologies Used:
+<sub>Note: An Explanation to each tool set is described in [Project Description](#project-description)</sub>
+
+[![Tools](https://skillicons.dev/icons?i=java,js,css,bootstrap,spring,mysql,postman&perline=6)](https://skillicons.dev) 
+
+- [Google Maps Api](https://developers.google.com/maps/documentation/javascript) 
+- [imagekit API](https://imagekit.io/)
+- [Dotenv java Library](https://github.com/cdimascio/java-dotenv)
+<hr>
+
+
 ## Getting Started
 To use this application on your local machine, follow the steps below:
 
@@ -37,11 +66,26 @@ To use this application on your local machine, follow the steps below:
 With these steps, you should now be able to run the application on your local machine and start enjoying its features.
 <hr>
 
-# Contributers
-The success of this project was made possible by the contributions of the following individuals:
-- [Mohammad shadid](https://github.com/mohadshadid). 
-- [Sara Natour](https://github.com/saranatour1).
-- [Yousef Labadi](https://github.com/Yousef-labadi).
+
+# Project Description
+This project encompasses a wide range of features. Let's begin by showcasing the user story:
+
+- About Us Page: Upon visiting our website's main page, users are greeted with an About Us section that includes both the Register and Sign In buttons in the top navigation bar, along with our website logo. The page boasts a user-friendly interface with a responsive design, where bootstrap grid layout is used:
+
+### Demo:
+
+   <!--Demo of the about us page  -->
+- Register Page: For first-time users, the Registration page provides an intuitive sign-up process. You have the option to register as a seller or a normal user. Java validation is implemented to ensure input integrity.
+
+### Demo: 
+
+- Sign In page: if you are already a user, you have are met with a sign in page, and if both regesteration or sign are successful  
+  
+
+
+
+
+ 
 
 
 
