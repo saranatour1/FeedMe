@@ -163,9 +163,6 @@
 
 
             <script src="/js/timer.js"> </script>
-
-
-
             <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
           </body>
 

@@ -6,7 +6,7 @@ function printSeconds() {
   displayElement.textContent = seconds + " second(s)";
 
   if (seconds <= 0) {
-    window.location.href = "/restaurants";
+    window.location.href = "/resturants";
   }
 }
 

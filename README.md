@@ -2,6 +2,18 @@
 > A Spring Boot appliction collaboration 
 ## Overview 
 **Wajbat** is a web application designed to provide restaurants with a dedicated space to gain recognition and attract customers in their local area. By offering a platform for restaurant owners to showcase their establishments and interact with potential customers, Wajbat aims to facilitate the growth and success of local restaurants.
+
+## Table of Contents
+- [Overview](#overview)
+- [User Features](#user-features)
+- [Restaurant Owner Features](#restaurant-owner-features)
+- [Contributors](#contributors)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [Project Description](#project-description)
+- [Useful Links](#useful-links)
+- [Acknowledgements](#acknowledgements)
+
 ### User Features
 - **User Profiles**: Users can create  profiles that allow them to manage their orders, view their order history.
 - **Restaurant Search**: Users can quickly search for restaurants based on categories and names, enabling them to find their preferred dining options easily.
@@ -76,12 +88,89 @@ This project encompasses a wide range of features. Let's begin by showcasing the
 
    <!--Demo of the about us page  -->
 - Register Page: For first-time users, the Registration page provides an intuitive sign-up process. You have the option to register as a seller or a normal user. Java validation is implemented to ensure input integrity.
+### Demo:
 
-### Demo: 
-
-- Sign In page: if you are already a user, you have are met with a sign in page, and if both regesteration or sign are successful.
+- Sign In Page: If you are already a user, you will be directed to the Sign In page. Upon successful registration or signing in, appropriate feedback will be provided.
 
 ### Demo
+
+
+- Redirection, normal user page: 
+Redirection to Normal User Page: After successful registration or sign-in, the user will be redirected to a page displaying all the restaurants. On this page, users have the option to search for restaurants by name or by category. 
+
+### Demo 
+
+Viewing the Restaurant:
+- Users can view detailed information about each restaurant, including its menu, contact information, and location.
+- Users have the option to place an order directly from the restaurant's page.
+- The integration of Google Maps API allows users to see the map of the restaurant's location.
+- We utilized the Geoencoding API provided by Google Maps to convert the restaurant's address into latitude and longitude coordinates.
+- The backend retrieves the location points and sends them to the frontend for rendering.
+- The frontend then utilizes the received location points to display the map of the restaurant's location.
+- To implement this functionality, JavaScript code is used. You can refer to the following example for guidance on using the API: [Google Maps API Example](https://console.cloud.google.com/google/maps-apis/discover/place-details?project=sublime-delight-383610).
+- you can also rate the restaurant 
+
+### Demo 
+
+- Cart: 
+  - When you place an order, you are prompted to proceed to checkout.
+  - At the checkout, you have the option to either discard the cart or proceed with the order.
+  - Upon selecting "Proceed," your order is processed.
+  - You are then redirected to a success page to confirm the order completion.
+  - Finally, you are redirected back to the restaurant's dashboard to continue your journey.
+
+### Demo 
+
+- My Orders:
+  - You have access to a history of your current orders as well as previous ones.
+
+
+### Demo
+
+- Register Your Restaurant: As a seller, once you sign up, you will be prompted to enter your restaurant information to gain access to the rest of the webpage.
+
+### Demo
+
+- View of Your Restaurant: As a seller, you have the same view as a normal user, but with two additional buttons to edit the menu or edit the profile.
+
+
+- Edit Your Profile: When you choose to edit your profile, you will be redirected to the same page used for registering your restaurant. This allows you to update your profile information conveniently.
+
+
+- Edit Menu: The edit menu feature enables you to add items to your menu, create categories, and associate them with the menu items. This way, you can easily manage and customize your restaurant's menu offerings.
+
+### Demo 
+
+- My Orders (Restaurant Owner): As a restaurant owner, you have access to the list of current orders that need to be marked as delivered. Additionally, you can also view your past orders, allowing you to keep track of order history and manage the overall order fulfillment process efficiently.
+
+### Demo 
+
+and thats all :) 
+
+<hr>
+
+### Useful links: 
+- [Maps api example](https://console.cloud.google.com/google/maps-apis/discover/place-details?project=sublime-delight-383610)
+- [Dot env by baeldung](https://www.baeldung.com/spring-boot-properties-env-variables)
+- [Dot env](https://github.com/cdimascio/java-dotenv) by @cdimascio
+- [Google api Explore](https://developers.google.com/apis-explorer)
+- [Customize White label error](https://www.baeldung.com/spring-boot-custom-error-page)
+
+
+### Acknowledgements
+
+This project was a collaborative effort as part of a bootcamp with Axsos Academy, serving as the final project for the Java stack. We would like to express our gratitude to Axsos Academy for providing us with the opportunity to work on this project.
+
+Feel free to use this application and modify it to suit your needs. If you decide to use it, we kindly ask that you mention and acknowledge our contributions.
+
+- Mohammad Shadid: [GitHub](https://github.com/mohadshadid)
+- Sara Natour: [GitHub](https://github.com/saranatour1)
+- Yousef Labadi: [GitHub](https://github.com/Yousef-labadi)
+
+
+
+
+
 
 
   
