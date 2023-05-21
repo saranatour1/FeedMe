@@ -121,6 +121,22 @@
   </div>
 </div>
 
+
+<footer class="container-fluid bg-light py-3" style="position: fixed; bottom:-5px;">
+  <div class="container">
+
+    <div class="d-flex justify-content-between">
+      <p class="text-muted">© 2023 Wajbat All rights reserved</p>
+      <p class="text-muted">
+        <a href="#">Legal Advice</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Cookies Policy</a> |
+        <a href="#">Information about user licenses</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
       <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
