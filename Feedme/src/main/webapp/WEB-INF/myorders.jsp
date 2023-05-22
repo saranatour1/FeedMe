@@ -113,7 +113,7 @@ pageEncoding="UTF-8" %>
 
               <c:if test="${!pendingO.isEmpty()}">
                 <h1 class="my-3">Your cart for Restaurant ${pendingO[0][1]}</h1>
-                <p>You have ${pendingCartCount} items in this .</p>
+                <!-- <p>You have ${pendingCartCount} items in this .</p> -->
                 <table class="table w-50 mx-auto">
                   <thead>
                     <tr>

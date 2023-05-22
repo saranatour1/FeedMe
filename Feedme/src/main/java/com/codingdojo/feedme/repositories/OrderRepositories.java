@@ -62,7 +62,7 @@ List<Object[]> findDeliveredOrdersForUser(@Param("id") Long id);
 	"INNER JOIN resturants r ON resturant_id = r.id " +
 	"INNER JOIN orders_menuitems omi ON order_id = o.id " +
 	"INNER JOIN menu_items mi ON item_id = mi.id " +
-	"WHERE r.id = :id AND o.order_status = 0 " +
+	"WHERE r.id = :id AND o.order_status = 0 AND isproccessed =1 " +
 	"GROUP BY o.id, mi.id, mi.food_name, mi.food_price, o.quantity, o.order_status, o.resturant_id, o.user_id, o.total, r.address", nativeQuery = true)
 	List<Object[]> findPendingOrdersForRest(@Param("id") Long id);
 
