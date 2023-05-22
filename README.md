@@ -94,12 +94,10 @@ This project encompasses a wide range of features. Let's begin by showcasing the
 ### Demo:
 
 - Sign In Page: If you are already a user, you will be directed to the Sign In page. Upon successful registration or signing in, appropriate feedback will be provided.
- ![Sign up](https://github.com/saranatour1/FeedMe/assets/77834808/e41dad96-28bf-4614-a485-412c677b9819)
-
-
-### Demo
 ![Sign in page](https://github.com/saranatour1/FeedMe/assets/77834808/db719c23-3a8b-4ae5-ad46-149392d70039)
 
+### Demo
+ ![Sign up](https://github.com/saranatour1/FeedMe/assets/77834808/e41dad96-28bf-4614-a485-412c677b9819)
 
 
 - Redirection, normal user page: 
