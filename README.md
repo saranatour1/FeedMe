@@ -92,13 +92,10 @@ This project encompasses a wide range of features. Let's begin by showcasing the
    <!--Demo of the about us page  -->
 - Register Page: For first-time users, the Registration page provides an intuitive sign-up process. You have the option to register as a seller or a normal user. Java validation is implemented to ensure input integrity.
 ### Demo:
-
-- Sign In Page: If you are already a user, you will be directed to the Sign In page. Upon successful registration or signing in, appropriate feedback will be provided.
-![Sign in page](https://github.com/saranatour1/FeedMe/assets/77834808/db719c23-3a8b-4ae5-ad46-149392d70039)
-
-### Demo
  ![Sign up](https://github.com/saranatour1/FeedMe/assets/77834808/e41dad96-28bf-4614-a485-412c677b9819)
-
+- Sign In Page: If you are already a user, you will be directed to the Sign In page. Upon successful registration or signing in, appropriate feedback will be provided.
+### Demo
+![Sign in page](https://github.com/saranatour1/FeedMe/assets/77834808/db719c23-3a8b-4ae5-ad46-149392d70039)
 
 - Redirection, normal user page: 
 Redirection to Normal User Page: After successful registration or sign-in, the user will be redirected to a page displaying all the restaurants. On this page, users have the option to search for restaurants by name or by category. 
