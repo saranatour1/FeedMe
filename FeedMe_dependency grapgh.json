@@ -1,0 +1,253 @@
+{
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "spdxVersion": "SPDX-2.3",
+  "creationInfo": {
+    "created": "2023-05-22T07:40:19Z",
+    "creators": ["Tool: GitHub.com-Dependency-Graph"]
+  },
+  "name": "com.github.saranatour1/FeedMe",
+  "dataLicense": "CC0-1.0",
+  "documentDescribes": ["SPDXRef-com.github.saranatour1-FeedMe"],
+  "documentNamespace": "https://github.com/saranatour1/FeedMe/dependency_graph/sbom-82585667e78ca227",
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-com.github.saranatour1-FeedMe",
+      "name": "com.github.saranatour1/FeedMe",
+      "versionInfo": "",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "NOASSERTION"
+    },
+    {
+      "SPDXID": "SPDXRef-maven-com.google.maps-google-maps-services-0.19.0",
+      "name": "maven:com.google.maps:google-maps-services",
+      "versionInfo": "0.19.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:maven/com.google.maps/google-maps-services@0.19.0",
+          "referenceType": "purl"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-maven-com.mysql-mysql-connector-j",
+      "name": "maven:com.mysql:mysql-connector-j",
+      "versionInfo": "",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "NOASSERTION"
+    },
+    {
+      "SPDXID": "SPDXRef-maven-io.github.cdimascio-dotenv-java-2.3.2",
+      "name": "maven:io.github.cdimascio:dotenv-java",
+      "versionInfo": "2.3.2",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:maven/io.github.cdimascio/dotenv-java@2.3.2",
+          "referenceType": "purl"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-maven-jakarta.servlet.jsp.jstl-jakarta.servlet.jsp.jstl-api",
+      "name": "maven:jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api",
+      "versionInfo": "",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "NOASSERTION"
+    },
+    {
+      "SPDXID": "SPDXRef-maven-me.paulschwarz-spring-dotenv-3.0.0",
+      "name": "maven:me.paulschwarz:spring-dotenv",
+      "versionInfo": "3.0.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:maven/me.paulschwarz/spring-dotenv@3.0.0",
+          "referenceType": "purl"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-maven-org.apache.tomcat.embed-tomcat-embed-jasper",
+      "name": "maven:org.apache.tomcat.embed:tomcat-embed-jasper",
+      "versionInfo": "",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "NOASSERTION"
+    },
+    {
+      "SPDXID": "SPDXRef-maven-org.glassfish.web-jakarta.servlet.jsp.jstl",
+      "name": "maven:org.glassfish.web:jakarta.servlet.jsp.jstl",
+      "versionInfo": "",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "NOASSERTION"
+    },
+    {
+      "SPDXID": "SPDXRef-maven-org.mindrot-jbcrypt-0.4",
+      "name": "maven:org.mindrot:jbcrypt",
+      "versionInfo": "0.4",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "ISC",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:maven/org.mindrot/jbcrypt@0.4",
+          "referenceType": "purl"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-maven-org.slf4j-slf4j-simple-1.7.25",
+      "name": "maven:org.slf4j:slf4j-simple",
+      "versionInfo": "1.7.25",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:maven/org.slf4j/slf4j-simple@1.7.25",
+          "referenceType": "purl"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-maven-org.springframework.boot-spring-boot-devtools",
+      "name": "maven:org.springframework.boot:spring-boot-devtools",
+      "versionInfo": "",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "NOASSERTION"
+    },
+    {
+      "SPDXID": "SPDXRef-maven-org.springframework.boot-spring-boot-maven-plugin",
+      "name": "maven:org.springframework.boot:spring-boot-maven-plugin",
+      "versionInfo": "",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "NOASSERTION"
+    },
+    {
+      "SPDXID": "SPDXRef-maven-org.springframework.boot-spring-boot-starter-data-jpa",
+      "name": "maven:org.springframework.boot:spring-boot-starter-data-jpa",
+      "versionInfo": "",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "NOASSERTION"
+    },
+    {
+      "SPDXID": "SPDXRef-maven-org.springframework.boot-spring-boot-starter-test",
+      "name": "maven:org.springframework.boot:spring-boot-starter-test",
+      "versionInfo": "",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "NOASSERTION"
+    },
+    {
+      "SPDXID": "SPDXRef-maven-org.springframework.boot-spring-boot-starter-tomcat",
+      "name": "maven:org.springframework.boot:spring-boot-starter-tomcat",
+      "versionInfo": "",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "NOASSERTION"
+    },
+    {
+      "SPDXID": "SPDXRef-maven-org.springframework.boot-spring-boot-starter-validation",
+      "name": "maven:org.springframework.boot:spring-boot-starter-validation",
+      "versionInfo": "",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "NOASSERTION"
+    },
+    {
+      "SPDXID": "SPDXRef-maven-org.springframework.boot-spring-boot-starter-web",
+      "name": "maven:org.springframework.boot:spring-boot-starter-web",
+      "versionInfo": "",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "NOASSERTION"
+    },
+    {
+      "SPDXID": "SPDXRef-maven-org.webjars-bootstrap-5.2.3",
+      "name": "maven:org.webjars:bootstrap",
+      "versionInfo": "5.2.3",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:maven/org.webjars/bootstrap@5.2.3",
+          "referenceType": "purl"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-maven-org.webjars-webjars-locator-0.46",
+      "name": "maven:org.webjars:webjars-locator",
+      "versionInfo": "0.46",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "NOASSERTION",
+      "supplier": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:maven/org.webjars/webjars-locator@0.46",
+          "referenceType": "purl"
+        }
+      ]
+    }
+  ]
+}
