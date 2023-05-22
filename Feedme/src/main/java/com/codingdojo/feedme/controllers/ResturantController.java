@@ -152,6 +152,7 @@ public class ResturantController {
 	public String singleResturant(Model model, @PathVariable("rest_id") Long id, HttpSession session) {
 		Resturant resturant = restServ.findRestById(id);
 
+		model.addAttribute("r", resturant);
 		Long newUserId = (Long) session.getAttribute("newUser");
 		User thisUser = userServ.findUserById(newUserId);
 		model.addAttribute("thisUser", thisUser);
