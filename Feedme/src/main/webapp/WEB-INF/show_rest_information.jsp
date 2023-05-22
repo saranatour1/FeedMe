@@ -85,8 +85,111 @@
       <!-- A place to add your pictures here -->
       <!-- If you want to add pictures, and reduce their size, play with the col property -->
       <div class="row">
-        <div class="col-6 col-sm-6 col-md-8 col-lg-4"></div>
-        <div class="col-6 col-sm-6 col-md-8 col-lg-4"></div>
+        <c:if test="${rest.id==r.id}">
+          <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://ik.imagekit.io/shadid/36363636.jpg?updatedAt=1684697977119"
+                  class="d-block w-100 object-fit-cover" height="600px" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="https://ik.imagekit.io/shadid/5555555mm.png?updatedAt=1684697553969"
+                  class="d-block w-100 object-fit-cover" height="600px" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="https://ik.imagekit.io/shadid/52152152m.jpg?updatedAt=1684697824567"
+                  class="d-block w-100 object-fit-cover" height="600px" alt="...">
+              </div>
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+
+          <div class="row justify-content-center mt-3">
+            <div class="col-md-4 ">
+              <p>Welcome to our pizza restaurant, where the love for pizza is served in every slice! We are passionate 
+                about creating the perfect combination of flavors, quality ingredients, and a delightful dining experience for pizza enthusiasts like you.
+
+                At our restaurant, we believe in the art of crafting authentic and mouthwatering pizzas. From the crispy 
+                thin crust to the rich and savory toppings, each pizza is carefully prepared to satisfy your taste buds. Our dedicated team of skilled 
+                chefs takes pride in hand-tossing the dough, selecting the freshest ingredients, and baking the pizzas to perfection in our traditional brick ovens.
+                
+                We offer a diverse menu with a wide variety of pizza options to cater to every preference. Whether you're a fan of classic Margherita, 
+                loaded with fresh basil and gooey mozzarella, or prefer adventurous combinations like BBQ chicken or vegetarian delights, we have something to please every palate.
+                 Gluten-free and vegan options are also available, ensuring that everyone can enjoy our delicious pizzas.<br>
+                Come and experience the epitome of culinary excellence at our restaurant. Book your table today and
+                embark on a memorable gastronomic adventure. We look forward to serving you soon.
+
+            </div>
+            <div class="col-md-4">
+              <p>Alongside our pizzas, we offer a range of delectable appetizers, fresh salads, and indulgent desserts to complement your dining experience.
+                 Our friendly and attentive staff is always ready to assist you in selecting the perfect combination of dishes and beverages to create a memorable meal.
+
+                We strive to provide a warm and inviting atmosphere, whether you're dining in with family and friends or ordering for takeout. Our cozy seating areas, 
+                tastefully decorated interiors, and welcoming ambiance make it the perfect place to unwind, savor great food, and create lasting memories.
+                <br>
+                We also offer convenient online ordering and delivery services, ensuring that you can enjoy our scrumptious pizzas wherever you are. Whether it's a cozy 
+                night at home, a gathering with friends, or a quick office lunch, our pizzas are just a few clicks away.
+                
+                Visit our pizza restaurant today and embark on a culinary journey that celebrates the art of pizza-making. We can't wait to serve you and share our passion for 
+                delicious, handcrafted pizzas. Come and experience the ultimate pizza indulgence at our restaurant. <br>
+
+            </div>
+          </div>
+
+
+
+          <section id="menu">
+            <div class="container">
+              <h2>Our Menu</h2>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="menu-item fade-in">
+                    <img src="https://ik.imagekit.io/shadid/5555555mm.png?updatedAt=1684697553969" alt="Pizza 1" class="img-fluid">
+                    <h3>Margherita</h3>
+                    <p>Tomato sauce, mozzarella, basil</p>
+                    <p class="price">$9.99</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="menu-item fade-in">
+                    <img src="https://ik.imagekit.io/shadid/69696mm.jpg?updatedAt=1684700796488" alt="Pizza 2" class="img-fluid">
+                    <h3>Pepperoni</h3>
+                    <p>Tomato sauce, mozzarella, pepperoni</p>
+                    <p class="price">$10.99</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="menu-item fade-in">
+                    <img src="https://ik.imagekit.io/shadid/77777.jpg?updatedAt=1684469720441" alt="Pizza 3" class="img-fluid">
+                    <h3>Hawaiian</h3>
+                    <p>Tomato sauce, mozzarella, ham, pineapple</p>
+                    <p class="price">$11.99</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="menu-item fade-in">
+                    <img src="https://ik.imagekit.io/shadid/52152152m.jpg?updatedAt=1684697824567" alt="Pizza 4" class="img-fluid">
+                    <h3>Veggie Supreme</h3>
+                    <p>Tomato sauce, mozzarella, bell peppers, onions, mushrooms, olives</p>
+                    <p class="price">$12.99</p>
+                  </div>
+                </div>
+                <!-- Add more menu items here -->
+              </div>
+            </div>
+          </section>
+        </c:if> 
       </div>
     </div>
     <div class="container container-sm container-md container-lg container-xl">

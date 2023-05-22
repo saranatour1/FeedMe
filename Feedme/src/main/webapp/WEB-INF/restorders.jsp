@@ -17,6 +17,17 @@ pageEncoding="UTF-8" %>
             <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
             <style>
+              body {
+                background-image: url('https://ik.imagekit.io/shadid/12124444mm.jpg?updatedAt=1684735644187');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: bottom right;
+              }
+              body {
+                overflow-x: hidden;
+              }
+
+
               .btn.btn-light.position-relative:hover {
                 animation: tilt-shaking 0.5s infinite;
               }
@@ -54,15 +65,15 @@ pageEncoding="UTF-8" %>
                 <div>
         
                   <button type="button" class="btn btn-primary" onclick="location.href='/myorders'"
-                    style="background-color: #61c8e3;">
+                    style="background-color:  #fec700d2;">
                     <a href="/myorders" style="text-decoration: none; color: inherit;">My orders</a>
                   </button>
         
         
                   <button type="button" class="btn btn-primary" onclick="location.href='/logout'"
-                    style="background-color: #4a5d29;">
+                    style="background-color: #7d9011;">
                     <a href="/logout" style="text-decoration: none; color: inherit;">Logout</a>
-                  </button>
+                  </button>;
                 </div>
               </nav>
             </div>
@@ -103,10 +114,12 @@ pageEncoding="UTF-8" %>
                         <td colspan="2">
                           <span class="fw-bold">Quantity: ${pendingCartCount}</span>
                         </td>
-    
+                        <td>
+                          <input type="hidden" value="${pendingO[0][2]}" name="orderId">
+                          <input type="submit" value="dilvered" class="btn btn-primary" style="background-color: #e04119;">
+                        </td>
                       </tr>
-                      <input type="hidden" value="${pendingO[0][2]}" name="orderId">
-                      <input type="submit" value="dilvered">
+
                     </form>
 
                   </tfoot>
@@ -159,8 +172,8 @@ pageEncoding="UTF-8" %>
               </c:if>
             </div>
 
-            <footer class="bg-light py-3">
-              <div class="container">
+            <footer class="bg-light py-3 container-fluid" style="position: fixed; bottom: 0;">
+              <div class="container mx-auto">
                 <div class="d-flex justify-content-between">
                   <p class="text-muted">© 2023 Wajbat All rights reserved</p>
                   <p class="text-muted">
