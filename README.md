@@ -86,20 +86,28 @@ This project encompasses a wide range of features. Let's begin by showcasing the
 - About Us Page: Upon visiting our website's main page, users are greeted with an About Us section that includes both the Register and Sign In buttons in the top navigation bar, along with our website logo. The page boasts a user-friendly interface with a responsive design, where bootstrap grid layout is used:
 
 ### Demo:
+![About Us ](https://github.com/saranatour1/FeedMe/assets/77834808/1b5333fc-cb45-4677-9198-4732bc368eb4)
+
 
    <!--Demo of the about us page  -->
 - Register Page: For first-time users, the Registration page provides an intuitive sign-up process. You have the option to register as a seller or a normal user. Java validation is implemented to ensure input integrity.
 ### Demo:
 
 - Sign In Page: If you are already a user, you will be directed to the Sign In page. Upon successful registration or signing in, appropriate feedback will be provided.
+ ![Sign up](https://github.com/saranatour1/FeedMe/assets/77834808/e41dad96-28bf-4614-a485-412c677b9819)
+
 
 ### Demo
+![Sign in page](https://github.com/saranatour1/FeedMe/assets/77834808/db719c23-3a8b-4ae5-ad46-149392d70039)
+
 
 
 - Redirection, normal user page: 
 Redirection to Normal User Page: After successful registration or sign-in, the user will be redirected to a page displaying all the restaurants. On this page, users have the option to search for restaurants by name or by category. 
 
 ### Demo 
+![Main resturant Page](https://github.com/saranatour1/FeedMe/assets/77834808/7cc092c9-330f-490d-90a1-e84f398f1e2c)
+
 
 Viewing the Restaurant:
 - Users can view detailed information about each restaurant, including its menu, contact information, and location.
@@ -112,6 +120,9 @@ Viewing the Restaurant:
 - you can also rate the restaurant 
 
 ### Demo 
+![RMain Resturant page](https://github.com/saranatour1/FeedMe/assets/77834808/0f890993-9e29-441d-bcb7-4ea2d012ff8b)
+![Screen Shot 2023-05-22 at 01 15 47](https://github.com/saranatour1/FeedMe/assets/77834808/40379da2-0574-4193-a222-5340e0facb54)
+
 
 - Cart: 
   - When you place an order, you are prompted to proceed to checkout.
@@ -121,16 +132,17 @@ Viewing the Restaurant:
   - Finally, you are redirected back to the restaurant's dashboard to continue your journey.
 
 ### Demo 
+![cart](https://github.com/saranatour1/FeedMe/assets/77834808/4ba5bc8f-50a5-464c-b65a-3eaede30ea8d)
+
+![Success](https://github.com/saranatour1/FeedMe/assets/77834808/078ba926-7b51-4a59-a5e8-5f2b4eca6f13)
 
 - My Orders:
   - You have access to a history of your current orders as well as previous ones.
+ ### Demo
+  ![My orders](https://github.com/saranatour1/FeedMe/assets/77834808/940bb0c4-f935-4438-a2ca-95d5e3704a91)
 
-
-### Demo
 
 - Register Your Restaurant: As a seller, once you sign up, you will be prompted to enter your restaurant information to gain access to the rest of the webpage.
-
-### Demo
 
 - View of Your Restaurant: As a seller, you have the same view as a normal user, but with two additional buttons to edit the menu or edit the profile.
 
@@ -141,10 +153,13 @@ Viewing the Restaurant:
 - Edit Menu: The edit menu feature enables you to add items to your menu, create categories, and associate them with the menu items. This way, you can easily manage and customize your restaurant's menu offerings.
 
 ### Demo 
+![Screen Shot 2023-05-22 at 09 01 19](https://github.com/saranatour1/FeedMe/assets/77834808/4815583b-f3f6-4754-a46f-23c94718834c)
 
 - My Orders (Restaurant Owner): As a restaurant owner, you have access to the list of current orders that need to be marked as delivered. Additionally, you can also view your past orders, allowing you to keep track of order history and manage the overall order fulfillment process efficiently.
 
 ### Demo 
+![Screen Shot 2023-05-22 at 09 02 45](https://github.com/saranatour1/FeedMe/assets/77834808/0a5a715c-ea2e-46d5-9098-83649cba65f4)
+![Screen Shot 2023-05-22 at 09 12 26](https://github.com/saranatour1/FeedMe/assets/77834808/67d6368b-ba64-4e08-918f-da27a3102d65)
 
 and thats all :) 
 
