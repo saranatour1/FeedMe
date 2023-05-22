@@ -46,7 +46,7 @@ Thank you to all the contributors, including the Scrum Master, for their signifi
 # Technologies Used:
 <sub>Note: An Explanation to each tool set is described in [Project Description](#project-description)</sub>
 
-[![Tools](https://skillicons.dev/icons?i=java,js,css,bootstrap,spring,mysql,postman&perline=6)](https://skillicons.dev) 
+[![Tools](https://skillicons.dev/icons?i=java,js,css,bootstrap,spring,mysql,postman&perline=7)](https://skillicons.dev) 
 
 - [Google Maps Api](https://developers.google.com/maps/documentation/javascript) 
 - [imagekit API](https://imagekit.io/)
