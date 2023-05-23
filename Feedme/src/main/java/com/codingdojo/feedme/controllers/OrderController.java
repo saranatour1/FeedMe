@@ -95,6 +95,13 @@ public class OrderController {
 		Long newUserId = (Long) session.getAttribute("newUser");
 		User thisUser = userServ.findUserById(newUserId);
 
+		// the bug is right here 
+		//[29, 30, 31, 32]
+		//0.00
+		// [29, 30, 31, 32]
+		System.out.print(ItemId);
+		System.out.println(total);
+		
 		double wholeTotal = Double.valueOf(total);
 
 		int allQuantity = Integer.valueOf(quantityTotal);

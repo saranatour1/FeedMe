@@ -73,7 +73,6 @@
           </head>
 
           <body>
-
             <div class="container-fluid w-100 ">
               <nav class="container mx-auto d-flex my-4 justify-content-between border-bottom border-gray">
                 <img class="logo" src="https://ik.imagekit.io/shadid/1515151.svg?updatedAt=1684593623048" alt="">
@@ -93,7 +92,6 @@
                     <a href="/myorders" style="text-decoration: none; color: inherit;">My orders</a>
                   </button>
 
-
                   <button type="button" class="btn btn-primary" onclick="location.href='/logout'"
                     style="background-color: #4d92e6;">
                     <a href="/logout" style="text-decoration: none; color: inherit;">Logout</a>
@@ -102,9 +100,9 @@
               </nav>
             </div>
 
-            <div class="photo mt-4 mx-auto" style="width: 1500px;">
-              <img src="https://ik.imagekit.io/shadid/main-page.jpeg?updatedAt=1684505250631" alt="" class="w-100"
-                style="height: 300px;">
+            <div class="photo mt-4 mx-auto container-fluid">
+              <img src="https://ik.imagekit.io/shadid/main-page.jpeg?updatedAt=1684505250631" alt="" class="img-fluid w-100"
+              >
             </div>
 
 
