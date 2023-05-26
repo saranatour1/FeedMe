@@ -58,7 +58,7 @@ input[type="password"]:focus {
 }
 
 /* Submit button styles */
-input[type="submit"] {
+button[type="submit"] {
     background-color: #260900;
     border: none;
     color: white;
@@ -74,11 +74,11 @@ input[type="submit"] {
     transition: all 0.3s ease-in-out;
 }
 
-input[type="submit"]:hover {
+button[type="submit"]:hover {
     background-color: #a4603b;
 }
 
-input[type="submit"]:active {
+button[type="submit"]:active {
     transform: scale(0.95);
 }
 

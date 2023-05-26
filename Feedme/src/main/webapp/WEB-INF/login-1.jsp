@@ -39,7 +39,7 @@
                                             placeholder="password" />
                                         <form:errors path="password" class="text-danger" />
                                     </p>
-                                    <input type="submit" value="Submit" class="fadeIn fourth" />
+                                    <button type="submit" class="fadeIn fourth" id="ajaxButton"> Submit</button>
 
 
                                 </form:form>
@@ -48,7 +48,7 @@
 
 
 
-
+                    <script src="/js/signinAjax.js"> </script>  
                     </body>
 
                     </html>
