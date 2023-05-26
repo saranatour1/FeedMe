@@ -115,11 +115,11 @@
                   <!-- search bar query -->
 
                   <label for="restName" class="form-label"> Search Restuarnt name </label>
-                  <form action="/findresturantbyname" method="post">
+                  <form action="/findresturantbyname" method="post" id="searchForm">
                     <div class="d-flex w-50">
-                      <input type="search" name="restName" class="form-control w-100"
+                      <input type="search" name="restName" class="form-control w-100" id="search"
                         placeholder="search for Restuarnt">
-                      <input type="submit" value="submit" class="btn btn-light">
+                      <input type="submit" value="submit" class="btn btn-light" id="ajaxButton"> 
 
                     </div>
                   </form>
@@ -129,7 +129,7 @@
                     <c:forEach var="res" items="${result}">
                       <!-- the result value -->
                       <div>
-                        <a href="/resturantss/${res[0]}">${res[1]} </a>
+                        <a href="/resturants/${res[0]}">${res[1]} </a>
                       </div>
 
                     </c:forEach>
@@ -214,11 +214,9 @@
                 </div>
               </div>
             </footer>
-         
-
-
-
             </div>
+
+            <!-- <script src="/js/search.js"></script> -->
             <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
           </body>
 

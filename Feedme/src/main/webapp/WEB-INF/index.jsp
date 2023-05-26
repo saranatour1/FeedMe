@@ -81,13 +81,13 @@
                 <img class="logo" src="https://ik.imagekit.io/shadid/1515151.svg?updatedAt=1684593623048" alt="">
 
                 <div>
-                  <button type="button" class="btn btn-primary" onclick="location.href='/login'"
+                  <button type="button" class="btn btn-primary" onclick="location.href='/login'" id="ajaxButton"
                     style="background-color: #76c095;">
                     <a href="/login" style="text-decoration: none; color: inherit;"> Sign in</a>
                   </button>
 
                   <button type="button" class="btn btn-primary" onclick="location.href='/register'"
-                    style="background-color: #4d92e6;">
+                    style="background-color: #4d92e6;" id="signUpAjax">
                     <a href="/register" style="text-decoration: none; color: inherit;">Sign up</a>
                   </button>
                 </div>
@@ -158,101 +158,103 @@
 
 
 
-              <div class="container">
-                <div class="row">
-                  <div class="col-8">
-                    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-                      <div class="carousel-inner">
-                        <div class="carousel-item active">
-                          <img src="https://ik.imagekit.io/shadid/1212m.jpg?updatedAt=1684611251928"
-                            class="d-block w-100 object-fit-cover" height="600px" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                          <img src="https://ik.imagekit.io/shadid/4545m.jpg?updatedAt=1684611439472"
-                            class="d-block w-100 object-fit-cover" height="600px" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                          <img
-                            src="https://ik.imagekit.io/shadid/5656m.jpg?updatedAt=1684611259388"
-                            class="d-block w-100 object-fit-cover" height="600px" alt="...">
-                        </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-8">
+                  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="https://ik.imagekit.io/shadid/1212m.jpg?updatedAt=1684611251928"
+                          class="d-block w-100 object-fit-cover" height="600px" alt="...">
                       </div>
-                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                      </button>
-                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                      </button>
+                      <div class="carousel-item">
+                        <img src="https://ik.imagekit.io/shadid/4545m.jpg?updatedAt=1684611439472"
+                          class="d-block w-100 object-fit-cover" height="600px" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="https://ik.imagekit.io/shadid/5656m.jpg?updatedAt=1684611259388"
+                          class="d-block w-100 object-fit-cover" height="600px" alt="...">
+                      </div>
                     </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                      data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                      data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
                   </div>
-                  <div class="col-4" > 
-                    <div class=" d-flex align-items-center justify-content-center flex-column  h-100">
-                      <img class="img-fluid" src="https://ik.imagekit.io/shadid/pipse_AdobeExpress.gif?updatedAt=1684651279231" alt="">
-                    </div>
+                </div>
+                <div class="col-4">
+                  <div class=" d-flex align-items-center justify-content-center flex-column  h-100">
+                    <img class="img-fluid"
+                      src="https://ik.imagekit.io/shadid/pipse_AdobeExpress.gif?updatedAt=1684651279231" alt="">
                   </div>
                 </div>
               </div>
+            </div>
 
 
 
 
-                <div class="embed-responsive embed-responsive-16by9 mt-4">
-                  <video class="embed-responsive-item w-100 h-30" autoplay loop muted>
-                    <source src="https://ik.imagekit.io/shadid/fooooooood.mp4?updatedAt=1684607536978" type="video/mp4">
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                
-                
+            <div class="embed-responsive embed-responsive-16by9 mt-4">
+              <video class="embed-responsive-item w-100 h-30" autoplay loop muted>
+                <source src="https://ik.imagekit.io/shadid/fooooooood.mp4?updatedAt=1684607536978" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
 
 
 
-              <!-- Shadid please add any extra text -->
-              <div class="d-flex justify-content-between border-bottom">
-                <div>
-                  <p>
-                    we have more than +${restcount} Resturants in our system
-                  </p>
-                  <img src="https://ik.imagekit.io/shadid/search.png?updatedAt=1684470487791" alt="">
-                </div>
 
-                <div>
-                  <p>
-                    We have more than +${ordercount} orders in Total!
-                  </p>
-                  <img src="https://ik.imagekit.io/shadid/choose.png?updatedAt=1684470487902" alt="">
-                </div>
 
-                <div>
-                  <p>
-                    we have more than + ${usercount} satisfied users!
-                  </p>
-                  <img src="https://ik.imagekit.io/shadid/order.png?updatedAt=1684470487786" alt="">
-                </div>
+            <!-- Shadid please add any extra text -->
+            <div class="d-flex justify-content-between border-bottom">
+              <div>
+                <p>
+                  we have more than +${restcount} Resturants in our system
+                </p>
+                <img src="https://ik.imagekit.io/shadid/search.png?updatedAt=1684470487791" alt="">
               </div>
 
+              <div>
+                <p>
+                  We have more than +${ordercount} orders in Total!
+                </p>
+                <img src="https://ik.imagekit.io/shadid/choose.png?updatedAt=1684470487902" alt="">
+              </div>
+
+              <div>
+                <p>
+                  we have more than + ${usercount} satisfied users!
+                </p>
+                <img src="https://ik.imagekit.io/shadid/order.png?updatedAt=1684470487786" alt="">
+              </div>
+            </div>
 
 
 
-              <footer class="bg-light py-3">
-                <div class="container">
-                  <div class="d-flex justify-content-between">
-                    <p class="text-muted">© 2023 Wajbat All rights reserved</p>
-                    <p class="text-muted">
-                      <a href="#">Legal Advice</a> |
-                      <a href="#">Privacy Policy</a> |
-                      <a href="#">Cookies Policy</a> |
-                      <a href="#">Information about user licenses</a>
-                    </p>
-                  </div>
+
+            <footer class="bg-light py-3">
+              <div class="container">
+                <div class="d-flex justify-content-between">
+                  <p class="text-muted">© 2023 Wajbat All rights reserved</p>
+                  <p class="text-muted">
+                    <a href="#">Legal Advice</a> |
+                    <a href="#">Privacy Policy</a> |
+                    <a href="#">Cookies Policy</a> |
+                    <a href="#">Information about user licenses</a>
+                  </p>
                 </div>
-              </footer>
+              </div>
+            </footer>
 
-              <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-            </body>
+            <script src="/js/mainAjax.js"></script>
 
-            </html>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+          </body>
+
+          </html>
